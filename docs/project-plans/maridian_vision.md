@@ -81,13 +81,13 @@ Obsidian still matters, but it should not own Maridian.
 
 Its role should be:
 
-- mirrored knowledge surface
+- direct reading surface for the canonical Maridian vault
 - browsing and reading environment
 - optional manual reflection environment
 - human-readable representation of Maridian outputs
 
 The source of truth should remain Pantheon-local.
-Obsidian should reflect Maridian's brain, not define it.
+Obsidian should open the canonical Maridian vault directly rather than act as a separate owner.
 
 ## BlackBook Separation
 
@@ -145,7 +145,7 @@ The Maridian tab should eventually include:
 - today's or current question set
 - index excerpt
 - cycle history
-- sync/mirror status for Obsidian outputs
+- Obsidian access status for the canonical vault
 
 These are not optional extras.
 They are the actual control surfaces of the subsystem.
@@ -156,7 +156,7 @@ The mature Maridian system should look like this:
 
 - fully local and Pantheon-owned
 - visible and operable inside Pantheon
-- mirrored into Obsidian for reading and second-brain navigation
+- directly visible in Obsidian through the canonical vault
 - capable of turning raw journals into structured memory
 - reliable enough that Apollo can use it as one of its main "know me" systems
 

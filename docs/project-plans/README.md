@@ -8,6 +8,7 @@ This folder collects the higher-level vision and planning documents that guide t
 - `blackbook_build_plan.md` - staged roadmap for migrating the live Streamlit BlackBook into a Pantheon-native system without losing financial truth
 - `maridian_vision.md` - founder vision for Maridian as Pantheon's reflective memory engine, owned locally and mirrored into Obsidian
 - `maridian_build_plan.md` - staged roadmap for making Maridian Pantheon-native, moving journaling out of BlackBook, and feeding Apollo processed personal memory
+- `maridian_storage_paths.md` - locked local path decision for the Maridian app, canonical vault, and direct Obsidian access
 - `pantheon_consolidation_plan.md` - architecture-first plan for resolving Pantheon's split roots, subsystem duplication, and the Phase 7/8 consolidation blockers
 - `repo_vision.md` - strategic blueprint for how external repos strengthen the Olympus ecosystem
 - `repo_status_tracker.md` - master tracker for canonical paths, current classifications, missing docs, and next milestones across the repo

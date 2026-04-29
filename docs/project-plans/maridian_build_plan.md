@@ -39,15 +39,15 @@ Required outcomes:
 
 - retire Dropbox as Maridian ownership
 - define the Pantheon-local Maridian storage path
-- define the Obsidian mirror path
-- document that Obsidian is a mirrored reading surface
+- define the Obsidian path against the same canonical vault
+- document that Obsidian reads the canonical vault directly
 - update repo docs so Maridian is no longer treated as unresolved
 
 Exit criteria:
 
 - Maridian has one clear local home
 - Dropbox is no longer treated as canonical
-- Obsidian is clearly described as a mirror
+- Obsidian is clearly described as direct access to the canonical vault
 
 ## Phase 2 - Move Journal Ownership Into Maridian
 
@@ -161,6 +161,7 @@ Exit criteria:
 3. Define the exact Obsidian mirror target path.
 4. Inventory the current Pantheon Maridian code against the desired control-surface features.
 5. Define how BlackBook journal ownership will be removed or redirected.
+6. Plan the safe transfer of the existing 300+ entries into the canonical vault path with verification.
 
 ## Final Position
 
