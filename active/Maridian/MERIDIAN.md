@@ -1,20 +1,30 @@
 # MERIDIAN.md — Vault Schema
 
+This file describes the Maridian vault structure and thinking model.
+
+Older parts of this document still reflect a Neon/BlackBook sourcing model from an earlier system design.
+The current strategic direction is:
+
+- Pantheon-local Maridian ownership
+- a canonical local vault
+- direct Obsidian access to that canonical vault
+- Maridian as the primary journaling home over time
+
 ## What Meridian Is
 
 Meridian is a personal wiki built from Ignacio's journals using the Karpathy pattern.
 The LLM acts as a librarian — organizing and synthesizing, never inventing.
 
-**The pipeline:**
+**The current intended pipeline:**
 ```
-journal_entries (Neon)
+Pantheon Maridian journal input
        ↓
   raw/           ← immutable source files, one per entry, never modified
        ↓
   wiki/           ← LLM-maintained theme pages, rebuilt each cycle
        ↓
-  meridian_brain  ← Neon table, synced from wiki/ so Black Book can display it
-  meridian_questions ← Neon table, daily questions pushed here
+  Questions/      ← current adaptive question outputs
+  Apollo / Pantheon consumption layers
 ```
 
 ---
@@ -93,14 +103,14 @@ last_updated: YYYY-MM-DD
 
 ---
 
-## Neon Tables Used
+## Historical Shared Tables
 
 | Table | Purpose |
 |---|---|
-| `journal_entries` | Source of truth — raw journal data from Black Book |
-| `meridian_questions` | Daily questions pushed by Meridian, read by Black Book |
-| `meridian_brain` | Wiki pages synced to Neon, read by Black Book |
-| `meridian_jobs` | Job queue for Black Book to trigger Meridian runs |
+| `journal_entries` | Earlier shared journal-entry source path |
+| `meridian_questions` | Earlier shared question-distribution path |
+| `meridian_brain` | Earlier shared wiki-sync path |
+| `meridian_jobs` | Earlier shared trigger path |
 | `meridian_notes` | Legacy table (unused in wiki mode) |
 
 ---
@@ -109,7 +119,7 @@ last_updated: YYYY-MM-DD
 
 **Phase 1 — Extract**
 - `agents/journal_extractor.py`
-- Pulls new entries from `journal_entries` (Neon)
+- Pulls new entries from the current source journal path
 - Writes each as `raw/YYYYMMDD_[id]_[tag].md`
 - Tracks processed IDs in `vault_state.json`
 
@@ -122,9 +132,9 @@ last_updated: YYYY-MM-DD
 
 **Phase 3 — Questions & Sync**
 - `agents/question_generator.py`
-- Reads wiki pages, generates 4 dynamic questions
-- Pushes 3 permanent fitness questions + 4 dynamic to `meridian_questions`
-- `evolve.py` then syncs wiki pages to `meridian_brain`
+- Reads wiki pages, generates dynamic questions
+- makes questions available to the surrounding system
+- exposes processed outputs for Pantheon and Apollo consumption
 
 ---
 

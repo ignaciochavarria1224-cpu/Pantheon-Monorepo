@@ -6,7 +6,7 @@ It assumes:
 
 - Maridian should live locally inside the Pantheon system
 - Pantheon is the true home and control surface
-- Obsidian is a mirrored output surface, not the source of truth
+- Obsidian is a direct reading surface over the canonical vault, not a separate source of truth
 - journaling should move out of BlackBook and into Maridian
 
 ## Current Documentation State
@@ -57,7 +57,7 @@ The end-state is:
 - journal writing done from Pantheon
 - cycle execution done from Pantheon
 - outputs stored locally inside the repo-owned Maridian system
-- outputs mirrored into Obsidian
+- outputs directly visible in Obsidian through the canonical vault
 - Apollo reading processed Maridian insight rather than raw text
 
 ## Phase 1 - Lock Ownership And Storage
@@ -110,7 +110,7 @@ Required surfaces:
 - latest cards/notes
 - questions surface
 - index excerpt
-- mirror/sync visibility
+- Obsidian access visibility
 
 Exit criteria:
 
@@ -134,21 +134,21 @@ Exit criteria:
 - cycle runs update the Maridian brain locally
 - outputs are reproducible and inspectable
 
-## Phase 5 - Obsidian Mirror
+## Phase 5 - Obsidian Access
 
 Goal:
-keep Obsidian useful without making it the system owner.
+keep Obsidian useful without making it the system owner or a second source of truth.
 
 Required outcomes:
 
-- Maridian outputs are mirrored into the Obsidian vault
-- mirror direction is Pantheon -> Obsidian
-- mirror failures are visible
+- Obsidian opens the canonical Maridian vault directly
+- vault access remains stable as Maridian evolves
+- any supporting Obsidian-specific setup remains local and non-canonical
 - reading in Obsidian remains easy
 
 Exit criteria:
 
-- Obsidian reflects the current Maridian brain
+- Obsidian shows the current canonical Maridian brain through the same vault
 - Pantheon remains canonical
 
 ## Phase 6 - Apollo Consumption
@@ -207,5 +207,5 @@ The system wins when:
 - journaling starts in Maridian
 - cycles run from Pantheon
 - outputs stay local
-- Obsidian mirrors the results
+- Obsidian reads the same canonical Maridian vault
 - Apollo learns how you think from processed memory

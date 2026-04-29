@@ -8,7 +8,7 @@ It records what each major system is, where its current truth lives, what docume
 
 | System | Role In Ecosystem | Canonical Path | Current Classification | Current Implementation Location(s) | Docs Present | Missing Docs | Current Phase / Stage | Biggest Structural Risk | Next Milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `Pantheon` | Parent operating-system root that holds Apollo, BlackBook, Maridian, and Pantheon-facing Olympus surfaces | `active/Pantheon` | `canonical` | `active/Pantheon`, duplicate tree at `active/Olympus-Trading/Pantheon` | root README, Pantheon Vision PDF, system overview docs | repo-level build/consolidation plan | structural root established, consolidation partial | duplicate working tree and incomplete consolidation rules | create Pantheon consolidation plan and duplicate-tree retirement path |
+| `Pantheon` | Parent operating-system root that holds Apollo, BlackBook, Maridian, and Pantheon-facing Olympus surfaces | `active/Pantheon` | `canonical` | `active/Pantheon`, duplicate tree at `active/Olympus-Trading/Pantheon` | root README, Pantheon Vision PDF, system overview docs, repo-level build/consolidation plan | duplicate-tree retirement note and root-doc cleanup follow-through | structural root established, consolidation partial | duplicate working tree and a few stale root-level docs still linger | reconcile root docs and define the duplicate-tree retirement path |
 | `Apollo` | User-facing interface, voice/chat ingress, delivery shell, and Pantheon gateway | `active/Pantheon/apps/apollo` | `canonical` | canonical app under Pantheon plus legacy standalone at `active/Apollo` | app README, Apollo master/build plans | canonical decision record only if separated from tracker | transitional shell-over-Pantheon stage; active UI rebuild in progress | legacy standalone Apollo still contains historical backend/runtime surface | align Phase 7/8 with Apollo de-duplication and one-frontend end-state |
 | `BlackBook` | Financial command center and financial source of truth for Pantheon/Apollo | `active/BlackBook` | `canonical` | canonical Streamlit app at `active/BlackBook`, Pantheon copy at `active/Pantheon/apps/blackbook`, archived Reflex copy at `archive/BlackBook_Reflex_Legacy_2026-04-29` | app README, repo-level BlackBook vision, BlackBook build plan | Pantheon migration execution milestones | live standalone Streamlit app; Pantheon-native surfacing is partial | Pantheon copy is still incomplete relative to the standalone truth | execute the staged migration plan toward Pantheon parity |
 | `Maridian` | Reflective journal-processing, cycle engine, and personal memory system for Apollo | `active/Pantheon/apps/maridian` | `canonical` | canonical Pantheon app at `active/Pantheon/apps/maridian`, canonical vault at `active/Pantheon/data/maridian-vault`, standalone material at `active/Maridian`, direct Obsidian access to the same vault | standalone README, repo-level Maridian vision, Maridian build plan, storage-path decision note, repo policy, privacy boundary | migration execution milestones | Pantheon-local ownership defined; storage path locked; privacy boundary defined; control surface and migration still incomplete | journal ownership and Pantheon tab planning still need implementation follow-through | plan the first Pantheon Maridian control-surface milestones |
@@ -62,18 +62,18 @@ The intended source of truth is Pantheon-local Maridian, not Dropbox and not Bla
 That means:
 
 - `active/Pantheon/apps/maridian` is the canonical Maridian home and control surface
-- Obsidian should mirror Maridian outputs rather than own them
+- Obsidian should read the canonical Maridian vault directly rather than own the subsystem separately
 - standalone `active/Maridian` should be treated as reference or migration material until its useful pieces are absorbed
 - BlackBook should stop owning journal input over time
 
-The remaining problem is no longer "where does Maridian live?" It is "how quickly can Pantheon become the full journaling and cycle surface while preserving the Obsidian mirror?"
+The remaining problem is no longer "where does Maridian live?" It is "how quickly can Pantheon become the full journaling and cycle surface while preserving direct Obsidian access to the canonical vault?"
 
 ## Current Missing Documentation
 
 The highest-priority missing docs are:
 
-1. Pantheon build/consolidation plan
-2. Maridian migration execution milestones
+1. Maridian migration execution milestones
+2. root-level doc reconciliation against the current architecture
 
 ## Current Roadmap Order
 
@@ -82,7 +82,7 @@ The highest-priority missing docs are:
 3. Pantheon consolidation plan
 4. Phase 7 and Phase 8 alignment inside that plan
 5. BlackBook migration planning
-6. Maridian local-storage and Obsidian-mirror implementation planning
+6. Maridian local-storage and direct-Obsidian-access implementation planning
 7. duplicate working-tree retirement plan
 8. migration sequencing for legacy copies
 9. future integration roadmap

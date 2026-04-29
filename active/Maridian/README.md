@@ -1,62 +1,68 @@
-# Meridian
+# Maridian Legacy Working Tree
 
-Your second brain. Reads your journals. Returns your thinking at full potential.
+This folder preserves the fuller historical Maridian working tree that existed before the Pantheon-local organization was locked.
 
-## Quick Start
+It remains useful as:
 
-```bash
-# 1. Fill in your Neon connection string
-# Edit .env -> NEON_DATABASE_URL=postgresql://...
+- migration material
+- reference logic
+- historical operational context
 
-# 2. Initialize Neon tables
-python -c "from db.neon_bridge import init_tables; init_tables()"
+It should not be mistaken for the final architectural home of Maridian.
 
-# 3. Run first cycle
-python evolve.py evolve
+## Current Canonical Direction
 
-# 4. Check status
-python evolve.py status
+The current architecture defines:
 
-# 5. Open control panel
-streamlit run control.py
-```
+- `active/Pantheon/apps/maridian` as the Maridian app and control surface
+- `active/Pantheon/data/maridian-vault` as the canonical Maridian vault
 
-## Commands
+Obsidian should open the canonical vault directly.
 
-```
-python evolve.py evolve         # Process new entries + generate questions
-python evolve.py status         # Check stats
-python evolve.py write <id>     # Write framework (local only)
-python evolve.py push <id>      # Write framework + push to Black Book
-streamlit run control.py        # Open control panel
-```
+## What This Folder Still Contains
 
-## Neon Tables
+This legacy tree still contains valuable material such as:
 
-- `meridian_questions`  — adaptive daily questions (Black Book reads this)
-- `meridian_outputs`    — published frameworks (Black Book reads this)
-- `meridian_insights`   — monthly pattern reports
+- cycle runner code
+- control-panel code
+- agents
+- db helpers
+- utils
+- historical runtime assumptions
+- private/local vault material from the older working model
 
-## Prerequisites
+That is why it is still being kept around.
 
-- Ollama running locally with `llama3.2` and `phi3` models pulled
-- Neon PostgreSQL with `journal_entries` table (id, entry_date, tag, body)
+## Why It Is Not Canonical
 
-## Security
+This folder still reflects older assumptions, including:
 
-- `.env` (Neon credentials) — NEVER committed
-- `vault_embeddings.json` — NEVER committed (your thought vectors)
-- `voice_profile.json` — NEVER committed
-- All raw journal text stays in Neon — never written to vault notes or Git
+- Neon-era naming and flows
+- older BlackBook journal-source assumptions
+- older path assumptions such as Dropbox-era references
 
-## Optional: Nightly Cron (Linux/Mac)
+Those assumptions are no longer the strategic source of truth.
 
-```
-crontab -e
-0 2 * * * cd ~/Meridian && python evolve.py evolve >> meridian.log 2>&1
-```
+## How To Read This Folder
 
-## Optional: Windows Task Scheduler
+Use this folder to:
 
-Create a Basic Task running daily at 2am:
-  Action: `python C:\Users\Ignac\Dropbox\Maridian\evolve.py evolve`
+- understand older Maridian logic
+- copy or migrate useful pieces into Pantheon-local Maridian
+- preserve historical context during consolidation
+
+Do not use this folder as the final architectural guide.
+
+For the current intended direction, use:
+
+- `docs/project-plans/maridian_vision.md`
+- `docs/project-plans/maridian_build_plan.md`
+- `docs/project-plans/maridian_storage_paths.md`
+- `docs/project-plans/maridian_repo_policy.md`
+- `docs/project-plans/maridian_privacy_boundary.md`
+
+## Final Position
+
+This folder is reference material.
+
+Pantheon-local Maridian is the real destination.

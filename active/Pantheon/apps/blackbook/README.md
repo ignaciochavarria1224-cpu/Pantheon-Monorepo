@@ -2,7 +2,7 @@
 
 BlackBook is the financial and operational memory of the Pantheon stack.
 
-It is the system that tracks the concrete facts of day-to-day financial life: transactions, balances, holdings, allocations, reports, journal entries, and advisor history. If Apollo is the interface and Pantheon is the intelligence layer, BlackBook is one of the most important factual sources that they rely on.
+It is the system that tracks the concrete facts of day-to-day financial life: transactions, balances, holdings, allocations, reports, and advisor history. If Apollo is the interface and Pantheon is the intelligence layer, BlackBook is one of the most important factual sources that they rely on.
 
 ## Purpose
 
@@ -16,9 +16,7 @@ Its job is not just budgeting. It is the ledger and control system for:
 - investment holdings
 - allocation snapshots
 - daily reports
-- journal entries connected to your broader system
 - advisor memory and conversations
-- Maridian-facing journal data and outputs
 
 It is the place where facts live. That matters because Pantheon should reason from facts, not guesses, and BlackBook is where many of those facts come from.
 
@@ -39,14 +37,12 @@ Current sections include:
 - `investments`
 - `allocation`
 - `reports`
-- `journal`
 - `reconcile`
 - `agenda`
 - `advisor`
-- `meridian`
 - `settings`
 
-This means BlackBook is already more than a ledger. It is a personal financial operations app with journaling and second-brain integration built directly into it.
+This means BlackBook is already more than a ledger. It is a personal financial operations app, but the strategic direction now keeps reflective journaling in Maridian rather than in BlackBook.
 
 ### `BlackBook/state/`
 Reflex state logic for the visible app.
@@ -65,10 +61,8 @@ This file is the data contract between BlackBook and its underlying Neon/Postgre
 - allocation snapshots
 - price cache and history
 - daily reports
-- journal entries
 - advisor memory
 - advisor conversations
-- Maridian brain and questions access
 
 This makes `queries.py` one of the most strategically important files in the whole stack, because it encodes the shape of the structured facts Pantheon and Apollo will later rely on.
 
@@ -87,11 +81,12 @@ Pantheon and Apollo depend on it for things like:
 - spending summaries
 - transaction recording
 - financial context for advice
-- journal entry source material
 - advisor memory
-- Maridian-linked facts and outputs
 
-It also already acts as a meeting point with Maridian, since BlackBook stores journal entries and reads Maridian outputs and question sets.
+Historically it also acted as a meeting point with Maridian through journal-linked flows, but the intended direction now is cleaner separation:
+
+- BlackBook owns money and financial facts
+- Maridian owns journaling and reflective memory
 
 The current implementation direction is hybrid:
 
@@ -106,9 +101,7 @@ BlackBook already has a broad footprint:
 - tracks transactions and balances
 - stores and renders investment holdings
 - computes allocation snapshots
-- stores journal entries
 - stores advisor conversations and advisor memory
-- exposes Maridian-derived themes and questions in-app
 - acts as the financial fact layer the broader system can trust
 
 This is why BlackBook should not be absorbed into Apollo or Pantheon. Its job is not to be the intelligence layer. Its job is to own the facts cleanly and reliably.
@@ -137,7 +130,6 @@ BlackBook owns:
 - holdings facts
 - allocation and reporting facts
 - advisor memory and conversations
-- journal entry source rows
 
 BlackBook does not own:
 
@@ -171,11 +163,14 @@ This boundary is important:
 
 BlackBook currently depends on:
 
-- Reflex for the app UI
-- PostgreSQL/Neon for storage
+- Reflex for the app UI in this Pantheon copy
+- PostgreSQL/Neon-era storage assumptions in this older Pantheon copy
 - Python-side query logic for all data access
 
 It also includes AI-adjacent surfaces like the advisor page, but the system itself is still fundamentally a structured operations app first.
+
+This README reflects the older Pantheon-side BlackBook copy.
+The current canonical standalone BlackBook truth lives in `active/BlackBook`, and the strategic direction is to migrate financial capability into Pantheon without pulling reflective journal ownership back out of Maridian.
 
 ## Documentation Contract
 
