@@ -4,6 +4,7 @@ This folder collects the higher-level vision and planning documents that guide t
 
 ## Included Documents
 
+- `repo_vision.md` - strategic blueprint for how external repos strengthen the Olympus ecosystem
 - `pantheon/Pantheon Vision.pdf` - vision document for Pantheon
 - `olympus/olympus_master_plan.md` - Olympus master blueprint
 - `olympus/olympus_build_plan.md` - Olympus phase-by-phase build plan
