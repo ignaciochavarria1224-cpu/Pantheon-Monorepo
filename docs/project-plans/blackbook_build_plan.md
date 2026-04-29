@@ -83,6 +83,7 @@ protect the current working app and make its ownership explicit before deeper mi
 
 Required outcomes:
 
+- add a true free local-database fallback so BlackBook does not depend on paid or quota-limited cloud compute to keep working
 - keep `active/BlackBook` as the live canonical app
 - preserve the archived Reflex copy only for reference
 - document runtime requirements clearly:
@@ -92,10 +93,17 @@ Required outcomes:
 - confirm the current canonical app is Neon/Postgres based
 - treat Supabase as historical context unless a real runtime dependency appears later
 
+Immediate infrastructure priority inside this phase:
+
+1. make BlackBook run locally without Neon by supporting a real fallback path when `DATABASE_URL` is unavailable
+2. keep Neon optional rather than required
+3. only return to cloud hosting later if it can remain free and non-fragile
+
 Exit criteria:
 
 - the repo path for canonical BlackBook is stable
 - the app launches locally from `active/BlackBook`
+- the app can keep running without Neon compute availability
 - documentation clearly distinguishes canonical app, Pantheon destination, and legacy archive
 
 ## Phase 2 - Extract BlackBook Domain Boundaries
@@ -281,11 +289,12 @@ The Pantheon migration is not complete until it preserves these capabilities fro
 
 ## Immediate Next Steps
 
-1. Write down the BlackBook domain map from the current Streamlit app.
-2. Inventory the current Pantheon BlackBook services and endpoints against that map.
-3. Mark which BlackBook surfaces already have Pantheon parity and which do not.
-4. Turn the biggest missing surfaces into implementation milestones under Pantheon Phase 7.
-5. Keep the standalone app canonical until those milestones are complete.
+1. Add the free local-database fallback so BlackBook can run without Neon.
+2. Write down the BlackBook domain map from the current Streamlit app.
+3. Inventory the current Pantheon BlackBook services and endpoints against that map.
+4. Mark which BlackBook surfaces already have Pantheon parity and which do not.
+5. Turn the biggest missing surfaces into implementation milestones under Pantheon Phase 7.
+6. Keep the standalone app canonical until those milestones are complete.
 
 ## Final Position
 
