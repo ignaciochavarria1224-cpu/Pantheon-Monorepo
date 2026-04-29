@@ -30,10 +30,10 @@ These still need explicit cleanup:
 
 - standalone `active/Apollo`
   still exists as a legacy/migration-source/reference copy
-- external `Black-Book` Streamlit repo
-  is the current canonical BlackBook application while Pantheon BlackBook remains the intended destination
 - standalone `active/BlackBook`
-  still exists as an older legacy/reference copy
+  is the current canonical Streamlit BlackBook application while Pantheon BlackBook remains the intended destination
+- `archive/BlackBook_Reflex_Legacy_2026-04-29`
+  preserves the older Reflex BlackBook as a legacy/reference copy
 - standalone `active/Maridian`
   still exists alongside Pantheon Maridian and requires an audit
 - `active/Olympus-Trading/Pantheon`
@@ -62,7 +62,7 @@ BlackBook owns:
 - transaction and holdings truth
 - financial memory and operational finance state
 
-The current application truth lives in the separate `Black-Book` Streamlit repo.
+The current application truth lives in `active/BlackBook` as the imported Streamlit app.
 
 `active/Pantheon/apps/blackbook` should be treated as the Pantheon-native destination, not as the current canonical product truth.
 

@@ -93,9 +93,10 @@ A repo that is strategically important but not yet integrated into the active sy
   `active/Pantheon/apps/apollo` is canonical.
   `active/Apollo` is `legacy / migration source / reference`.
 - `BlackBook`
-  the separate `Black-Book` Streamlit repo is the current canonical application truth.
+  `active/BlackBook` is the current canonical standalone application truth.
+  It is the imported Streamlit BlackBook codebase.
   `active/Pantheon/apps/blackbook` is the Pantheon migration target.
-  `active/BlackBook` is a `legacy / reference` copy.
+  the previous Reflex version has been archived as a legacy/reference copy.
 - `Olympus`
   treat Olympus as an `integrated external subsystem`.
   Its runtime may remain operationally distinct while Pantheon consumes and displays its state.

@@ -1,8 +1,17 @@
-__pycache__/
-assets/external/
-*.py[cod]
+# Secrets
+.streamlit/secrets.toml
+
+# Database
 *.db
-.web
-.states
+*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 .env
-node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

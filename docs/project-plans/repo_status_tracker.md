@@ -10,7 +10,7 @@ It records what each major system is, where its current truth lives, what docume
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Pantheon` | Parent operating-system root that holds Apollo, BlackBook, Maridian, and Pantheon-facing Olympus surfaces | `active/Pantheon` | `canonical` | `active/Pantheon`, duplicate tree at `active/Olympus-Trading/Pantheon` | root README, Pantheon Vision PDF, system overview docs | repo-level build/consolidation plan | structural root established, consolidation partial | duplicate working tree and incomplete consolidation rules | create Pantheon consolidation plan and duplicate-tree retirement path |
 | `Apollo` | User-facing interface, voice/chat ingress, delivery shell, and Pantheon gateway | `active/Pantheon/apps/apollo` | `canonical` | canonical app under Pantheon plus legacy standalone at `active/Apollo` | app README, Apollo master/build plans | canonical decision record only if separated from tracker | transitional shell-over-Pantheon stage; active UI rebuild in progress | legacy standalone Apollo still contains historical backend/runtime surface | align Phase 7/8 with Apollo de-duplication and one-frontend end-state |
-| `BlackBook` | Financial command center and financial source of truth for Pantheon/Apollo | external `Black-Book` Streamlit repo | `canonical` | canonical Streamlit app in `Black-Book`, Pantheon copy at `active/Pantheon/apps/blackbook`, older copy at `active/BlackBook` | app README, repo-level BlackBook vision | BlackBook build plan, Pantheon migration plan | live standalone Streamlit app; Pantheon-native surfacing is partial | canonical app lives outside the monorepo while Pantheon copy is still incomplete | define BlackBook migration path from Streamlit truth into Pantheon-native UI |
+| `BlackBook` | Financial command center and financial source of truth for Pantheon/Apollo | `active/BlackBook` | `canonical` | canonical Streamlit app at `active/BlackBook`, Pantheon copy at `active/Pantheon/apps/blackbook`, archived Reflex copy at `archive/BlackBook_Reflex_Legacy_2026-04-29` | app README, repo-level BlackBook vision | BlackBook build plan, Pantheon migration plan | live standalone Streamlit app; Pantheon-native surfacing is partial | Pantheon copy is still incomplete relative to the standalone truth | define BlackBook migration path from Streamlit truth into Pantheon-native UI |
 | `Maridian` | Reflective journal-processing and Obsidian-brain subsystem | `needs audit` | `needs audit` | standalone `active/Maridian`, Pantheon copy at `active/Pantheon/apps/maridian` | standalone README | repo-level vision doc, build/roadmap doc, source-of-truth decision record | working standalone subsystem, Pantheon-native status unclear | split truth and missing strategic documentation | run architecture-fit audit and define migration target/state |
 | `Olympus` | Trading execution, ranking, memory, and reporting subsystem displayed through Pantheon | `active/Olympus-Trading/olympus` | `integrated external subsystem` | runtime at `active/Olympus-Trading/olympus`, Pantheon-facing surface at `active/Pantheon/apps/olympus` | Olympus README, Olympus master/build plans | optional Pantheon/Olympus integration decision note | Phases 1-5 live; debate/evolution/live gate not live yet | operational separation can be mistaken for architectural exclusion | keep Olympus explicit in Pantheon consolidation and UI roadmap |
 | `MetaGPT` | Future multi-agent decision-engine import for Pantheon | none yet | `reference / future integration` | `active/MetaGPT` | upstream README, repo vision | integration decision record if promoted later | not integrated | can be mistaken for active subsystem work | keep classified as future integration until Pantheon agent architecture is ready |
@@ -43,13 +43,13 @@ It may still contain useful runtime pieces, but it should not remain a co-equal 
 
 BlackBook now has a current canonical ruling.
 
-The most up-to-date application lives in the separate `Black-Book` Streamlit repo, not in either monorepo copy.
+The most up-to-date application now lives in `active/BlackBook` as the imported Streamlit codebase.
 
 That means:
 
-- the Streamlit `Black-Book` repo is the current application truth
+- `active/BlackBook` is the current application truth
 - `active/Pantheon/apps/blackbook` is the Pantheon migration target
-- `active/BlackBook` should be treated as an older `legacy / reference` copy unless a newer local path is introduced later
+- `archive/BlackBook_Reflex_Legacy_2026-04-29` is the preserved older `legacy / reference` copy
 
 The remaining problem is no longer "which copy is canonical?" It is "how and when does the current Streamlit BlackBook migrate into Pantheon-native form without losing domain truth?"
 
