@@ -9,6 +9,36 @@ It assumes:
 - Obsidian is a mirrored output surface, not the source of truth
 - journaling should move out of BlackBook and into Maridian
 
+## Current Documentation State
+
+Maridian already has:
+
+- `maridian_vision.md`
+- `maridian_build_plan.md`
+- `maridian_storage_paths.md`
+
+That means the remaining work is no longer defining what Maridian is at a high level.
+The remaining work is organizing implementation, privacy boundaries, and migration order.
+
+## Phase 0 - Planning And Boundary Lock
+
+Goal:
+finish the planning and organization layer before writing new Maridian code.
+
+Required outcomes:
+
+- define what Maridian files are safe to track in Git
+- define what personal vault content should remain local/private
+- lock the journaling ownership split from BlackBook to Maridian
+- lock the first Pantheon Maridian surfaces to build
+- keep repo organization ahead of implementation
+
+Exit criteria:
+
+- Maridian has a clear repo/local privacy policy
+- Maridian has a clear first implementation sequence
+- no one needs to guess whether BlackBook or Maridian owns reflective writing
+
 ## Core Build Thesis
 
 Maridian should become the subsystem that converts personal writing into usable memory for Apollo.
@@ -156,12 +186,17 @@ Exit criteria:
 
 ## Immediate Next Steps
 
-1. Update the repo docs so Maridian is Pantheon-local canonical and Obsidian-mirrored.
-2. Define the exact Pantheon-local storage path for Maridian data.
-3. Define the exact Obsidian mirror target path.
-4. Inventory the current Pantheon Maridian code against the desired control-surface features.
-5. Define how BlackBook journal ownership will be removed or redirected.
-6. Plan the safe transfer of the existing 300+ entries into the canonical vault path with verification.
+1. Define the Git-vs-local privacy boundary for Maridian vault content.
+2. Lock the BlackBook-to-Maridian journal ownership transition in the planning docs.
+3. Inventory the current Pantheon Maridian code against the desired control-surface features.
+4. Define the first Maridian tab surfaces to build:
+   - journal input
+   - run-cycle control
+   - cycle status
+   - latest questions
+   - latest notes/cards
+   - index excerpt
+5. Plan Apollo's first Maridian consumption path from processed outputs.
 
 ## Final Position
 
