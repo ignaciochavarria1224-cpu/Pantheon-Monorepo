@@ -30,8 +30,10 @@ These still need explicit cleanup:
 
 - standalone `active/Apollo`
   still exists as a legacy/migration-source/reference copy
+- external `Black-Book` Streamlit repo
+  is the current canonical BlackBook application while Pantheon BlackBook remains the intended destination
 - standalone `active/BlackBook`
-  still exists alongside Pantheon BlackBook and requires an audit
+  still exists as an older legacy/reference copy
 - standalone `active/Maridian`
   still exists alongside Pantheon Maridian and requires an audit
 - `active/Olympus-Trading/Pantheon`
@@ -59,6 +61,10 @@ BlackBook owns:
 - financial facts
 - transaction and holdings truth
 - financial memory and operational finance state
+
+The current application truth lives in the separate `Black-Book` Streamlit repo.
+
+`active/Pantheon/apps/blackbook` should be treated as the Pantheon-native destination, not as the current canonical product truth.
 
 BlackBook should remain a distinct subsystem even after Pantheon-native surfacing is complete. Consolidation does not mean absorbing its domain boundaries into Apollo.
 
@@ -151,7 +157,8 @@ Until consolidation is complete, these temporary tolerances are acceptable:
 
 - standalone legacy folders may remain
 - Olympus may remain operationally separate while still integrated architecturally
-- BlackBook and Maridian may remain classified as `needs audit`
+- Maridian may remain classified as `needs audit`
+- BlackBook may remain externally canonical while its Pantheon-native migration is still underway
 
 These temporary states are only acceptable if they are:
 
@@ -165,7 +172,7 @@ These temporary states are only acceptable if they are:
 2. repo status tracker
 3. Pantheon consolidation plan
 4. explicit Phase 7 and Phase 8 dependency framing
-5. BlackBook audit
+5. BlackBook migration planning
 6. Maridian audit
 7. missing core subsystem docs
 8. duplicate working-tree retirement planning

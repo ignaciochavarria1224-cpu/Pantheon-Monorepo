@@ -10,7 +10,7 @@ It records what each major system is, where its current truth lives, what docume
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `Pantheon` | Parent operating-system root that holds Apollo, BlackBook, Maridian, and Pantheon-facing Olympus surfaces | `active/Pantheon` | `canonical` | `active/Pantheon`, duplicate tree at `active/Olympus-Trading/Pantheon` | root README, Pantheon Vision PDF, system overview docs | repo-level build/consolidation plan | structural root established, consolidation partial | duplicate working tree and incomplete consolidation rules | create Pantheon consolidation plan and duplicate-tree retirement path |
 | `Apollo` | User-facing interface, voice/chat ingress, delivery shell, and Pantheon gateway | `active/Pantheon/apps/apollo` | `canonical` | canonical app under Pantheon plus legacy standalone at `active/Apollo` | app README, Apollo master/build plans | canonical decision record only if separated from tracker | transitional shell-over-Pantheon stage; active UI rebuild in progress | legacy standalone Apollo still contains historical backend/runtime surface | align Phase 7/8 with Apollo de-duplication and one-frontend end-state |
-| `BlackBook` | Financial command center and financial source of truth for Pantheon/Apollo | `needs audit` | `needs audit` | standalone `active/BlackBook`, Pantheon copy at `active/Pantheon/apps/blackbook` | app README, repo-level BlackBook vision | BlackBook build plan, source-of-truth decision record | hybrid stage: domain logic is live, Pantheon-native surfacing is partial | split implementation and uncertainty over which copy is authoritative | run architecture-fit audit and then write BlackBook build plan |
+| `BlackBook` | Financial command center and financial source of truth for Pantheon/Apollo | external `Black-Book` Streamlit repo | `canonical` | canonical Streamlit app in `Black-Book`, Pantheon copy at `active/Pantheon/apps/blackbook`, older copy at `active/BlackBook` | app README, repo-level BlackBook vision | BlackBook build plan, Pantheon migration plan | live standalone Streamlit app; Pantheon-native surfacing is partial | canonical app lives outside the monorepo while Pantheon copy is still incomplete | define BlackBook migration path from Streamlit truth into Pantheon-native UI |
 | `Maridian` | Reflective journal-processing and Obsidian-brain subsystem | `needs audit` | `needs audit` | standalone `active/Maridian`, Pantheon copy at `active/Pantheon/apps/maridian` | standalone README | repo-level vision doc, build/roadmap doc, source-of-truth decision record | working standalone subsystem, Pantheon-native status unclear | split truth and missing strategic documentation | run architecture-fit audit and define migration target/state |
 | `Olympus` | Trading execution, ranking, memory, and reporting subsystem displayed through Pantheon | `active/Olympus-Trading/olympus` | `integrated external subsystem` | runtime at `active/Olympus-Trading/olympus`, Pantheon-facing surface at `active/Pantheon/apps/olympus` | Olympus README, Olympus master/build plans | optional Pantheon/Olympus integration decision note | Phases 1-5 live; debate/evolution/live gate not live yet | operational separation can be mistaken for architectural exclusion | keep Olympus explicit in Pantheon consolidation and UI roadmap |
 | `MetaGPT` | Future multi-agent decision-engine import for Pantheon | none yet | `reference / future integration` | `active/MetaGPT` | upstream README, repo vision | integration decision record if promoted later | not integrated | can be mistaken for active subsystem work | keep classified as future integration until Pantheon agent architecture is ready |
@@ -41,16 +41,17 @@ It may still contain useful runtime pieces, but it should not remain a co-equal 
 
 ### BlackBook
 
-BlackBook is not ready for a final canonical ruling yet.
+BlackBook now has a current canonical ruling.
 
-The audit must determine:
+The most up-to-date application lives in the separate `Black-Book` Streamlit repo, not in either monorepo copy.
 
-- where the latest meaningful work is landing
-- which copy best matches Pantheon-native direction
-- whether standalone-only files are real domain truth or export residue
-- what exact threshold permits declaring Pantheon BlackBook canonical
+That means:
 
-Until then, classify it as `needs audit`.
+- the Streamlit `Black-Book` repo is the current application truth
+- `active/Pantheon/apps/blackbook` is the Pantheon migration target
+- `active/BlackBook` should be treated as an older `legacy / reference` copy unless a newer local path is introduced later
+
+The remaining problem is no longer "which copy is canonical?" It is "how and when does the current Streamlit BlackBook migrate into Pantheon-native form without losing domain truth?"
 
 ### Maridian
 
@@ -70,9 +71,10 @@ The highest-priority missing docs are:
 
 1. Pantheon build/consolidation plan
 2. BlackBook build plan
-3. Maridian vision doc
-4. Maridian build/roadmap doc
-5. optional audit decision records for BlackBook and Maridian if kept separate from this tracker
+3. BlackBook migration plan from Streamlit app into Pantheon
+4. Maridian vision doc
+5. Maridian build/roadmap doc
+6. optional audit decision records for Maridian if kept separate from this tracker
 
 ## Current Roadmap Order
 
@@ -80,7 +82,7 @@ The highest-priority missing docs are:
 2. repo status tracker
 3. Pantheon consolidation plan
 4. Phase 7 and Phase 8 alignment inside that plan
-5. BlackBook audit
+5. BlackBook migration planning
 6. Maridian audit
 7. missing core docs
 8. duplicate working-tree retirement plan

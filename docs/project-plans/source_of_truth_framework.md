@@ -92,6 +92,10 @@ A repo that is strategically important but not yet integrated into the active sy
 - `Apollo`
   `active/Pantheon/apps/apollo` is canonical.
   `active/Apollo` is `legacy / migration source / reference`.
+- `BlackBook`
+  the separate `Black-Book` Streamlit repo is the current canonical application truth.
+  `active/Pantheon/apps/blackbook` is the Pantheon migration target.
+  `active/BlackBook` is a `legacy / reference` copy.
 - `Olympus`
   treat Olympus as an `integrated external subsystem`.
   Its runtime may remain operationally distinct while Pantheon consumes and displays its state.
