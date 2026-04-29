@@ -4,6 +4,7 @@ This folder collects the higher-level vision and planning documents that guide t
 
 ## Included Documents
 
+- `blackbook_vision.md` - founder vision and system blueprint for BlackBook as Pantheon's financial command center for Apollo
 - `repo_vision.md` - strategic blueprint for how external repos strengthen the Olympus ecosystem
 - `pantheon/Pantheon Vision.pdf` - vision document for Pantheon
 - `olympus/olympus_master_plan.md` - Olympus master blueprint
