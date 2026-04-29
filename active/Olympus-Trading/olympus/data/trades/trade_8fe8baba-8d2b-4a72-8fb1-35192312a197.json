@@ -1,0 +1,22 @@
+{
+  "trade_id": "8fe8baba-8d2b-4a72-8fb1-35192312a197",
+  "position_id": "f0ec0b01-9324-4c37-8079-032b92790a68",
+  "symbol": "COF",
+  "direction": "short",
+  "entry_price": 207.58,
+  "exit_price": 208.36,
+  "stop_price": 208.36,
+  "target_price": 206.02,
+  "size": 20,
+  "entry_time": "2026-04-17T13:54:36.632048+00:00",
+  "exit_time": "2026-04-17T14:34:44.836929+00:00",
+  "hold_duration_minutes": 40.136748016666665,
+  "realized_pnl": -15.600000000000023,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 10,
+  "score_at_entry": 8.723404016998087,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

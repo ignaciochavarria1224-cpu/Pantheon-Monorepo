@@ -1,0 +1,22 @@
+{
+  "trade_id": "5f093ad5-d73b-445d-a444-3de847b6b28b",
+  "position_id": "65702f32-84fd-4635-9b05-fb89b03b747a",
+  "symbol": "CMG",
+  "direction": "short",
+  "entry_price": 35.705,
+  "exit_price": 35.78,
+  "stop_price": 35.78,
+  "target_price": 35.55,
+  "size": 411,
+  "entry_time": "2026-04-20T19:43:36.526049+00:00",
+  "exit_time": "2026-04-21T13:44:40.801861+00:00",
+  "hold_duration_minutes": 1081.0712635333334,
+  "realized_pnl": -30.825000000001168,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 6,
+  "score_at_entry": 24.23831358413796,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

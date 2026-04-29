@@ -1,0 +1,22 @@
+{
+  "trade_id": "6c97d2fa-a147-437c-b06d-f3bf452b023c",
+  "position_id": "c976f6fa-2721-484f-a57d-c72140eb27e8",
+  "symbol": "YUM",
+  "direction": "short",
+  "entry_price": 159.935,
+  "exit_price": 159.72,
+  "stop_price": 160.08,
+  "target_price": 159.65,
+  "size": 2,
+  "entry_time": "2026-04-16T16:52:42.338511+00:00",
+  "exit_time": "2026-04-16T18:33:09.045211+00:00",
+  "hold_duration_minutes": 100.44511166666666,
+  "realized_pnl": 0.4300000000000068,
+  "r_multiple": 1.482758620689574,
+  "exit_reason": "rotation",
+  "rank_at_entry": 8,
+  "score_at_entry": 13.917788405135761,
+  "rank_at_exit": 19,
+  "score_at_exit": 39.307175604110604,
+  "status": "closed"
+}

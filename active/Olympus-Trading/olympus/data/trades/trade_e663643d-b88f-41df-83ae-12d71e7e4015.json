@@ -1,0 +1,22 @@
+{
+  "trade_id": "e663643d-b88f-41df-83ae-12d71e7e4015",
+  "position_id": "1196a802-8c99-45a4-a3f5-72109f4bbae3",
+  "symbol": "ISRG",
+  "direction": "long",
+  "entry_price": 488.49,
+  "exit_price": 487.75,
+  "stop_price": 480.72,
+  "target_price": 504.03,
+  "size": 11,
+  "entry_time": "2026-04-22T14:41:54.493593+00:00",
+  "exit_time": "2026-04-22T16:43:15.788238+00:00",
+  "hold_duration_minutes": 121.35491075,
+  "realized_pnl": -8.1400000000001,
+  "r_multiple": -0.09523809523809663,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 94.744723656769,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

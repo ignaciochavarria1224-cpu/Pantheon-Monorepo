@@ -1,0 +1,22 @@
+{
+  "trade_id": "c20d6158-a74d-46ac-8b5b-9f1cd2a83cfc",
+  "position_id": "f4d871f3-dca9-420e-bcf5-5bce61cd3d77",
+  "symbol": "MCD",
+  "direction": "short",
+  "entry_price": 308.725,
+  "exit_price": 308.885,
+  "stop_price": 309.52,
+  "target_price": 307.14,
+  "size": 41,
+  "entry_time": "2026-04-20T14:41:19.726248+00:00",
+  "exit_time": "2026-04-20T15:41:27.718380+00:00",
+  "hold_duration_minutes": 60.1332022,
+  "realized_pnl": -6.559999999998695,
+  "r_multiple": -0.20125786163519044,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 22.45696129603711,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

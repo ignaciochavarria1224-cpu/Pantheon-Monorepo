@@ -1,0 +1,22 @@
+{
+  "trade_id": "43fde586-f12e-4f98-a845-2d517f8f84b7",
+  "position_id": "d1b19a4f-d225-4504-a900-81e04851eef5",
+  "symbol": "WMT",
+  "direction": "long",
+  "entry_price": 127.37,
+  "exit_price": 127.37,
+  "stop_price": 127.21,
+  "target_price": 127.7,
+  "size": 103,
+  "entry_time": "2026-04-17T19:37:21.454606+00:00",
+  "exit_time": "2026-04-17T19:57:23.611087+00:00",
+  "hold_duration_minutes": 20.035941349999998,
+  "realized_pnl": 0.0,
+  "r_multiple": 0.0,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 10,
+  "score_at_entry": 60.95837705017606,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

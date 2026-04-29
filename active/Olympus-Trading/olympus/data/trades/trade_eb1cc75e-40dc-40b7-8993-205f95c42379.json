@@ -1,0 +1,22 @@
+{
+  "trade_id": "eb1cc75e-40dc-40b7-8993-205f95c42379",
+  "position_id": "c05f18dd-92a4-4f38-bb58-58f60e47d255",
+  "symbol": "PNC",
+  "direction": "short",
+  "entry_price": 219.06,
+  "exit_price": 219.48,
+  "stop_price": 219.48,
+  "target_price": 218.22,
+  "size": 1,
+  "entry_time": "2026-04-13T14:21:16.968259+00:00",
+  "exit_time": "2026-04-13T14:41:20.020423+00:00",
+  "hold_duration_minutes": 20.0508694,
+  "realized_pnl": -0.4199999999999875,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 10,
+  "score_at_entry": 22.64875338967866,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

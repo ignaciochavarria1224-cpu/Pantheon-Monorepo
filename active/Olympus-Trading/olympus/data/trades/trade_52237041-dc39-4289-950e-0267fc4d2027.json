@@ -1,0 +1,22 @@
+{
+  "trade_id": "52237041-dc39-4289-950e-0267fc4d2027",
+  "position_id": "7111676c-c5df-4495-aeed-90d0274bd447",
+  "symbol": "AMZN",
+  "direction": "short",
+  "entry_price": 246.92,
+  "exit_price": 246.79,
+  "stop_price": 247.98,
+  "target_price": 244.81,
+  "size": 52,
+  "entry_time": "2026-04-20T14:41:19.572939+00:00",
+  "exit_time": "2026-04-20T16:41:45.541838+00:00",
+  "hold_duration_minutes": 120.43281498333334,
+  "realized_pnl": 6.7599999999997635,
+  "r_multiple": 0.12264150943395771,
+  "exit_reason": "rotation",
+  "rank_at_entry": 9,
+  "score_at_entry": 22.25312251337973,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

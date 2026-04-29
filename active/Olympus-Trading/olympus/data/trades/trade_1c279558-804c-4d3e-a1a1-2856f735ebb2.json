@@ -1,0 +1,22 @@
+{
+  "trade_id": "1c279558-804c-4d3e-a1a1-2856f735ebb2",
+  "position_id": "ff490d91-90be-42f1-b5ac-a7770dd53395",
+  "symbol": "PPG",
+  "direction": "short",
+  "entry_price": 115.34,
+  "exit_price": 115.215,
+  "stop_price": 115.51,
+  "target_price": 115.0,
+  "size": 18,
+  "entry_time": "2026-04-17T19:17:14.796993+00:00",
+  "exit_time": "2026-04-17T19:57:23.408937+00:00",
+  "hold_duration_minutes": 40.143532400000005,
+  "realized_pnl": 2.25,
+  "r_multiple": 0.7352941176470514,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 9,
+  "score_at_entry": 17.66416781902455,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "223e0c4c-840f-4f7c-8875-0fd36a7f23e4",
+  "position_id": "ea52d3d7-83d6-44c0-8208-0403eb285773",
+  "symbol": "CMI",
+  "direction": "long",
+  "entry_price": 623.25,
+  "exit_price": 621.49,
+  "stop_price": 621.49,
+  "target_price": 626.78,
+  "size": 36,
+  "entry_time": "2026-04-17T14:14:39.875617+00:00",
+  "exit_time": "2026-04-17T14:34:44.881012+00:00",
+  "hold_duration_minutes": 20.08342325,
+  "realized_pnl": -63.35999999999967,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 88.73249690930194,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

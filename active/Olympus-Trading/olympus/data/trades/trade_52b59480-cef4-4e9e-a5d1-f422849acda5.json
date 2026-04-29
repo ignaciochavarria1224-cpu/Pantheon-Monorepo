@@ -1,0 +1,22 @@
+{
+  "trade_id": "52b59480-cef4-4e9e-a5d1-f422849acda5",
+  "position_id": "3bf9da10-9c69-47fb-acd3-ff956b1ef52a",
+  "symbol": "AMAT",
+  "direction": "long",
+  "entry_price": 393.88,
+  "exit_price": 395.52,
+  "stop_price": 392.34,
+  "target_price": 396.96,
+  "size": 32,
+  "entry_time": "2026-04-20T14:00:40.683057+00:00",
+  "exit_time": "2026-04-20T14:41:15.556112+00:00",
+  "hold_duration_minutes": 40.581217583333334,
+  "realized_pnl": 52.47999999999956,
+  "r_multiple": 1.064935064935042,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 99.77174726353564,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

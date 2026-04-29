@@ -1,0 +1,22 @@
+{
+  "trade_id": "3588c3f4-6c5a-4d65-9caa-50e7c4953135",
+  "position_id": "c2513680-fc62-49bf-bdeb-b6241f6f8588",
+  "symbol": "MS",
+  "direction": "long",
+  "entry_price": 193.07,
+  "exit_price": 192.35,
+  "stop_price": 192.35,
+  "target_price": 194.51,
+  "size": 2,
+  "entry_time": "2026-04-15T15:08:04.209353+00:00",
+  "exit_time": "2026-04-15T15:28:07.837271+00:00",
+  "hold_duration_minutes": 20.060465299999997,
+  "realized_pnl": -1.4399999999999977,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 89.29517385127014,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

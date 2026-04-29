@@ -1,0 +1,22 @@
+{
+  "trade_id": "bd351fbc-4031-49bc-a27e-21f416f76c18",
+  "position_id": "4df10a6c-2614-46eb-9dc4-4a1bdbd3144a",
+  "symbol": "DLR",
+  "direction": "long",
+  "entry_price": 202.76,
+  "exit_price": 203.13,
+  "stop_price": 202.57,
+  "target_price": 203.13,
+  "size": 39,
+  "entry_time": "2026-04-17T17:35:35.202104+00:00",
+  "exit_time": "2026-04-17T17:55:37.709860+00:00",
+  "hold_duration_minutes": 20.041795933333333,
+  "realized_pnl": 14.430000000000177,
+  "r_multiple": 1.9473684210526787,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 82.80345646231511,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

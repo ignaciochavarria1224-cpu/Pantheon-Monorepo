@@ -1,0 +1,22 @@
+{
+  "trade_id": "1eb04495-66f6-4bcc-ab9e-57b5eefb1b14",
+  "position_id": "5f40721d-e95b-4f61-8f24-a18bcb49a44f",
+  "symbol": "ITW",
+  "direction": "short",
+  "entry_price": 265.1,
+  "exit_price": 263.13,
+  "stop_price": 266.08,
+  "target_price": 263.13,
+  "size": 1,
+  "entry_time": "2026-04-15T14:27:55.799837+00:00",
+  "exit_time": "2026-04-15T16:08:31.174744+00:00",
+  "hold_duration_minutes": 100.58958178333334,
+  "realized_pnl": 1.9700000000000273,
+  "r_multiple": 2.01020408163276,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 10.917868252104105,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

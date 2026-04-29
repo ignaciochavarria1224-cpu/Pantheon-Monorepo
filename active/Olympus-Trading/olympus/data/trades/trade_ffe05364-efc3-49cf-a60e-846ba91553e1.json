@@ -1,0 +1,22 @@
+{
+  "trade_id": "ffe05364-efc3-49cf-a60e-846ba91553e1",
+  "position_id": "aca48c0e-5efe-46e1-bccb-fb58f3822bdf",
+  "symbol": "HD",
+  "direction": "long",
+  "entry_price": 351.35,
+  "exit_price": 349.99,
+  "stop_price": 349.99,
+  "target_price": 354.07,
+  "size": 574,
+  "entry_time": "2026-04-17T14:41:24.813575+00:00",
+  "exit_time": "2026-04-17T15:01:30.777691+00:00",
+  "hold_duration_minutes": 20.099401933333336,
+  "realized_pnl": -780.6400000000078,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 11,
+  "score_at_entry": 74.25524365340999,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

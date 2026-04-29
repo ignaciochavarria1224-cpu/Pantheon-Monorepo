@@ -1,0 +1,22 @@
+{
+  "trade_id": "99820875-36b8-4238-a3e9-e760755890f2",
+  "position_id": "2929e877-c9a3-4491-b837-d49cb2529a98",
+  "symbol": "RBLX",
+  "direction": "short",
+  "entry_price": 54.615,
+  "exit_price": 54.8,
+  "stop_price": 54.8,
+  "target_price": 54.25,
+  "size": 10,
+  "entry_time": "2026-04-10T18:20:40.727711+00:00",
+  "exit_time": "2026-04-10T19:20:50.212097+00:00",
+  "hold_duration_minutes": 60.1580731,
+  "realized_pnl": -1.8499999999999517,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 7,
+  "score_at_entry": 16.712827557679798,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

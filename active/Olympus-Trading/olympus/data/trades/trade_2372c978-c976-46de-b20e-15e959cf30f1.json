@@ -1,0 +1,22 @@
+{
+  "trade_id": "2372c978-c976-46de-b20e-15e959cf30f1",
+  "position_id": "e64796a5-9d3b-454b-bc84-681f6ac1eb45",
+  "symbol": "PINS",
+  "direction": "short",
+  "entry_price": 20.12,
+  "exit_price": 20.155,
+  "stop_price": 20.31,
+  "target_price": 19.75,
+  "size": 13,
+  "entry_time": "2026-04-16T14:31:04.153960+00:00",
+  "exit_time": "2026-04-16T15:31:24.484561+00:00",
+  "hold_duration_minutes": 60.338843350000005,
+  "realized_pnl": -0.45500000000000185,
+  "r_multiple": -0.18421052631579243,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 25.63787510220435,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

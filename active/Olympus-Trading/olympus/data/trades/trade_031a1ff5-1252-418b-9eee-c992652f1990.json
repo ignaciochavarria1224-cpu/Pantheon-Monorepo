@@ -1,0 +1,22 @@
+{
+  "trade_id": "031a1ff5-1252-418b-9eee-c992652f1990",
+  "position_id": "e54fe660-a685-44e8-ab78-9cbd1fc7d763",
+  "symbol": "NUE",
+  "direction": "long",
+  "entry_price": 192.11,
+  "exit_price": 192.175,
+  "stop_price": 191.88,
+  "target_price": 192.57,
+  "size": 1,
+  "entry_time": "2026-04-16T18:53:16.488938+00:00",
+  "exit_time": "2026-04-16T19:33:26.649239+00:00",
+  "hold_duration_minutes": 40.16933835,
+  "realized_pnl": 0.06499999999999773,
+  "r_multiple": 0.2826086956521417,
+  "exit_reason": "rotation",
+  "rank_at_entry": 6,
+  "score_at_entry": 81.81778304234723,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

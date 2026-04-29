@@ -1,0 +1,22 @@
+{
+  "trade_id": "a8c6cab5-2988-4cae-aee5-ab7332ca85bb",
+  "position_id": "0ac80bac-df29-435a-9af6-e372f2dafe4c",
+  "symbol": "ZBH",
+  "direction": "long",
+  "entry_price": 97.0,
+  "exit_price": 97.13,
+  "stop_price": 96.89,
+  "target_price": 97.22,
+  "size": 1,
+  "entry_time": "2026-04-14T16:22:20.751758+00:00",
+  "exit_time": "2026-04-14T16:42:26.583266+00:00",
+  "hold_duration_minutes": 20.0971918,
+  "realized_pnl": 0.12999999999999545,
+  "r_multiple": 1.1818181818181466,
+  "exit_reason": "rotation",
+  "rank_at_entry": 8,
+  "score_at_entry": 76.60438242415447,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

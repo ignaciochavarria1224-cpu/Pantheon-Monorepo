@@ -1,0 +1,22 @@
+{
+  "trade_id": "f6c9c07a-61a9-42cb-ae99-f2f6d6afdea0",
+  "position_id": "c619b92c-5f35-474e-a122-15c6ae638802",
+  "symbol": "HSY",
+  "direction": "short",
+  "entry_price": 193.31,
+  "exit_price": 192.655,
+  "stop_price": 193.92,
+  "target_price": 192.09,
+  "size": 5,
+  "entry_time": "2026-04-15T14:07:25.330798+00:00",
+  "exit_time": "2026-04-15T16:28:40.728858+00:00",
+  "hold_duration_minutes": 141.25663433333332,
+  "realized_pnl": 3.2750000000000057,
+  "r_multiple": 1.0737704918033066,
+  "exit_reason": "rotation",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

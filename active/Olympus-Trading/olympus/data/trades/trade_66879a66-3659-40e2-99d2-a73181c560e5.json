@@ -1,0 +1,22 @@
+{
+  "trade_id": "66879a66-3659-40e2-99d2-a73181c560e5",
+  "position_id": "e8a42c5d-ff86-4acb-a484-d74abc101ec8",
+  "symbol": "AMGN",
+  "direction": "long",
+  "entry_price": 346.6,
+  "exit_price": 346.11,
+  "stop_price": 346.11,
+  "target_price": 347.58,
+  "size": 16,
+  "entry_time": "2026-04-21T17:37:49.639987+00:00",
+  "exit_time": "2026-04-21T18:04:27.193798+00:00",
+  "hold_duration_minutes": 26.62589685,
+  "realized_pnl": -7.8400000000001455,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 97.47888537027904,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

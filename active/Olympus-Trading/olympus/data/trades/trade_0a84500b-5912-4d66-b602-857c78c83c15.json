@@ -1,0 +1,22 @@
+{
+  "trade_id": "0a84500b-5912-4d66-b602-857c78c83c15",
+  "position_id": "251d3580-9f2d-4c66-b42e-1b8616d85b8e",
+  "symbol": "INTC",
+  "direction": "long",
+  "entry_price": 60.52,
+  "exit_price": 61.09,
+  "stop_price": 60.23,
+  "target_price": 61.09,
+  "size": 9,
+  "entry_time": "2026-04-09T18:21:14.269978+00:00",
+  "exit_time": "2026-04-09T19:21:20.689275+00:00",
+  "hold_duration_minutes": 60.10698828333333,
+  "realized_pnl": 5.130000000000003,
+  "r_multiple": 1.965517241379269,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 66.47130533092839,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

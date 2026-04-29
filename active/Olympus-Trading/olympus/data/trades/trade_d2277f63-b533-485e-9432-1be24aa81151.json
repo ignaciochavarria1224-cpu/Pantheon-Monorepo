@@ -1,0 +1,22 @@
+{
+  "trade_id": "d2277f63-b533-485e-9432-1be24aa81151",
+  "position_id": "88c99448-74af-4105-806d-e9223d46ea58",
+  "symbol": "FTNT",
+  "direction": "long",
+  "entry_price": 79.065,
+  "exit_price": 79.36,
+  "stop_price": 78.91,
+  "target_price": 79.36,
+  "size": 3,
+  "entry_time": "2026-04-15T18:48:00.749006+00:00",
+  "exit_time": "2026-04-15T19:08:18.998420+00:00",
+  "hold_duration_minutes": 20.3041569,
+  "realized_pnl": 0.8850000000000051,
+  "r_multiple": 1.9032258064516099,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 74.35492494295282,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

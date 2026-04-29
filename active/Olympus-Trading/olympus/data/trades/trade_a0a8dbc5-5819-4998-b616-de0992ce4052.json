@@ -1,0 +1,22 @@
+{
+  "trade_id": "a0a8dbc5-5819-4998-b616-de0992ce4052",
+  "position_id": "d07c2a28-ea76-4df7-af44-18772eb0f7e0",
+  "symbol": "DHR",
+  "direction": "short",
+  "entry_price": 185.22,
+  "exit_price": 185.105,
+  "stop_price": 185.82,
+  "target_price": 184.01,
+  "size": 44,
+  "entry_time": "2026-04-22T18:44:25.913688+00:00",
+  "exit_time": "2026-04-22T19:44:43.983053+00:00",
+  "hold_duration_minutes": 60.30115608333333,
+  "realized_pnl": 5.0600000000004,
+  "r_multiple": 0.19166666666668364,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 4,
+  "score_at_entry": 2.8903659069135883,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

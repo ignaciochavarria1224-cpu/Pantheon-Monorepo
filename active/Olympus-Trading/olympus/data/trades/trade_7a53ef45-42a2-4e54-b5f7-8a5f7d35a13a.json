@@ -1,0 +1,22 @@
+{
+  "trade_id": "7a53ef45-42a2-4e54-b5f7-8a5f7d35a13a",
+  "position_id": "e67d16e6-8d5c-4857-a59a-d4fce8c5ac6b",
+  "symbol": "ICE",
+  "direction": "short",
+  "entry_price": 160.485,
+  "exit_price": 160.95,
+  "stop_price": 160.95,
+  "target_price": 159.56,
+  "size": 101,
+  "entry_time": "2026-04-17T16:35:22.074293+00:00",
+  "exit_time": "2026-04-17T16:55:26.267175+00:00",
+  "hold_duration_minutes": 20.069881366666667,
+  "realized_pnl": -46.964999999997474,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 2,
+  "score_at_entry": 8.894373069541828,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

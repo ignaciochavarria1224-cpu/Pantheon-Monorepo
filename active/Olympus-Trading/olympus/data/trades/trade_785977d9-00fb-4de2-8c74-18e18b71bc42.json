@@ -1,0 +1,22 @@
+{
+  "trade_id": "785977d9-00fb-4de2-8c74-18e18b71bc42",
+  "position_id": "88d2fb39-ee97-4792-b5c0-c87e44064b06",
+  "symbol": "TXN",
+  "direction": "long",
+  "entry_price": 231.935,
+  "exit_price": 232.655,
+  "stop_price": 231.24,
+  "target_price": 233.33,
+  "size": 55,
+  "entry_time": "2026-04-20T14:41:18.648263+00:00",
+  "exit_time": "2026-04-20T15:41:27.582804+00:00",
+  "hold_duration_minutes": 60.14890901666667,
+  "realized_pnl": 39.59999999999994,
+  "r_multiple": 1.0359712230215912,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 62.11226673230055,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

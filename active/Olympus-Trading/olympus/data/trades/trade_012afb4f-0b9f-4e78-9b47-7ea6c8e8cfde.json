@@ -1,0 +1,22 @@
+{
+  "trade_id": "012afb4f-0b9f-4e78-9b47-7ea6c8e8cfde",
+  "position_id": "a6a80179-a6f3-41fd-8a8e-a83e5bf2ecf0",
+  "symbol": "TDG",
+  "direction": "short",
+  "entry_price": 1228.46,
+  "exit_price": 1238.35,
+  "stop_price": 1238.35,
+  "target_price": 1208.68,
+  "size": 1,
+  "entry_time": "2026-04-16T14:41:16.673830+00:00",
+  "exit_time": "2026-04-16T15:21:26.353992+00:00",
+  "hold_duration_minutes": 40.161336033333335,
+  "realized_pnl": -9.889999999999873,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

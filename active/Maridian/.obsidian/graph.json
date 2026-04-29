@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": true,
+  "hideUnresolved": false,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Frameworks",
+      "color": {
+        "a": 1,
+        "rgb": 16766720
+      }
+    },
+    {
+      "query": "path:Archive",
+      "color": {
+        "a": 1,
+        "rgb": 5592405
+      }
+    },
+    {
+      "query": "path:02-Trees",
+      "color": {
+        "a": 1,
+        "rgb": 15237152
+      }
+    },
+    {
+      "query": "path:01-Sprouts",
+      "color": {
+        "a": 1,
+        "rgb": 5999706
+      }
+    },
+    {
+      "query": "path:00-Seeds",
+      "color": {
+        "a": 1,
+        "rgb": 4886745
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.00709342560554,
+  "lineSizeMultiplier": 1.26141868512111,
+  "collapse-forces": false,
+  "centerStrength": 0.496539792387543,
+  "repelStrength": 20,
+  "linkStrength": 0,
+  "linkDistance": 30,
+  "scale": 0.11062991540720536,
+  "close": true
+}

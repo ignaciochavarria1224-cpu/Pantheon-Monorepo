@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "065542c35d1c485d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a69854caa75fba9f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0560db4389edbd7c",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "793fbe7c471ac66b",
+    "type": "split",
+    "children": [
+      {
+        "id": "95649299f9f43c06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9c6704f6eb899c96",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "75444c2df49e706d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f20e15244be8712a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4415987221e110b3",
+    "type": "split",
+    "children": [
+      {
+        "id": "8ee7dd774c8befac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b1e32f2426d5fcb4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Fossils/index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for index"
+            }
+          },
+          {
+            "id": "18f4228006f4d098",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Fossils/index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from index"
+            }
+          },
+          {
+            "id": "9c47f460aa2a4195",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "dd59dd9cf5557f6d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "43bfd27959ff60b2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Fossils/index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "0560db4389edbd7c",
+  "lastOpenFiles": [
+    "Questions/2026-04-14.md",
+    "Questions/2026-04-12.md",
+    "raw/20260207_232_chatgpt.md",
+    "raw/20260320_293_chatgpt.md",
+    "wiki/Self-Doubt.md",
+    "wiki/Accountability.md",
+    "wiki/Academic Strengths.md",
+    "raw/20250715_125_chatgpt.md",
+    "vault_state.tmp",
+    "Financial Literacy.md",
+    "wiki/Integrity.md",
+    "wiki/Backstory.md",
+    "wiki/Adaptation.md",
+    "wiki/Pressure.md",
+    "wiki/Spiritual Awakening.md",
+    "wiki/Communication Methods.md",
+    "wiki/Systemic Collapse.md",
+    "wiki/Fear.md",
+    "wiki/Learning Style.md",
+    "wiki/Simulation Hypothesis.md",
+    "raw/20260321_298_chatgpt.md",
+    "raw/20260313_281_chatgpt.md",
+    "raw/20260318_290_chatgpt.md",
+    "raw/20260314_283_chatgpt.md",
+    "raw/20260320_295_chatgpt.md",
+    "raw/20260321_297_chatgpt.md",
+    "raw/20260311_279_chatgpt.md",
+    "p2.py",
+    "Questions",
+    "wiki",
+    "raw",
+    "Untitled.base",
+    "Untitled.canvas"
+  ]
+}

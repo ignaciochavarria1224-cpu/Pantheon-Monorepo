@@ -1,0 +1,22 @@
+{
+  "trade_id": "b07c6b6e-1bce-4d2b-a2be-8e9965b75f8e",
+  "position_id": "575cf577-a0cf-4325-96fe-e18fd34b7335",
+  "symbol": "CMCSA",
+  "direction": "short",
+  "entry_price": 28.94,
+  "exit_price": 28.965,
+  "stop_price": 29.16,
+  "target_price": 28.49,
+  "size": 197,
+  "entry_time": "2026-04-21T19:04:56.153926+00:00",
+  "exit_time": "2026-04-21T19:45:25.116774+00:00",
+  "hold_duration_minutes": 40.48271413333334,
+  "realized_pnl": -4.92499999999972,
+  "r_multiple": -0.11363636363635776,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

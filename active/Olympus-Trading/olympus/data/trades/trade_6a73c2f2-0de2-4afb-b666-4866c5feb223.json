@@ -1,0 +1,22 @@
+{
+  "trade_id": "6a73c2f2-0de2-4afb-b666-4866c5feb223",
+  "position_id": "9af71daa-18e3-4215-b527-1a4cbeede13e",
+  "symbol": "MRVL",
+  "direction": "long",
+  "entry_price": 148.61,
+  "exit_price": 149.71,
+  "stop_price": 148.06,
+  "target_price": 149.71,
+  "size": 53,
+  "entry_time": "2026-04-20T18:42:56.502798+00:00",
+  "exit_time": "2026-04-21T13:44:22.441349+00:00",
+  "hold_duration_minutes": 1141.4323091833332,
+  "realized_pnl": 58.2999999999997,
+  "r_multiple": 1.9999999999999483,
+  "exit_reason": "target",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

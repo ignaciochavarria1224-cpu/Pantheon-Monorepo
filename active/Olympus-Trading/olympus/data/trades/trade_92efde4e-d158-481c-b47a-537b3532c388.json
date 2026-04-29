@@ -1,0 +1,22 @@
+{
+  "trade_id": "92efde4e-d158-481c-b47a-537b3532c388",
+  "position_id": "871cedda-403e-4cdb-981f-a97caf0ba2b8",
+  "symbol": "ORCL",
+  "direction": "long",
+  "entry_price": 140.07,
+  "exit_price": 139.3,
+  "stop_price": 139.3,
+  "target_price": 141.61,
+  "size": 1,
+  "entry_time": "2026-04-10T16:20:18.987387+00:00",
+  "exit_time": "2026-04-10T16:40:21.356043+00:00",
+  "hold_duration_minutes": 20.0394776,
+  "realized_pnl": -0.7699999999999818,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 2,
+  "score_at_entry": 71.21626209633415,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

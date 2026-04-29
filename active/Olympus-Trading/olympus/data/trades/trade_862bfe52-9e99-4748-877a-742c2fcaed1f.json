@@ -1,0 +1,22 @@
+{
+  "trade_id": "862bfe52-9e99-4748-877a-742c2fcaed1f",
+  "position_id": "3a8d817c-d735-4725-a17f-deed5de603d1",
+  "symbol": "UNH",
+  "direction": "long",
+  "entry_price": 323.38,
+  "exit_price": 323.29,
+  "stop_price": 322.71,
+  "target_price": 324.72,
+  "size": 60,
+  "entry_time": "2026-04-20T16:41:59.770696+00:00",
+  "exit_time": "2026-04-20T17:42:42.273831+00:00",
+  "hold_duration_minutes": 60.70838558333333,
+  "realized_pnl": -5.399999999998499,
+  "r_multiple": -0.1343283582089147,
+  "exit_reason": "rotation",
+  "rank_at_entry": 6,
+  "score_at_entry": 82.14650102636992,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

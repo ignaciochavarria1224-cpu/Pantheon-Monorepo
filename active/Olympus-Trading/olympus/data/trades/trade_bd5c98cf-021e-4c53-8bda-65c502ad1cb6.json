@@ -1,0 +1,22 @@
+{
+  "trade_id": "bd5c98cf-021e-4c53-8bda-65c502ad1cb6",
+  "position_id": "a9228a6e-64f8-4108-8666-90bd41695557",
+  "symbol": "BMY",
+  "direction": "long",
+  "entry_price": 59.065,
+  "exit_price": 59.195,
+  "stop_price": 58.88,
+  "target_price": 59.43,
+  "size": 228,
+  "entry_time": "2026-04-09T13:40:43.708670+00:00",
+  "exit_time": "2026-04-09T14:20:49.548110+00:00",
+  "hold_duration_minutes": 40.097324,
+  "realized_pnl": 29.640000000000583,
+  "r_multiple": 0.7027027027027348,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 68.40114458303795,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

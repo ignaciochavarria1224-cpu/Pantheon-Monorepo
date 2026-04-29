@@ -1,0 +1,22 @@
+{
+  "trade_id": "da66a163-a4fa-47df-93dd-a5b6e8675080",
+  "position_id": "553935a9-660b-4692-8dfa-21f7b2e2f2ce",
+  "symbol": "PH",
+  "direction": "long",
+  "entry_price": 994.21,
+  "exit_price": 1001.57,
+  "stop_price": 990.47,
+  "target_price": 1001.69,
+  "size": 10,
+  "entry_time": "2026-04-17T14:34:49.763024+00:00",
+  "exit_time": "2026-04-17T16:35:15.871626+00:00",
+  "hold_duration_minutes": 120.43514336666667,
+  "realized_pnl": 73.60000000000014,
+  "r_multiple": 1.9679144385026726,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 78.06540885458632,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

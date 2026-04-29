@@ -1,0 +1,22 @@
+{
+  "trade_id": "16ac89bc-2fce-4824-922c-530412c85e7f",
+  "position_id": "46cec929-4a48-4b52-b894-e3a812630b97",
+  "symbol": "QCOM",
+  "direction": "short",
+  "entry_price": 134.04,
+  "exit_price": 134.22,
+  "stop_price": 134.22,
+  "target_price": 133.69,
+  "size": 1,
+  "entry_time": "2026-04-16T18:33:11.808580+00:00",
+  "exit_time": "2026-04-16T18:53:14.154316+00:00",
+  "hold_duration_minutes": 20.0390956,
+  "realized_pnl": -0.18000000000000682,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 9,
+  "score_at_entry": 34.19467285086082,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

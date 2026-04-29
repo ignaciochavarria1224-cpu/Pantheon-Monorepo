@@ -1,0 +1,22 @@
+{
+  "trade_id": "9c95fd89-0159-442c-9e97-43caec9b1c45",
+  "position_id": "e51a582f-be4b-451e-a5b2-1881ab0f42fc",
+  "symbol": "AVGO",
+  "direction": "short",
+  "entry_price": 391.63,
+  "exit_price": 393.15,
+  "stop_price": 393.15,
+  "target_price": 388.6,
+  "size": 1,
+  "entry_time": "2026-04-15T17:27:32.546555+00:00",
+  "exit_time": "2026-04-15T19:08:17.644158+00:00",
+  "hold_duration_minutes": 100.75162671666666,
+  "realized_pnl": -1.5199999999999818,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 9,
+  "score_at_entry": 23.013663667190844,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

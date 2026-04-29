@@ -1,0 +1,22 @@
+{
+  "trade_id": "77ae6042-97fa-4a07-a6cd-3108fe0be545",
+  "position_id": "fde9ad60-24cf-4416-b645-a1a5cb69f309",
+  "symbol": "GE",
+  "direction": "short",
+  "entry_price": 305.86,
+  "exit_price": 305.405,
+  "stop_price": 306.58,
+  "target_price": 304.43,
+  "size": 7,
+  "entry_time": "2026-04-17T19:17:14.703963+00:00",
+  "exit_time": "2026-04-17T19:57:23.361907+00:00",
+  "hold_duration_minutes": 40.14429906666667,
+  "realized_pnl": 3.1850000000002865,
+  "r_multiple": 0.6319444444445272,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 7,
+  "score_at_entry": 16.993627849080507,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

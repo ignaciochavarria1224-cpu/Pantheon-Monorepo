@@ -1,0 +1,22 @@
+{
+  "trade_id": "e44b0ab2-27ab-4099-aca8-c7815f454251",
+  "position_id": "2615dd08-4ec2-414e-9006-44ae285b0451",
+  "symbol": "VLO",
+  "direction": "long",
+  "entry_price": 237.93,
+  "exit_price": 237.05,
+  "stop_price": 236.73,
+  "target_price": 240.34,
+  "size": 1,
+  "entry_time": "2026-04-14T13:40:54.186805+00:00",
+  "exit_time": "2026-04-14T14:41:38.888128+00:00",
+  "hold_duration_minutes": 60.745022049999996,
+  "realized_pnl": -0.8799999999999955,
+  "r_multiple": -0.7333333333333191,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 73.58168793851232,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

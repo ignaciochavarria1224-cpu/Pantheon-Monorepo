@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ':*)",
+      "Bash(python -m pytest tests/phase4/ -v -m \"not integration\")",
+      "Bash(python -)",
+      "Bash(sqlite3 data/olympus.db \"SELECT name, sql FROM sqlite_master WHERE type IN \\('view', 'trigger'\\) AND sql LIKE '%trades_old%';\")"
+    ]
+  }
+}

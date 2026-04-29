@@ -1,0 +1,22 @@
+{
+  "trade_id": "0cc78922-9066-40db-9e47-9da01b62aee9",
+  "position_id": "9c23f22c-0fc2-4c22-8320-448e45145a99",
+  "symbol": "CDNS",
+  "direction": "long",
+  "entry_price": 305.31,
+  "exit_price": 304.04,
+  "stop_price": 304.04,
+  "target_price": 307.85,
+  "size": 1,
+  "entry_time": "2026-04-15T18:49:28.238391+00:00",
+  "exit_time": "2026-04-16T13:30:43.785049+00:00",
+  "hold_duration_minutes": 1121.2591109666669,
+  "realized_pnl": -1.2699999999999818,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

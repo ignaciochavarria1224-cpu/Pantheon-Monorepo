@@ -1,0 +1,22 @@
+{
+  "trade_id": "c90595f7-fbce-4e8e-90e7-1b66e62e9675",
+  "position_id": "ce37258f-af59-43e3-91e1-750335f9eb65",
+  "symbol": "FANG",
+  "direction": "long",
+  "entry_price": 188.28,
+  "exit_price": 188.08,
+  "stop_price": 188.08,
+  "target_price": 188.67,
+  "size": 30,
+  "entry_time": "2026-04-21T17:37:49.458654+00:00",
+  "exit_time": "2026-04-21T17:44:18.140395+00:00",
+  "hold_duration_minutes": 6.4780290166666665,
+  "realized_pnl": -5.999999999999659,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

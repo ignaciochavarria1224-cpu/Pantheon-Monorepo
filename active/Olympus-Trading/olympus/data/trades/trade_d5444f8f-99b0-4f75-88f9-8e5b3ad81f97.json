@@ -1,0 +1,22 @@
+{
+  "trade_id": "d5444f8f-99b0-4f75-88f9-8e5b3ad81f97",
+  "position_id": "42393308-74be-4d90-b23b-4703dc481515",
+  "symbol": "NOW",
+  "direction": "short",
+  "entry_price": 83.33,
+  "exit_price": 81.97,
+  "stop_price": 84.01,
+  "target_price": 81.97,
+  "size": 2,
+  "entry_time": "2026-04-10T16:20:19.077047+00:00",
+  "exit_time": "2026-04-10T18:00:32.587122+00:00",
+  "hold_duration_minutes": 100.22516791666666,
+  "realized_pnl": 2.719999999999999,
+  "r_multiple": 1.9999999999999791,
+  "exit_reason": "target",
+  "rank_at_entry": 5,
+  "score_at_entry": 7.572669858053263,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "b0beec1d-eaf4-40dc-8759-1f1ef6dbc3be",
+  "position_id": "46f6571a-6116-47f4-b2ff-659d17f2c95c",
+  "symbol": "HAL",
+  "direction": "long",
+  "entry_price": 39.235,
+  "exit_price": 39.44,
+  "stop_price": 39.13,
+  "target_price": 39.44,
+  "size": 145,
+  "entry_time": "2026-04-22T17:23:38.906163+00:00",
+  "exit_time": "2026-04-22T18:24:05.361441+00:00",
+  "hold_duration_minutes": 60.4409213,
+  "realized_pnl": 29.724999999999753,
+  "r_multiple": 1.9523809523809943,
+  "exit_reason": "target",
+  "rank_at_entry": 11,
+  "score_at_entry": 70.30857780759602,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

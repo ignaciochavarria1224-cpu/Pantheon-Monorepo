@@ -1,0 +1,22 @@
+{
+  "trade_id": "711ebff1-be02-4a92-817d-d695bd2b8733",
+  "position_id": "e257093e-a981-445f-872f-72368b6615e7",
+  "symbol": "MCO",
+  "direction": "short",
+  "entry_price": 466.64,
+  "exit_price": 468.24,
+  "stop_price": 468.24,
+  "target_price": 463.45,
+  "size": 17,
+  "entry_time": "2026-04-22T18:44:25.432941+00:00",
+  "exit_time": "2026-04-22T19:24:34.119377+00:00",
+  "hold_duration_minutes": 40.14477393333333,
+  "realized_pnl": -27.200000000000387,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 1.960515515604433,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

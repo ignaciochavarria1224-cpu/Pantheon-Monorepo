@@ -1,0 +1,22 @@
+{
+  "trade_id": "4e75b32a-acb8-496e-89a2-70b78145645a",
+  "position_id": "b207a886-b7f1-463b-8660-44c5c21dd5c7",
+  "symbol": "TFC",
+  "direction": "long",
+  "entry_price": 50.93,
+  "exit_price": 51.16,
+  "stop_price": 50.82,
+  "target_price": 51.16,
+  "size": 320,
+  "entry_time": "2026-04-17T16:35:21.384319+00:00",
+  "exit_time": "2026-04-17T16:55:26.129052+00:00",
+  "hold_duration_minutes": 20.079078883333334,
+  "realized_pnl": 73.599999999999,
+  "r_multiple": 2.0909090909090735,
+  "exit_reason": "target",
+  "rank_at_entry": 4,
+  "score_at_entry": 92.77993576894403,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

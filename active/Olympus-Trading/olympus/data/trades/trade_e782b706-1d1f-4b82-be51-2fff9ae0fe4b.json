@@ -1,0 +1,22 @@
+{
+  "trade_id": "e782b706-1d1f-4b82-be51-2fff9ae0fe4b",
+  "position_id": "36598c9c-1c91-4ec0-acc9-4b264b99e8f4",
+  "symbol": "PM",
+  "direction": "short",
+  "entry_price": 158.97,
+  "exit_price": 159.39,
+  "stop_price": 159.39,
+  "target_price": 158.14,
+  "size": 97,
+  "entry_time": "2026-04-08T15:41:04.137970+00:00",
+  "exit_time": "2026-04-08T17:21:16.070138+00:00",
+  "hold_duration_minutes": 100.19886946666666,
+  "realized_pnl": -40.73999999999879,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 2,
+  "score_at_entry": 8.766811827512313,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

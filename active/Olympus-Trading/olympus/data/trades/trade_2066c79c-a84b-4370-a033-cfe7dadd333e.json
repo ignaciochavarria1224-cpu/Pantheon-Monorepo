@@ -1,0 +1,22 @@
+{
+  "trade_id": "2066c79c-a84b-4370-a033-cfe7dadd333e",
+  "position_id": "51e32bde-3bb0-462d-a4d3-f1de32a48149",
+  "symbol": "EXC",
+  "direction": "long",
+  "entry_price": 48.335,
+  "exit_price": 48.45,
+  "stop_price": 48.28,
+  "target_price": 48.45,
+  "size": 1,
+  "entry_time": "2026-04-14T19:06:21.694585+00:00",
+  "exit_time": "2026-04-14T19:46:32.722013+00:00",
+  "hold_duration_minutes": 40.183790466666665,
+  "realized_pnl": 0.11500000000000199,
+  "r_multiple": 2.090909090909138,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 75.87085766232568,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

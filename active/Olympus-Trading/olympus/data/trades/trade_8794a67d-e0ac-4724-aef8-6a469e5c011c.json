@@ -1,0 +1,22 @@
+{
+  "trade_id": "8794a67d-e0ac-4724-aef8-6a469e5c011c",
+  "position_id": "c3da569f-841a-45c7-b938-387f831f622d",
+  "symbol": "LMT",
+  "direction": "long",
+  "entry_price": 617.76,
+  "exit_price": 617.42,
+  "stop_price": 617.42,
+  "target_price": 618.45,
+  "size": 2,
+  "entry_time": "2026-04-10T17:40:30.100053+00:00",
+  "exit_time": "2026-04-10T18:00:32.851835+00:00",
+  "hold_duration_minutes": 20.045863033333333,
+  "realized_pnl": -0.6800000000000637,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 62.046256289621894,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

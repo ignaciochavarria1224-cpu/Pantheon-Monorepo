@@ -1,0 +1,22 @@
+{
+  "trade_id": "69b4f54d-1479-4e61-a2a5-a995d910fbee",
+  "position_id": "d25721db-a469-43b6-b32d-94f18beb2dd2",
+  "symbol": "OXY",
+  "direction": "short",
+  "entry_price": 57.41,
+  "exit_price": 57.53,
+  "stop_price": 57.53,
+  "target_price": 57.18,
+  "size": 2,
+  "entry_time": "2026-04-13T19:22:49.098462+00:00",
+  "exit_time": "2026-04-13T19:42:55.516850+00:00",
+  "hold_duration_minutes": 20.106973133333334,
+  "realized_pnl": -0.2400000000000091,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 14.967869075728688,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

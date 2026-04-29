@@ -1,0 +1,22 @@
+{
+  "trade_id": "5937fac8-67df-436a-a7d3-989e47c19ec0",
+  "position_id": "1d7c63d8-af66-423b-898e-f62a279f692f",
+  "symbol": "NVDA",
+  "direction": "short",
+  "entry_price": 197.24,
+  "exit_price": 197.685,
+  "stop_price": 197.84,
+  "target_price": 196.04,
+  "size": 1,
+  "entry_time": "2026-04-15T18:48:06.934482+00:00",
+  "exit_time": "2026-04-15T19:08:25.266711+00:00",
+  "hold_duration_minutes": 20.305537150000003,
+  "realized_pnl": -0.4449999999999932,
+  "r_multiple": -0.7416666666666624,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 6.3252477182031015,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

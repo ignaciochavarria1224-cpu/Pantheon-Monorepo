@@ -1,0 +1,22 @@
+{
+  "trade_id": "6514182c-f533-451c-9596-8d8f1ebbed9e",
+  "position_id": "5be2706f-07d8-4a76-8880-bb4ba9e34ebf",
+  "symbol": "CHTR",
+  "direction": "short",
+  "entry_price": 218.61,
+  "exit_price": 218.5,
+  "stop_price": 219.86,
+  "target_price": 216.11,
+  "size": 3,
+  "entry_time": "2026-04-13T14:00:55.364323+00:00",
+  "exit_time": "2026-04-13T14:20:57.979623+00:00",
+  "hold_duration_minutes": 20.043588333333332,
+  "realized_pnl": 0.3300000000000409,
+  "r_multiple": 0.08800000000001092,
+  "exit_reason": "rotation",
+  "rank_at_entry": 8,
+  "score_at_entry": 9.564047657979527,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

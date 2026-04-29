@@ -1,0 +1,22 @@
+{
+  "trade_id": "de0af828-9642-4196-88ed-aebacb331609",
+  "position_id": "7d10f177-f925-4775-a992-b4d8f3fbdc69",
+  "symbol": "MDT",
+  "direction": "short",
+  "entry_price": 85.485,
+  "exit_price": 85.22,
+  "stop_price": 85.62,
+  "target_price": 85.22,
+  "size": 57,
+  "entry_time": "2026-04-20T19:23:30.758179+00:00",
+  "exit_time": "2026-04-20T19:43:33.375897+00:00",
+  "hold_duration_minutes": 20.043628633333334,
+  "realized_pnl": 15.105000000000032,
+  "r_multiple": 1.9629629629628929,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 16.908252456585547,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

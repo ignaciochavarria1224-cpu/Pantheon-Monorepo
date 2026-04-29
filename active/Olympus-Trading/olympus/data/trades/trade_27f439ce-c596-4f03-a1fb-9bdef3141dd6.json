@@ -1,0 +1,22 @@
+{
+  "trade_id": "27f439ce-c596-4f03-a1fb-9bdef3141dd6",
+  "position_id": "c2682bec-1d5e-4a2d-8063-9ced9aaea6c2",
+  "symbol": "PFE",
+  "direction": "long",
+  "entry_price": 27.24,
+  "exit_price": 27.35,
+  "stop_price": 27.18,
+  "target_price": 27.35,
+  "size": 2,
+  "entry_time": "2026-04-13T19:21:19.918469+00:00",
+  "exit_time": "2026-04-13T19:41:23.548647+00:00",
+  "hold_duration_minutes": 20.060502966666665,
+  "realized_pnl": 0.22000000000000597,
+  "r_multiple": 1.833333333333422,
+  "exit_reason": "target",
+  "rank_at_entry": 10,
+  "score_at_entry": 77.53117698261917,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

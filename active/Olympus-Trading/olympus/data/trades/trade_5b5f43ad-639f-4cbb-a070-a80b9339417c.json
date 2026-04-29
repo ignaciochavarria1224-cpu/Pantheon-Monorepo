@@ -1,0 +1,22 @@
+{
+  "trade_id": "5b5f43ad-639f-4cbb-a070-a80b9339417c",
+  "position_id": "e21ed20c-c077-43ef-b53e-cbd88fe09980",
+  "symbol": "STZ",
+  "direction": "short",
+  "entry_price": 164.065,
+  "exit_price": 163.12,
+  "stop_price": 164.54,
+  "target_price": 163.12,
+  "size": 1,
+  "entry_time": "2026-04-15T14:27:57.609011+00:00",
+  "exit_time": "2026-04-15T15:08:03.657683+00:00",
+  "hold_duration_minutes": 40.100811199999995,
+  "realized_pnl": 0.9449999999999932,
+  "r_multiple": 1.9894736842105358,
+  "exit_reason": "target",
+  "rank_at_entry": 10,
+  "score_at_entry": 11.793585200404971,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

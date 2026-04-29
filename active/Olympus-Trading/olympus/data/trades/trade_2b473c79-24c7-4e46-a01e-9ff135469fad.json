@@ -1,0 +1,22 @@
+{
+  "trade_id": "2b473c79-24c7-4e46-a01e-9ff135469fad",
+  "position_id": "0e6fe0b4-dcca-488f-8ad6-84c1b3d3c5eb",
+  "symbol": "APD",
+  "direction": "long",
+  "entry_price": 297.56,
+  "exit_price": 299.56,
+  "stop_price": 296.56,
+  "target_price": 299.56,
+  "size": 45,
+  "entry_time": "2026-04-09T13:40:43.256999+00:00",
+  "exit_time": "2026-04-09T14:00:45.956132+00:00",
+  "hold_duration_minutes": 20.04498555,
+  "realized_pnl": 90.0,
+  "r_multiple": 2.0,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 72.84145552760931,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

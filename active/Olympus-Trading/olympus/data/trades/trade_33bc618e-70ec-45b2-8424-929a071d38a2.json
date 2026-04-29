@@ -1,0 +1,22 @@
+{
+  "trade_id": "33bc618e-70ec-45b2-8424-929a071d38a2",
+  "position_id": "3ce4c930-a9d6-4d89-9e22-d788e499695c",
+  "symbol": "DUK",
+  "direction": "short",
+  "entry_price": 128.175,
+  "exit_price": 127.97,
+  "stop_price": 128.3,
+  "target_price": 127.92,
+  "size": 1,
+  "entry_time": "2026-04-15T19:49:50.383488+00:00",
+  "exit_time": "2026-04-16T13:30:44.489482+00:00",
+  "hold_duration_minutes": 1060.9017665666665,
+  "realized_pnl": 0.2050000000000125,
+  "r_multiple": 1.6400000000001,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 13.383068304928148,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

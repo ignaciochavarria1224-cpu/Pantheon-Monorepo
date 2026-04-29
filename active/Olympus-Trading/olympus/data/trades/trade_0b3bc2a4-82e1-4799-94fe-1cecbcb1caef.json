@@ -1,0 +1,22 @@
+{
+  "trade_id": "0b3bc2a4-82e1-4799-94fe-1cecbcb1caef",
+  "position_id": "37e1c3c9-44ca-46fc-9287-8ec4285d5622",
+  "symbol": "RTX",
+  "direction": "short",
+  "entry_price": 195.26,
+  "exit_price": 195.45,
+  "stop_price": 195.45,
+  "target_price": 194.88,
+  "size": 1,
+  "entry_time": "2026-04-16T17:53:02.487383+00:00",
+  "exit_time": "2026-04-16T18:33:08.890675+00:00",
+  "hold_duration_minutes": 40.106721533333335,
+  "realized_pnl": -0.18999999999999773,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 21.93637598216663,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

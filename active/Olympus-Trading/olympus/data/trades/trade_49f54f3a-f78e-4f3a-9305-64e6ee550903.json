@@ -1,0 +1,22 @@
+{
+  "trade_id": "49f54f3a-f78e-4f3a-9305-64e6ee550903",
+  "position_id": "8345a6fa-7556-4fa6-9f8d-868cd5e6f716",
+  "symbol": "XEL",
+  "direction": "long",
+  "entry_price": 79.92,
+  "exit_price": 79.83,
+  "stop_price": 79.83,
+  "target_price": 80.09,
+  "size": 1,
+  "entry_time": "2026-04-14T19:03:33.178219+00:00",
+  "exit_time": "2026-04-15T13:44:54.835407+00:00",
+  "hold_duration_minutes": 1121.3609531333334,
+  "realized_pnl": -0.09000000000000341,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 10,
+  "score_at_entry": 75.35006431772445,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

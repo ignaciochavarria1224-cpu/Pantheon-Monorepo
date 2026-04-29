@@ -1,0 +1,22 @@
+{
+  "trade_id": "15c33e73-a274-49f3-88c7-fd67debe687b",
+  "position_id": "2e05f66b-ca95-4fc2-88ba-4b3537e494ae",
+  "symbol": "VZ",
+  "direction": "long",
+  "entry_price": 47.95,
+  "exit_price": 47.87,
+  "stop_price": 47.8,
+  "target_price": 48.26,
+  "size": 281,
+  "entry_time": "2026-04-09T13:40:42.840656+00:00",
+  "exit_time": "2026-04-09T14:20:49.441155+00:00",
+  "hold_duration_minutes": 40.11000831666667,
+  "realized_pnl": -22.480000000001517,
+  "r_multiple": -0.5333333333333491,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 79.43544532177704,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

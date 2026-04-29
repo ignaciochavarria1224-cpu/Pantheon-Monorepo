@@ -1,0 +1,22 @@
+{
+  "trade_id": "04848dd1-77a7-4083-a1ac-160370c09dd1",
+  "position_id": "0bdcd1da-080f-4710-b58e-b1b7743016be",
+  "symbol": "TSLA",
+  "direction": "long",
+  "entry_price": 388.73,
+  "exit_price": 389.7,
+  "stop_price": 385.61,
+  "target_price": 394.96,
+  "size": 1,
+  "entry_time": "2026-04-15T15:28:16.626325+00:00",
+  "exit_time": "2026-04-15T18:29:21.247033+00:00",
+  "hold_duration_minutes": 181.0770118,
+  "realized_pnl": 0.9699999999999704,
+  "r_multiple": 0.31089743589742597,
+  "exit_reason": "rotation",
+  "rank_at_entry": 9,
+  "score_at_entry": 75.05619047133575,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

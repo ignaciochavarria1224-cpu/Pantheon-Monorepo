@@ -1,0 +1,22 @@
+{
+  "trade_id": "3877d346-f435-452d-a980-ec68337db9e4",
+  "position_id": "3f3a1d6a-adf7-49b7-809a-d3baa351ee64",
+  "symbol": "JNJ",
+  "direction": "long",
+  "entry_price": 227.64,
+  "exit_price": 228.99,
+  "stop_price": 226.97,
+  "target_price": 228.99,
+  "size": 25,
+  "entry_time": "2026-04-23T13:45:31.324601+00:00",
+  "exit_time": "2026-04-23T14:46:10.486226+00:00",
+  "hold_duration_minutes": 60.652693750000005,
+  "realized_pnl": 33.75000000000057,
+  "r_multiple": 2.0149253731344,
+  "exit_reason": "target",
+  "rank_at_entry": 8,
+  "score_at_entry": 79.63114159662965,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

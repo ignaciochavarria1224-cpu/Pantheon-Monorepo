@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+anthropic
+chromadb
+faster-whisper
+python-dotenv
+requests
+sqlalchemy
+aiofiles
+watchdog
+reflex
+psycopg2-binary
+schedule
+
+reflex==0.8.28.post1

@@ -1,0 +1,22 @@
+{
+  "trade_id": "c4c87531-e767-4248-ad4a-2ec60875c697",
+  "position_id": "7ed0cb09-b980-4d03-b5fc-2fb18e307a7b",
+  "symbol": "BAX",
+  "direction": "long",
+  "entry_price": 17.91,
+  "exit_price": 17.97,
+  "stop_price": 17.88,
+  "target_price": 17.97,
+  "size": 15,
+  "entry_time": "2026-04-16T17:53:01.862473+00:00",
+  "exit_time": "2026-04-16T18:53:13.966323+00:00",
+  "hold_duration_minutes": 60.201730833333336,
+  "realized_pnl": 0.8999999999999808,
+  "r_multiple": 1.9999999999998817,
+  "exit_reason": "target",
+  "rank_at_entry": 4,
+  "score_at_entry": 70.68496864758609,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

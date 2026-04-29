@@ -1,0 +1,22 @@
+{
+  "trade_id": "502b97a1-61e9-4a48-ba95-fad2093bc9fe",
+  "position_id": "8dd7eb30-40ba-4fbf-8844-1702d49faf8a",
+  "symbol": "CVS",
+  "direction": "short",
+  "entry_price": 75.27,
+  "exit_price": 75.0,
+  "stop_price": 75.41,
+  "target_price": 75.0,
+  "size": 1,
+  "entry_time": "2026-04-15T19:09:43.504123+00:00",
+  "exit_time": "2026-04-16T13:30:43.995557+00:00",
+  "hold_duration_minutes": 1101.0081905666666,
+  "realized_pnl": 0.269999999999996,
+  "r_multiple": 1.9285714285713924,
+  "exit_reason": "target",
+  "rank_at_entry": 8,
+  "score_at_entry": 13.976022572107421,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

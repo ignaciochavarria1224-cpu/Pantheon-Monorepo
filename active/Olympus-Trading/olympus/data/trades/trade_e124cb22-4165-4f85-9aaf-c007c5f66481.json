@@ -1,0 +1,22 @@
+{
+  "trade_id": "e124cb22-4165-4f85-9aaf-c007c5f66481",
+  "position_id": "fd5185d1-1d9b-4b50-b6de-cd870ca83be9",
+  "symbol": "NKE",
+  "direction": "short",
+  "entry_price": 44.25,
+  "exit_price": 44.42,
+  "stop_price": 44.42,
+  "target_price": 43.9,
+  "size": 129,
+  "entry_time": "2026-04-23T17:47:05.698079+00:00",
+  "exit_time": "2026-04-23T18:07:07.086458+00:00",
+  "hold_duration_minutes": 20.02313965,
+  "realized_pnl": -21.93000000000022,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 11,
+  "score_at_entry": 34.750894386594936,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

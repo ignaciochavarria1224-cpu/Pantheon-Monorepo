@@ -1,0 +1,22 @@
+{
+  "trade_id": "6060fade-8eca-47d9-a393-7f2bbd69bad6",
+  "position_id": "0f4aa8b6-4a29-45d4-99d7-c60a7bfb0172",
+  "symbol": "EOG",
+  "direction": "short",
+  "entry_price": 137.265,
+  "exit_price": 138.39,
+  "stop_price": 138.39,
+  "target_price": 135.01,
+  "size": 108,
+  "entry_time": "2026-04-08T14:20:53.536216+00:00",
+  "exit_time": "2026-04-08T15:00:57.942312+00:00",
+  "hold_duration_minutes": 40.07343493333334,
+  "realized_pnl": -121.5,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 6,
+  "score_at_entry": 14.746064844141179,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

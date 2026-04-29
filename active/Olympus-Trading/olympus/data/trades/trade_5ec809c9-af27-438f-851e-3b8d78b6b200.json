@@ -1,0 +1,22 @@
+{
+  "trade_id": "5ec809c9-af27-438f-851e-3b8d78b6b200",
+  "position_id": "ecf6eeca-c8a2-4c7a-a034-52d9f8d6b2ad",
+  "symbol": "SNPS",
+  "direction": "long",
+  "entry_price": 393.82,
+  "exit_price": 393.15,
+  "stop_price": 393.15,
+  "target_price": 395.15,
+  "size": 1,
+  "entry_time": "2026-04-10T18:20:39.891463+00:00",
+  "exit_time": "2026-04-10T18:40:42.957056+00:00",
+  "hold_duration_minutes": 20.05109321666667,
+  "realized_pnl": -0.6700000000000159,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 80.66397455439822,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

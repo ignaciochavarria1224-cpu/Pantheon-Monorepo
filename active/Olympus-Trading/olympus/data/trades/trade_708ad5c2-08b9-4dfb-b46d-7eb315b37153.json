@@ -1,0 +1,22 @@
+{
+  "trade_id": "708ad5c2-08b9-4dfb-b46d-7eb315b37153",
+  "position_id": "6f0a0479-7b78-4d94-9435-6aeb8167bb7c",
+  "symbol": "WDAY",
+  "direction": "short",
+  "entry_price": 115.66,
+  "exit_price": 113.33,
+  "stop_price": 116.83,
+  "target_price": 113.33,
+  "size": 116,
+  "entry_time": "2026-04-09T13:40:43.796934+00:00",
+  "exit_time": "2026-04-09T14:00:46.062200+00:00",
+  "hold_duration_minutes": 20.037754433333337,
+  "realized_pnl": 270.2799999999998,
+  "r_multiple": 1.991452991452987,
+  "exit_reason": "target",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

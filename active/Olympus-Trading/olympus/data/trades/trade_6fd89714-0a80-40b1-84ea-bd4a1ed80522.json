@@ -1,0 +1,22 @@
+{
+  "trade_id": "6fd89714-0a80-40b1-84ea-bd4a1ed80522",
+  "position_id": "a894a007-0494-4969-95e0-fdcb37e8f965",
+  "symbol": "RCL",
+  "direction": "short",
+  "entry_price": 293.94,
+  "exit_price": 294.445,
+  "stop_price": 297.11,
+  "target_price": 287.61,
+  "size": 1,
+  "entry_time": "2026-04-17T14:20:59.609511+00:00",
+  "exit_time": "2026-04-17T14:41:14.970062+00:00",
+  "hold_duration_minutes": 20.256009183333333,
+  "realized_pnl": -0.5049999999999955,
+  "r_multiple": -0.1593059936908495,
+  "exit_reason": "rotation",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

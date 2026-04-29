@@ -1,0 +1,22 @@
+{
+  "trade_id": "35c0a9be-53c7-400e-a07c-8f7fd22e1327",
+  "position_id": "b019addf-73ac-43db-a519-e7777f068f76",
+  "symbol": "GILD",
+  "direction": "short",
+  "entry_price": 131.97,
+  "exit_price": 132.07,
+  "stop_price": 132.27,
+  "target_price": 131.36,
+  "size": 43,
+  "entry_time": "2026-04-22T17:03:24.262404+00:00",
+  "exit_time": "2026-04-22T19:24:36.122577+00:00",
+  "hold_duration_minutes": 141.19766954999997,
+  "realized_pnl": -4.299999999999756,
+  "r_multiple": -0.33333333333330173,
+  "exit_reason": "rotation",
+  "rank_at_entry": 14,
+  "score_at_entry": 29.968481226776937,
+  "rank_at_exit": 15,
+  "score_at_exit": 7.733029434748621,
+  "status": "closed"
+}

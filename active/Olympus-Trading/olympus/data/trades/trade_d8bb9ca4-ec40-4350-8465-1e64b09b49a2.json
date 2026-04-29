@@ -1,0 +1,22 @@
+{
+  "trade_id": "d8bb9ca4-ec40-4350-8465-1e64b09b49a2",
+  "position_id": "0834dc3e-eb62-46b4-b942-0427364eb08b",
+  "symbol": "BF.B",
+  "direction": "short",
+  "entry_price": 29.13,
+  "exit_price": 29.255,
+  "stop_price": 29.28,
+  "target_price": 28.83,
+  "size": 5,
+  "entry_time": "2026-04-14T13:44:04.918102+00:00",
+  "exit_time": "2026-04-14T14:24:13.008559+00:00",
+  "hold_duration_minutes": 40.13484095,
+  "realized_pnl": -0.625,
+  "r_multiple": -0.8333333333333215,
+  "exit_reason": "rotation",
+  "rank_at_entry": 3,
+  "score_at_entry": 12.328755551503184,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

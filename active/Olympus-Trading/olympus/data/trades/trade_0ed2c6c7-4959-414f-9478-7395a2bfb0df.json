@@ -1,0 +1,22 @@
+{
+  "trade_id": "0ed2c6c7-4959-414f-9478-7395a2bfb0df",
+  "position_id": "76bc2eec-26dc-4c3c-ab43-cf75c0a25804",
+  "symbol": "AXP",
+  "direction": "short",
+  "entry_price": 319.865,
+  "exit_price": 317.64,
+  "stop_price": 320.98,
+  "target_price": 317.64,
+  "size": 17,
+  "entry_time": "2026-04-23T16:46:45.675006+00:00",
+  "exit_time": "2026-04-23T17:06:52.879262+00:00",
+  "hold_duration_minutes": 20.120070933333334,
+  "realized_pnl": 37.82500000000039,
+  "r_multiple": 1.9955156950672688,
+  "exit_reason": "target",
+  "rank_at_entry": 2,
+  "score_at_entry": 26.936016904699972,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

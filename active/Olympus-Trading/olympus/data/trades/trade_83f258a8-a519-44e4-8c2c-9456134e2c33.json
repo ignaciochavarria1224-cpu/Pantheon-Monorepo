@@ -1,0 +1,22 @@
+{
+  "trade_id": "83f258a8-a519-44e4-8c2c-9456134e2c33",
+  "position_id": "c5957ede-63c7-498f-8453-3710ce562e47",
+  "symbol": "FCX",
+  "direction": "long",
+  "entry_price": 70.62,
+  "exit_price": 70.41,
+  "stop_price": 70.41,
+  "target_price": 71.03,
+  "size": 231,
+  "entry_time": "2026-04-17T16:35:21.737194+00:00",
+  "exit_time": "2026-04-17T16:55:26.219449+00:00",
+  "hold_duration_minutes": 20.07470425,
+  "realized_pnl": -48.51000000000184,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 83.84305339507468,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

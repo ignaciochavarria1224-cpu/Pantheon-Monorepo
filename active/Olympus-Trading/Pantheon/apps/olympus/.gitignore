@@ -1,0 +1,10 @@
+.env
+data/
+logs/
+olympus.pid
+.pytest_cache/
+pytest-cache-files-*/
+__pycache__/
+*.py[cod]
+*.tmp
+*.tmp.*

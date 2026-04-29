@@ -1,0 +1,22 @@
+{
+  "trade_id": "91a8c470-6c16-4958-b092-b82679175e4a",
+  "position_id": "6115df4b-a652-4501-a698-01408873eef7",
+  "symbol": "PHM",
+  "direction": "short",
+  "entry_price": 129.57,
+  "exit_price": 129.565,
+  "stop_price": 130.27,
+  "target_price": 128.16,
+  "size": 44,
+  "entry_time": "2026-04-22T14:01:17.527536+00:00",
+  "exit_time": "2026-04-22T14:41:44.201498+00:00",
+  "hold_duration_minutes": 40.44456603333333,
+  "realized_pnl": 0.2199999999997999,
+  "r_multiple": 0.007142857142850473,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 30.952922289674046,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "33207bf4-6f13-4f44-94ee-e4780c2f0d32",
+  "position_id": "04bf7fe3-d237-4737-b372-c5f453215343",
+  "symbol": "BSX",
+  "direction": "long",
+  "entry_price": 65.2,
+  "exit_price": 65.03,
+  "stop_price": 64.14,
+  "target_price": 67.32,
+  "size": 87,
+  "entry_time": "2026-04-22T14:41:52.691034+00:00",
+  "exit_time": "2026-04-22T16:43:15.735448+00:00",
+  "hold_duration_minutes": 121.38407356666667,
+  "realized_pnl": -14.790000000000148,
+  "r_multiple": -0.1603773584905673,
+  "exit_reason": "rotation",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

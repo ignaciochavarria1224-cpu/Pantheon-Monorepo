@@ -1,0 +1,22 @@
+{
+  "trade_id": "11dc44d0-c94a-4b23-92be-a8302bebf814",
+  "position_id": "fbacfeef-b930-4e48-9af6-54b9eeef45e8",
+  "symbol": "SNOW",
+  "direction": "long",
+  "entry_price": 125.3,
+  "exit_price": 127.86,
+  "stop_price": 124.02,
+  "target_price": 127.86,
+  "size": 1,
+  "entry_time": "2026-04-13T14:20:59.319697+00:00",
+  "exit_time": "2026-04-13T15:01:07.784973+00:00",
+  "hold_duration_minutes": 40.14108793333333,
+  "realized_pnl": 2.5600000000000023,
+  "r_multiple": 2.0,
+  "exit_reason": "target",
+  "rank_at_entry": 8,
+  "score_at_entry": 69.6822560441975,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

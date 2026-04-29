@@ -1,0 +1,22 @@
+{
+  "trade_id": "df4d4b94-80c6-411f-b5e1-93689d36ce81",
+  "position_id": "59d160ae-e0ad-41a2-9ed6-ac250a89af00",
+  "symbol": "HON",
+  "direction": "short",
+  "entry_price": 214.03,
+  "exit_price": 214.495,
+  "stop_price": 215.23,
+  "target_price": 211.62,
+  "size": 26,
+  "entry_time": "2026-04-23T18:07:09.654954+00:00",
+  "exit_time": "2026-04-23T18:47:18.834302+00:00",
+  "hold_duration_minutes": 40.152989133333335,
+  "realized_pnl": -12.090000000000089,
+  "r_multiple": -0.3875000000000065,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 32.46249978853546,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "cb728fb4-fbb2-453e-98ce-30116adba47b",
+  "position_id": "93af9fc8-e7bd-4de8-8d53-a987a49e226e",
+  "symbol": "DDOG",
+  "direction": "long",
+  "entry_price": 128.81,
+  "exit_price": 129.035,
+  "stop_price": 128.62,
+  "target_price": 129.18,
+  "size": 179,
+  "entry_time": "2026-04-20T19:03:10.728904+00:00",
+  "exit_time": "2026-04-20T19:43:33.585053+00:00",
+  "hold_duration_minutes": 40.38093581666667,
+  "realized_pnl": 40.27499999999898,
+  "r_multiple": 1.1842105263157738,
+  "exit_reason": "rotation",
+  "rank_at_entry": 4,
+  "score_at_entry": 83.7868607237084,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

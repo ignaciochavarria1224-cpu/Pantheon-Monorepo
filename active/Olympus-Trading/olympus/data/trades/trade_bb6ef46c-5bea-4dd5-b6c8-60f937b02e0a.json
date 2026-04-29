@@ -1,0 +1,22 @@
+{
+  "trade_id": "bb6ef46c-5bea-4dd5-b6c8-60f937b02e0a",
+  "position_id": "72fc6623-325d-441c-9731-6fb64ac1dade",
+  "symbol": "ZS",
+  "direction": "long",
+  "entry_price": 146.93,
+  "exit_price": 145.66,
+  "stop_price": 145.66,
+  "target_price": 149.48,
+  "size": 104,
+  "entry_time": "2026-04-08T13:40:46.460859+00:00",
+  "exit_time": "2026-04-08T14:00:49.194583+00:00",
+  "hold_duration_minutes": 20.045562066666665,
+  "realized_pnl": -132.08000000000106,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 72.2385433537654,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

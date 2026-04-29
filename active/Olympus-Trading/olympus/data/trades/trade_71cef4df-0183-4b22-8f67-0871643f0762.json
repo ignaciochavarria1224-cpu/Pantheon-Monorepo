@@ -1,0 +1,22 @@
+{
+  "trade_id": "71cef4df-0183-4b22-8f67-0871643f0762",
+  "position_id": "5114c252-a0b1-496b-b612-5c78f4a59a6f",
+  "symbol": "BKR",
+  "direction": "short",
+  "entry_price": 60.42,
+  "exit_price": 60.59,
+  "stop_price": 60.59,
+  "target_price": 60.09,
+  "size": 8,
+  "entry_time": "2026-04-15T17:29:15.194075+00:00",
+  "exit_time": "2026-04-15T17:49:17.172218+00:00",
+  "hold_duration_minutes": 20.032969050000002,
+  "realized_pnl": -1.3600000000000136,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 10,
+  "score_at_entry": 28.10339444105285,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "c4b7de1a-1171-4893-80c9-593fc5ebb4c5",
+  "position_id": "f74a5bc7-df35-4848-aaec-52203757b802",
+  "symbol": "MDLZ",
+  "direction": "short",
+  "entry_price": 57.54,
+  "exit_price": 57.77,
+  "stop_price": 57.77,
+  "target_price": 57.09,
+  "size": 2,
+  "entry_time": "2026-04-14T13:44:05.000144+00:00",
+  "exit_time": "2026-04-14T14:04:07.193727+00:00",
+  "hold_duration_minutes": 20.036559716666666,
+  "realized_pnl": -0.46000000000000796,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 20.16483238208274,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

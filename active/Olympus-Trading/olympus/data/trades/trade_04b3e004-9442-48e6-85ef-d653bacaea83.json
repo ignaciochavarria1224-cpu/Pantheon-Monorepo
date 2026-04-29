@@ -1,0 +1,22 @@
+{
+  "trade_id": "04b3e004-9442-48e6-85ef-d653bacaea83",
+  "position_id": "d4ee4ea9-397a-4cfc-97d2-4bd3b5487151",
+  "symbol": "PSA",
+  "direction": "short",
+  "entry_price": 284.2,
+  "exit_price": 284.88,
+  "stop_price": 284.88,
+  "target_price": 282.83,
+  "size": 54,
+  "entry_time": "2026-04-08T13:40:46.678205+00:00",
+  "exit_time": "2026-04-08T14:00:49.359730+00:00",
+  "hold_duration_minutes": 20.044692083333334,
+  "realized_pnl": -36.72000000000037,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 11.283368876598466,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

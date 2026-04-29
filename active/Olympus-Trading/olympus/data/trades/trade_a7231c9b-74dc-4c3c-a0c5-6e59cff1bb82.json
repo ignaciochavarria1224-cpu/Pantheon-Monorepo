@@ -1,0 +1,22 @@
+{
+  "trade_id": "a7231c9b-74dc-4c3c-a0c5-6e59cff1bb82",
+  "position_id": "4f3d64b0-5679-4615-9b88-b8b89049a4c7",
+  "symbol": "NEE",
+  "direction": "long",
+  "entry_price": 91.41,
+  "exit_price": 91.23,
+  "stop_price": 91.23,
+  "target_price": 91.77,
+  "size": 226,
+  "entry_time": "2026-04-17T13:34:30.527971+00:00",
+  "exit_time": "2026-04-17T13:54:33.907715+00:00",
+  "hold_duration_minutes": 20.056329066666667,
+  "realized_pnl": -40.67999999999833,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 69.96122826693279,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

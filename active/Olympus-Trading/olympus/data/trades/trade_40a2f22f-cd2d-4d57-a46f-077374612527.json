@@ -1,0 +1,22 @@
+{
+  "trade_id": "40a2f22f-cd2d-4d57-a46f-077374612527",
+  "position_id": "fcd2fd42-2acf-44e8-974e-7cb655ffe98d",
+  "symbol": "SRE",
+  "direction": "short",
+  "entry_price": 95.76,
+  "exit_price": 95.47,
+  "stop_price": 95.91,
+  "target_price": 95.47,
+  "size": 1,
+  "entry_time": "2026-04-13T17:40:53.479017+00:00",
+  "exit_time": "2026-04-13T18:41:13.744808+00:00",
+  "hold_duration_minutes": 60.33776318333333,
+  "realized_pnl": 0.29000000000000625,
+  "r_multiple": 1.933333333333485,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 11.763745817286395,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

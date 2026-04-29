@@ -1,0 +1,22 @@
+{
+  "trade_id": "5975ff21-dbb4-4555-954d-35b77d9e1662",
+  "position_id": "e68abfbb-f691-4e61-b4e6-10e751b71e6a",
+  "symbol": "TMO",
+  "direction": "short",
+  "entry_price": 475.42,
+  "exit_price": 462.67,
+  "stop_price": 481.79,
+  "target_price": 462.67,
+  "size": 12,
+  "entry_time": "2026-04-23T14:46:13.815637+00:00",
+  "exit_time": "2026-04-23T15:26:18.231446+00:00",
+  "hold_duration_minutes": 40.073596816666665,
+  "realized_pnl": 153.0,
+  "r_multiple": 2.0015698587127146,
+  "exit_reason": "target",
+  "rank_at_entry": 5,
+  "score_at_entry": 23.441142587352775,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,36 @@
+*.py[cod]
+assets/external/
+.states
+*.db
+.web
+# Environment — never commit credentials
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Apollo runtime data
+data/apollo.db
+data/chroma/
+logs/
+
+# Reflex
+ui/.web/
+ui/__pycache__/
+
+# WhatsApp bridge
+channels/whatsapp_bridge/node_modules/
+channels/whatsapp_bridge/.wwebjs_auth/
+channels/whatsapp_bridge/.wwebjs_cache/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,22 @@
+{
+  "trade_id": "be809b97-70ea-4fc8-a386-1b70f0022f9a",
+  "position_id": "82da5638-be38-4cd2-b3ed-c8f738137b03",
+  "symbol": "MRK",
+  "direction": "long",
+  "entry_price": 117.785,
+  "exit_price": 118.06,
+  "stop_price": 117.65,
+  "target_price": 118.06,
+  "size": 1,
+  "entry_time": "2026-04-15T17:09:01.936381+00:00",
+  "exit_time": "2026-04-15T18:09:18.968723+00:00",
+  "hold_duration_minutes": 60.283872366666664,
+  "realized_pnl": 0.2750000000000057,
+  "r_multiple": 2.037037037037216,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 66.68203116384758,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

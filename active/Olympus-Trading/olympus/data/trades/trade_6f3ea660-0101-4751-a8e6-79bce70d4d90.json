@@ -1,0 +1,22 @@
+{
+  "trade_id": "6f3ea660-0101-4751-a8e6-79bce70d4d90",
+  "position_id": "a4b87621-ddf0-4f12-a56b-bcc665e22576",
+  "symbol": "ABBV",
+  "direction": "short",
+  "entry_price": 210.5,
+  "exit_price": 209.82,
+  "stop_price": 210.84,
+  "target_price": 209.82,
+  "size": 55,
+  "entry_time": "2026-04-17T16:55:27.508960+00:00",
+  "exit_time": "2026-04-17T18:15:42.317607+00:00",
+  "hold_duration_minutes": 80.24681078333333,
+  "realized_pnl": 37.400000000000375,
+  "r_multiple": 2.0,
+  "exit_reason": "target",
+  "rank_at_entry": 4,
+  "score_at_entry": 11.184760968340093,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

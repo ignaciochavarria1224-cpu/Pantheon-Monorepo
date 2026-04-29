@@ -1,0 +1,22 @@
+{
+  "trade_id": "4d4ed7dd-64f9-4fd0-8224-d0abcf72c315",
+  "position_id": "e601f009-eea9-42aa-8e0f-4093f3973853",
+  "symbol": "PH",
+  "direction": "short",
+  "entry_price": 964.62,
+  "exit_price": 969.9,
+  "stop_price": 969.9,
+  "target_price": 954.06,
+  "size": 1,
+  "entry_time": "2026-04-15T14:07:25.496255+00:00",
+  "exit_time": "2026-04-15T14:48:01.169445+00:00",
+  "hold_duration_minutes": 40.594553166666664,
+  "realized_pnl": -5.279999999999973,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 7,
+  "score_at_entry": 9.11429389396997,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

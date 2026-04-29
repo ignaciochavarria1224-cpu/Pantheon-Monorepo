@@ -1,0 +1,22 @@
+{
+  "trade_id": "e9b5e3f5-3a3a-4c39-9136-633ff9833c5a",
+  "position_id": "ef3eb215-4ec5-4280-ac81-6d97835ff5a8",
+  "symbol": "AZO",
+  "direction": "long",
+  "entry_price": 3622.66,
+  "exit_price": 3619.48,
+  "stop_price": 3619.48,
+  "target_price": 3629.03,
+  "size": 2,
+  "entry_time": "2026-04-21T16:08:02.991697+00:00",
+  "exit_time": "2026-04-21T16:48:16.430857+00:00",
+  "hold_duration_minutes": 40.223986,
+  "realized_pnl": -6.359999999999673,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

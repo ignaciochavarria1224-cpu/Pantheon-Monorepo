@@ -1,0 +1,22 @@
+{
+  "trade_id": "655b52e5-ed1f-48ea-9f67-62c22fd3e130",
+  "position_id": "61e24911-9eb4-4478-9375-058363c354b6",
+  "symbol": "CL",
+  "direction": "short",
+  "entry_price": 83.5,
+  "exit_price": 83.59,
+  "stop_price": 83.59,
+  "target_price": 83.33,
+  "size": 95,
+  "entry_time": "2026-04-20T18:42:57.449906+00:00",
+  "exit_time": "2026-04-20T19:03:03.843151+00:00",
+  "hold_duration_minutes": 20.106554083333332,
+  "realized_pnl": -8.550000000000324,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 5,
+  "score_at_entry": 14.921812483213476,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

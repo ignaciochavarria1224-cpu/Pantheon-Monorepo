@@ -1,0 +1,22 @@
+{
+  "trade_id": "44e11302-fe66-49b5-b47a-40e35cd83782",
+  "position_id": "a8442cc5-97e3-46f2-af05-321f462bb172",
+  "symbol": "MSFT",
+  "direction": "short",
+  "entry_price": 421.78,
+  "exit_price": 422.8,
+  "stop_price": 422.89,
+  "target_price": 419.55,
+  "size": 49,
+  "entry_time": "2026-04-17T18:36:49.415309+00:00",
+  "exit_time": "2026-04-17T19:57:23.202820+00:00",
+  "hold_duration_minutes": 80.56312518333334,
+  "realized_pnl": -49.980000000001894,
+  "r_multiple": -0.9189189189189424,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 10,
+  "score_at_entry": 17.880532366689813,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

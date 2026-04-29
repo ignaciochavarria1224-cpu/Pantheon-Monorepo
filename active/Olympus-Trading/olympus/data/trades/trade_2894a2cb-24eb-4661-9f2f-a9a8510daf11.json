@@ -1,0 +1,22 @@
+{
+  "trade_id": "2894a2cb-24eb-4661-9f2f-a9a8510daf11",
+  "position_id": "74d705c4-db99-407e-9b8b-f4462de46801",
+  "symbol": "CVX",
+  "direction": "short",
+  "entry_price": 183.99,
+  "exit_price": 183.915,
+  "stop_price": 184.27,
+  "target_price": 183.43,
+  "size": 106,
+  "entry_time": "2026-04-20T16:42:16.466375+00:00",
+  "exit_time": "2026-04-20T17:42:42.423339+00:00",
+  "hold_duration_minutes": 60.43261606666667,
+  "realized_pnl": 7.950000000001808,
+  "r_multiple": 0.2678571428572027,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 32.15167159822516,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

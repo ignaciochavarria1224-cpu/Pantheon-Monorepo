@@ -1,0 +1,10 @@
+.env
+vault_embeddings.json
+voice_profile.json
+vault_state.tmp
+staging/
+__pycache__/
+*.pyc
+.DS_Store
+.evolve.lock
+*.log

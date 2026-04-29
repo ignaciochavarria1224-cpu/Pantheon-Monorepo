@@ -1,0 +1,22 @@
+{
+  "trade_id": "7ed06df3-a153-4923-898c-34db8b461ef9",
+  "position_id": "81dc0df8-990a-43cb-8d43-fae1b7a9461e",
+  "symbol": "DE",
+  "direction": "long",
+  "entry_price": 594.06,
+  "exit_price": 594.06,
+  "stop_price": 592.95,
+  "target_price": 596.29,
+  "size": 11,
+  "entry_time": "2026-04-23T19:27:31.651493+00:00",
+  "exit_time": "2026-04-23T19:47:32.570546+00:00",
+  "hold_duration_minutes": 20.015317550000002,
+  "realized_pnl": 0.0,
+  "r_multiple": 0.0,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 9,
+  "score_at_entry": 83.83037933380315,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

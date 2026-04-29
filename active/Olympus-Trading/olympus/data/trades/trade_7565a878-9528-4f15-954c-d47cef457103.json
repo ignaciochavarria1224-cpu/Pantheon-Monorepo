@@ -1,0 +1,22 @@
+{
+  "trade_id": "7565a878-9528-4f15-954c-d47cef457103",
+  "position_id": "8230ffc0-550b-4b9f-ba20-48c1ebcfc78b",
+  "symbol": "USB",
+  "direction": "short",
+  "entry_price": 55.83,
+  "exit_price": 55.92,
+  "stop_price": 56.29,
+  "target_price": 54.9,
+  "size": 1,
+  "entry_time": "2026-04-14T15:04:39.447246+00:00",
+  "exit_time": "2026-04-14T16:25:00.454337+00:00",
+  "hold_duration_minutes": 80.35011818333334,
+  "realized_pnl": -0.09000000000000341,
+  "r_multiple": -0.19565217391305054,
+  "exit_reason": "rotation",
+  "rank_at_entry": 3,
+  "score_at_entry": 23.929982911891273,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

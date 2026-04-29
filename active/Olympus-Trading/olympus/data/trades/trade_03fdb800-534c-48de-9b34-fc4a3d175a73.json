@@ -1,0 +1,22 @@
+{
+  "trade_id": "03fdb800-534c-48de-9b34-fc4a3d175a73",
+  "position_id": "98fe0385-6488-462d-8f22-50b22b9c5568",
+  "symbol": "PSX",
+  "direction": "short",
+  "entry_price": 158.225,
+  "exit_price": 156.68,
+  "stop_price": 159.0,
+  "target_price": 156.68,
+  "size": 6,
+  "entry_time": "2026-04-10T14:27:37.583682+00:00",
+  "exit_time": "2026-04-10T14:40:02.239091+00:00",
+  "hold_duration_minutes": 12.410923483333333,
+  "realized_pnl": 9.269999999999925,
+  "r_multiple": 1.9935483870967434,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 27.528521987660614,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

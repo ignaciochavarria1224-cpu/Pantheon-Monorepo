@@ -1,0 +1,22 @@
+{
+  "trade_id": "9ca6b4cf-60d9-41d6-ad17-1435ff6bb8c8",
+  "position_id": "2dbd6038-8849-48f1-b47b-0fbc8789486c",
+  "symbol": "MAR",
+  "direction": "long",
+  "entry_price": 375.23,
+  "exit_price": 376.82,
+  "stop_price": 374.43,
+  "target_price": 376.82,
+  "size": 53,
+  "entry_time": "2026-04-20T13:40:14.782987+00:00",
+  "exit_time": "2026-04-20T14:21:12.203324+00:00",
+  "hold_duration_minutes": 40.95700561666667,
+  "realized_pnl": 84.26999999999867,
+  "r_multiple": 1.9874999999999405,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 88.19669373924151,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

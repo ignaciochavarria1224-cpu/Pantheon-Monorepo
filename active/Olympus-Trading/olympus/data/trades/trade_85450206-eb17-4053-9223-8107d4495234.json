@@ -1,0 +1,22 @@
+{
+  "trade_id": "85450206-eb17-4053-9223-8107d4495234",
+  "position_id": "edce50bc-ac76-43c8-958d-fdbf965fb1b5",
+  "symbol": "UNP",
+  "direction": "long",
+  "entry_price": 253.82,
+  "exit_price": 253.37,
+  "stop_price": 252.46,
+  "target_price": 256.54,
+  "size": 22,
+  "entry_time": "2026-04-22T14:01:07.121324+00:00",
+  "exit_time": "2026-04-22T14:41:41.146097+00:00",
+  "hold_duration_minutes": 40.56707955,
+  "realized_pnl": -9.89999999999975,
+  "r_multiple": -0.3308823529411717,
+  "exit_reason": "rotation",
+  "rank_at_entry": 9,
+  "score_at_entry": 72.00277809476503,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

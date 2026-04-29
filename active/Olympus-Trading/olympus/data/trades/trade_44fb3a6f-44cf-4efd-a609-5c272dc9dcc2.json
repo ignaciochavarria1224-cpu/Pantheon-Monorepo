@@ -1,0 +1,22 @@
+{
+  "trade_id": "44fb3a6f-44cf-4efd-a609-5c272dc9dcc2",
+  "position_id": "21056a00-30c0-491f-a205-c5cfb810df6a",
+  "symbol": "PLD",
+  "direction": "long",
+  "entry_price": 143.665,
+  "exit_price": 143.6,
+  "stop_price": 142.78,
+  "target_price": 145.44,
+  "size": 1,
+  "entry_time": "2026-04-16T14:31:03.272060+00:00",
+  "exit_time": "2026-04-16T15:31:19.353265+00:00",
+  "hold_duration_minutes": 60.26802008333333,
+  "realized_pnl": -0.06499999999999773,
+  "r_multiple": -0.073446327683614,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 83.38511173140134,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

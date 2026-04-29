@@ -1,0 +1,22 @@
+{
+  "trade_id": "e4b083c8-5815-4a0d-8f1a-a5f0d9db66b8",
+  "position_id": "3d7a78ac-9548-46cb-b554-73e55d6644e0",
+  "symbol": "LLY",
+  "direction": "long",
+  "entry_price": 902.44,
+  "exit_price": 904.24,
+  "stop_price": 900.62,
+  "target_price": 906.07,
+  "size": 6,
+  "entry_time": "2026-04-21T17:37:49.743064+00:00",
+  "exit_time": "2026-04-21T19:04:52.412060+00:00",
+  "hold_duration_minutes": 87.04448326666667,
+  "realized_pnl": 10.799999999999727,
+  "r_multiple": 0.9890109890109369,
+  "exit_reason": "rotation",
+  "rank_at_entry": 4,
+  "score_at_entry": 96.85086437320855,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "66dfecb2-cb9c-47f3-9849-37ccc42727b8",
+  "position_id": "f80adf58-1c23-4567-ba75-653d89e273a4",
+  "symbol": "DIS",
+  "direction": "long",
+  "entry_price": 102.98,
+  "exit_price": 103.11,
+  "stop_price": 102.83,
+  "target_price": 103.28,
+  "size": 2,
+  "entry_time": "2026-04-15T17:09:01.678013+00:00",
+  "exit_time": "2026-04-15T18:29:21.295694+00:00",
+  "hold_duration_minutes": 80.32696134999999,
+  "realized_pnl": 0.2599999999999909,
+  "r_multiple": 0.8666666666666035,
+  "exit_reason": "rotation",
+  "rank_at_entry": 6,
+  "score_at_entry": 71.8578193354065,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

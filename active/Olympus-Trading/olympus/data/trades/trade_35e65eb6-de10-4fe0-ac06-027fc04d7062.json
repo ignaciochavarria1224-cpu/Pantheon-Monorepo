@@ -1,0 +1,22 @@
+{
+  "trade_id": "35e65eb6-de10-4fe0-ac06-027fc04d7062",
+  "position_id": "0276fd03-e0e2-42f6-93e2-7b5dbaaa01a3",
+  "symbol": "HCA",
+  "direction": "short",
+  "entry_price": 489.54,
+  "exit_price": 487.72,
+  "stop_price": 490.45,
+  "target_price": 487.72,
+  "size": 26,
+  "entry_time": "2026-04-20T14:01:06.706173+00:00",
+  "exit_time": "2026-04-20T14:41:15.199482+00:00",
+  "hold_duration_minutes": 40.14155515,
+  "realized_pnl": 47.31999999999982,
+  "r_multiple": 2.0000000000000626,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 29.516818046636534,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

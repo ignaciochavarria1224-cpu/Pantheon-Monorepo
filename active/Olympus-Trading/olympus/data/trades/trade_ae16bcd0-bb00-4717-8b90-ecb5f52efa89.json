@@ -1,0 +1,22 @@
+{
+  "trade_id": "ae16bcd0-bb00-4717-8b90-ecb5f52efa89",
+  "position_id": "64dc7baf-2547-4993-8139-53fabee7071d",
+  "symbol": "TEAM",
+  "direction": "long",
+  "entry_price": 61.56,
+  "exit_price": 61.29,
+  "stop_price": 61.29,
+  "target_price": 62.09,
+  "size": 1,
+  "entry_time": "2026-04-14T17:43:12.028311+00:00",
+  "exit_time": "2026-04-14T18:03:14.995739+00:00",
+  "hold_duration_minutes": 20.04945713333333,
+  "realized_pnl": -0.2700000000000031,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 2,
+  "score_at_entry": 99.72457503633639,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

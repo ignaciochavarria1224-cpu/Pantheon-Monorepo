@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python -m pytest tests/phase1/test_data.py tests/phase1/test_scheduler.py -v -m \"not integration\")",
+      "Bash(python -m pytest tests/phase2/ -v -m \"not integration\")",
+      "Bash(python -m pytest tests/phase1/ -v -m \"not integration\")",
+      "Bash(python -m pytest tests/phase3/ -v -m \"not integration\")",
+      "Bash(python -m pytest tests/phase1/ tests/phase2/ -v -m \"not integration\" --tb=short)",
+      "Bash(python -m pytest tests/phase1/ tests/phase2/ -m \"not integration\" -q)",
+      "Bash(python -m pytest tests/phase1/ tests/phase2/ -m \"not integration\")",
+      "Bash(python -m pytest tests/ -m \"not integration\" -q)",
+      "Bash(python -m pytest tests/phase4/ -v)",
+      "Bash(python -m pytest tests/phase2/ tests/phase3/ -v --tb=no -q)",
+      "Bash(python -m pytest tests/phase2/ tests/phase3/ tests/phase4/ -q --tb=no)",
+      "Bash(python -m pytest tests/ -x -q)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python -m pytest tests/ -x -q --no-header)",
+      "Bash(python -m pytest tests/ -q --no-header)",
+      "Bash(python -c \"from alpaca.trading.requests import GetOrdersRequest; from alpaca.trading.enums import QueryOrderStatus; print\\('OK'\\)\")"
+    ]
+  }
+}

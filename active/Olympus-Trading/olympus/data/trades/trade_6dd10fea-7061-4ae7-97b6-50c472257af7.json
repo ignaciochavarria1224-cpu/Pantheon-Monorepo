@@ -1,0 +1,22 @@
+{
+  "trade_id": "6dd10fea-7061-4ae7-97b6-50c472257af7",
+  "position_id": "b4e60957-de41-4472-9007-2accf48bc4f6",
+  "symbol": "SLB",
+  "direction": "short",
+  "entry_price": 51.97,
+  "exit_price": 51.97,
+  "stop_price": 52.09,
+  "target_price": 51.72,
+  "size": 5,
+  "entry_time": "2026-04-15T16:47:08.865981+00:00",
+  "exit_time": "2026-04-15T17:07:19.993826+00:00",
+  "hold_duration_minutes": 20.185464083333333,
+  "realized_pnl": 0.0,
+  "r_multiple": 0.0,
+  "exit_reason": "rotation",
+  "rank_at_entry": 2,
+  "score_at_entry": 19.619846606378196,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

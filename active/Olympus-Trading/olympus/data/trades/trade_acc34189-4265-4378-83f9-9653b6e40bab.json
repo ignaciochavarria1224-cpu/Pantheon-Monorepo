@@ -1,0 +1,22 @@
+{
+  "trade_id": "acc34189-4265-4378-83f9-9653b6e40bab",
+  "position_id": "145a1cbb-748c-452f-b860-c9644ed270ca",
+  "symbol": "EMR",
+  "direction": "short",
+  "entry_price": 143.815,
+  "exit_price": 142.905,
+  "stop_price": 144.29,
+  "target_price": 142.86,
+  "size": 8,
+  "entry_time": "2026-04-09T14:00:47.899721+00:00",
+  "exit_time": "2026-04-09T14:20:49.744084+00:00",
+  "hold_duration_minutes": 20.030739383333334,
+  "realized_pnl": 7.279999999999973,
+  "r_multiple": 1.9157894736842263,
+  "exit_reason": "rotation",
+  "rank_at_entry": 7,
+  "score_at_entry": 22.426055504947236,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "4753df01-f055-4be9-b353-00a62b8a7d18",
+  "position_id": "6dbc8db9-af31-45e7-aa23-42fc9c851b1b",
+  "symbol": "NOW",
+  "direction": "long",
+  "entry_price": 93.01,
+  "exit_price": 93.11,
+  "stop_price": 92.29,
+  "target_price": 94.46,
+  "size": 1,
+  "entry_time": "2026-04-15T14:46:13.793966+00:00",
+  "exit_time": "2026-04-15T16:46:56.824529+00:00",
+  "hold_duration_minutes": 120.71717605,
+  "realized_pnl": 0.09999999999999432,
+  "r_multiple": 0.1388888888888812,
+  "exit_reason": "rotation",
+  "rank_at_entry": 3,
+  "score_at_entry": 80.61365162073889,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

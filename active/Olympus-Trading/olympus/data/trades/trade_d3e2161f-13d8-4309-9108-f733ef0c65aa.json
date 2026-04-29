@@ -1,0 +1,22 @@
+{
+  "trade_id": "d3e2161f-13d8-4309-9108-f733ef0c65aa",
+  "position_id": "6c831f13-8c8c-401b-ada7-d87161e15241",
+  "symbol": "AMT",
+  "direction": "short",
+  "entry_price": 177.195,
+  "exit_price": 175.44,
+  "stop_price": 178.07,
+  "target_price": 175.44,
+  "size": 32,
+  "entry_time": "2026-04-22T13:40:48.380146+00:00",
+  "exit_time": "2026-04-22T14:41:35.329985+00:00",
+  "hold_duration_minutes": 60.782497316666664,
+  "realized_pnl": 56.159999999999854,
+  "r_multiple": 2.0057142857142805,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 27.313084694711826,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

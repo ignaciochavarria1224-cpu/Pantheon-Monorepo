@@ -1,0 +1,22 @@
+{
+  "trade_id": "312b6247-e84e-43bf-acdf-ba6a599f2f83",
+  "position_id": "0022e3e2-ac48-4f86-8dab-198df9fd7461",
+  "symbol": "COP",
+  "direction": "short",
+  "entry_price": 122.77,
+  "exit_price": 122.42,
+  "stop_price": 122.94,
+  "target_price": 122.42,
+  "size": 1,
+  "entry_time": "2026-04-13T19:02:44.308929+00:00",
+  "exit_time": "2026-04-13T19:22:48.094321+00:00",
+  "hold_duration_minutes": 20.063089866666665,
+  "realized_pnl": 0.3499999999999943,
+  "r_multiple": 2.0588235294117108,
+  "exit_reason": "target",
+  "rank_at_entry": 8,
+  "score_at_entry": 25.084782077808875,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

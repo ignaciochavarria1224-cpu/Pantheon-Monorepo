@@ -1,0 +1,22 @@
+{
+  "trade_id": "3b4925aa-de5e-4356-819e-77cadeb2565c",
+  "position_id": "1fbb4d2f-4157-4e98-9f6f-6e088457fa42",
+  "symbol": "BKNG",
+  "direction": "short",
+  "entry_price": 175.74,
+  "exit_price": 175.945,
+  "stop_price": 176.66,
+  "target_price": 173.91,
+  "size": 32,
+  "entry_time": "2026-04-23T18:47:23.440160+00:00",
+  "exit_time": "2026-04-23T19:47:32.346325+00:00",
+  "hold_duration_minutes": 60.14843608333333,
+  "realized_pnl": -6.559999999999491,
+  "r_multiple": -0.22282608695650746,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 7,
+  "score_at_entry": 35.88808036320991,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

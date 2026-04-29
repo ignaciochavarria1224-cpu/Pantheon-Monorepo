@@ -1,0 +1,22 @@
+{
+  "trade_id": "d31d5b09-661e-4654-91f4-fa0ea749a12d",
+  "position_id": "e1991a80-b7da-4c87-94f8-f8946e12aa48",
+  "symbol": "EQIX",
+  "direction": "long",
+  "entry_price": 1099.92,
+  "exit_price": 1102.07,
+  "stop_price": 1098.85,
+  "target_price": 1102.07,
+  "size": 13,
+  "entry_time": "2026-04-20T19:43:35.941816+00:00",
+  "exit_time": "2026-04-21T13:44:30.878768+00:00",
+  "hold_duration_minutes": 1080.9156158666667,
+  "realized_pnl": 27.949999999998226,
+  "r_multiple": 2.0093457943920883,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 76.98481358883956,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

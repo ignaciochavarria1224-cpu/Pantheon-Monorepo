@@ -1,0 +1,22 @@
+{
+  "trade_id": "aa38ec90-a659-48f6-8a7e-176e0815ad91",
+  "position_id": "b5e40cdc-a06c-4fa7-bd9d-922f4aa8bf0f",
+  "symbol": "STLD",
+  "direction": "long",
+  "entry_price": 196.58,
+  "exit_price": 197.21,
+  "stop_price": 196.27,
+  "target_price": 197.21,
+  "size": 1,
+  "entry_time": "2026-04-14T13:40:58.871746+00:00",
+  "exit_time": "2026-04-14T14:21:30.855488+00:00",
+  "hold_duration_minutes": 40.53306236666666,
+  "realized_pnl": 0.6299999999999955,
+  "r_multiple": 2.0322580645160992,
+  "exit_reason": "target",
+  "rank_at_entry": 10,
+  "score_at_entry": 65.11700610524817,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

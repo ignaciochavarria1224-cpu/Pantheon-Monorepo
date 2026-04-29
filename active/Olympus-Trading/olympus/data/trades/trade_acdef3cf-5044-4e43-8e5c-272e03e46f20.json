@@ -1,0 +1,22 @@
+{
+  "trade_id": "acdef3cf-5044-4e43-8e5c-272e03e46f20",
+  "position_id": "0d23a007-31bc-4593-9161-c111efc4dc43",
+  "symbol": "ORLY",
+  "direction": "short",
+  "entry_price": 93.47,
+  "exit_price": 93.54,
+  "stop_price": 93.54,
+  "target_price": 93.33,
+  "size": 60,
+  "entry_time": "2026-04-22T17:03:24.163729+00:00",
+  "exit_time": "2026-04-22T17:23:30.389001+00:00",
+  "hold_duration_minutes": 20.103754533333333,
+  "realized_pnl": -4.200000000000443,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 13,
+  "score_at_entry": 29.856167707610133,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

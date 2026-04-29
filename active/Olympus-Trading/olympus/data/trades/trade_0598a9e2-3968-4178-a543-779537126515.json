@@ -1,0 +1,22 @@
+{
+  "trade_id": "0598a9e2-3968-4178-a543-779537126515",
+  "position_id": "a786a039-85b6-4e09-94c8-360fad3fea92",
+  "symbol": "ETR",
+  "direction": "short",
+  "entry_price": 114.69,
+  "exit_price": 114.59,
+  "stop_price": 114.74,
+  "target_price": 114.59,
+  "size": 1,
+  "entry_time": "2026-04-13T17:20:48.307277+00:00",
+  "exit_time": "2026-04-13T17:40:52.587895+00:00",
+  "hold_duration_minutes": 20.071343633333335,
+  "realized_pnl": 0.09999999999999432,
+  "r_multiple": 2.0,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 14.646370305383677,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

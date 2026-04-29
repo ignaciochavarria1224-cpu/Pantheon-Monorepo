@@ -1,0 +1,22 @@
+{
+  "trade_id": "baafb1bf-091d-4ba0-af52-209092b02dc6",
+  "position_id": "373e9b7e-ac8c-4af6-944c-764f1fefea16",
+  "symbol": "ED",
+  "direction": "short",
+  "entry_price": 111.66,
+  "exit_price": 111.69,
+  "stop_price": 111.69,
+  "target_price": 111.59,
+  "size": 2,
+  "entry_time": "2026-04-13T17:00:23.198896+00:00",
+  "exit_time": "2026-04-13T17:20:31.386523+00:00",
+  "hold_duration_minutes": 20.13646045,
+  "realized_pnl": -0.060000000000002274,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 6.541026694515353,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

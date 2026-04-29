@@ -1,0 +1,22 @@
+{
+  "trade_id": "cd36de53-239c-4550-8e7c-7df2bca40de2",
+  "position_id": "109b7bce-528b-4da5-9c72-09917077f344",
+  "symbol": "KLAC",
+  "direction": "long",
+  "entry_price": 1692.56,
+  "exit_price": 1691.97,
+  "stop_price": 1686.17,
+  "target_price": 1705.33,
+  "size": 7,
+  "entry_time": "2026-04-09T13:40:43.614377+00:00",
+  "exit_time": "2026-04-09T14:20:49.499214+00:00",
+  "hold_duration_minutes": 40.09808061666667,
+  "realized_pnl": -4.129999999999427,
+  "r_multiple": -0.09233176838809545,
+  "exit_reason": "rotation",
+  "rank_at_entry": 9,
+  "score_at_entry": 69.35873900870835,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "90e62c3d-7bee-4724-8327-aab28419e7e3",
+  "position_id": "7fce6cda-c65f-4436-ab5b-6bb0a90f83da",
+  "symbol": "SCHW",
+  "direction": "short",
+  "entry_price": 92.58,
+  "exit_price": 93.02,
+  "stop_price": 93.02,
+  "target_price": 91.7,
+  "size": 1,
+  "entry_time": "2026-04-16T19:33:28.635571+00:00",
+  "exit_time": "2026-04-16T19:53:30.974023+00:00",
+  "hold_duration_minutes": 20.0389742,
+  "realized_pnl": -0.4399999999999977,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

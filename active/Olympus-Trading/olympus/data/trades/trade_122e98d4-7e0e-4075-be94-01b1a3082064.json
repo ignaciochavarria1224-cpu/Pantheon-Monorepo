@@ -1,0 +1,22 @@
+{
+  "trade_id": "122e98d4-7e0e-4075-be94-01b1a3082064",
+  "position_id": "ff08393c-bdfe-4fa4-85cc-1ff0ae90f683",
+  "symbol": "DD",
+  "direction": "short",
+  "entry_price": 47.34,
+  "exit_price": 47.5,
+  "stop_price": 47.5,
+  "target_price": 47.02,
+  "size": 422,
+  "entry_time": "2026-04-20T13:40:15.314546+00:00",
+  "exit_time": "2026-04-20T14:21:12.265041+00:00",
+  "hold_duration_minutes": 40.94917491666667,
+  "realized_pnl": -67.51999999999856,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 2,
+  "score_at_entry": 13.60772390867801,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "7c5670f4-7563-49a7-946e-6a5aaac1a0ad",
+  "position_id": "602f0ceb-6cb1-4c7b-a9c5-681b95bbac52",
+  "symbol": "ADBE",
+  "direction": "short",
+  "entry_price": 231.3,
+  "exit_price": 230.13,
+  "stop_price": 233.08,
+  "target_price": 227.75,
+  "size": 41,
+  "entry_time": "2026-04-09T14:20:51.847592+00:00",
+  "exit_time": "2026-04-09T16:21:00.898261+00:00",
+  "hold_duration_minutes": 120.15084448333333,
+  "realized_pnl": 47.97000000000065,
+  "r_multiple": 0.6573033707865253,
+  "exit_reason": "rotation",
+  "rank_at_entry": 8,
+  "score_at_entry": 37.89483360018232,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

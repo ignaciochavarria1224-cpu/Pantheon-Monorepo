@@ -1,0 +1,22 @@
+{
+  "trade_id": "4020f287-8bad-4fce-92b9-663052dc64ec",
+  "position_id": "fcb6a3b5-20a7-465a-b56b-9ad33ce6c21a",
+  "symbol": "CRM",
+  "direction": "short",
+  "entry_price": 170.8,
+  "exit_price": 169.17,
+  "stop_price": 171.91,
+  "target_price": 168.59,
+  "size": 79,
+  "entry_time": "2026-04-09T13:40:44.089371+00:00",
+  "exit_time": "2026-04-09T16:21:00.361934+00:00",
+  "hold_duration_minutes": 160.27120938333334,
+  "realized_pnl": 128.7700000000019,
+  "r_multiple": 1.4684684684685094,
+  "exit_reason": "rotation",
+  "rank_at_entry": 4,
+  "score_at_entry": 9.979386199749895,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

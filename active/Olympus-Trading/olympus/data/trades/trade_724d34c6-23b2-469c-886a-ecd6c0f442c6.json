@@ -1,0 +1,22 @@
+{
+  "trade_id": "724d34c6-23b2-469c-886a-ecd6c0f442c6",
+  "position_id": "0cb91ab2-6aaa-446f-a72f-fb5251408525",
+  "symbol": "MPC",
+  "direction": "long",
+  "entry_price": 229.19,
+  "exit_price": 229.15,
+  "stop_price": 228.39,
+  "target_price": 230.78,
+  "size": 1,
+  "entry_time": "2026-04-16T14:31:03.786762+00:00",
+  "exit_time": "2026-04-16T15:31:22.557227+00:00",
+  "hold_duration_minutes": 60.31284108333333,
+  "realized_pnl": -0.03999999999999204,
+  "r_multiple": -0.049999999999989345,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 78.80075540528397,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

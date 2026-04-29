@@ -1,0 +1,22 @@
+{
+  "trade_id": "86fc6d62-9697-41b1-ab5b-9ea831f914fa",
+  "position_id": "e4e66cea-adc0-4c89-a0b2-6ec4b73a8a93",
+  "symbol": "LIN",
+  "direction": "long",
+  "entry_price": 498.47,
+  "exit_price": 499.04,
+  "stop_price": 497.85,
+  "target_price": 499.71,
+  "size": 14,
+  "entry_time": "2026-04-20T15:41:29.591022+00:00",
+  "exit_time": "2026-04-20T16:41:47.654578+00:00",
+  "hold_duration_minutes": 60.30105926666667,
+  "realized_pnl": 7.9799999999999045,
+  "r_multiple": 0.9193548387096597,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 69.58402348046837,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

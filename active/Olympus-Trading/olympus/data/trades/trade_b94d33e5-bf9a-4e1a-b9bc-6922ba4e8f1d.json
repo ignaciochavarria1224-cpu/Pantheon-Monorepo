@@ -1,0 +1,22 @@
+{
+  "trade_id": "b94d33e5-bf9a-4e1a-b9bc-6922ba4e8f1d",
+  "position_id": "a78940ee-db3d-416c-bd26-c78e6965e507",
+  "symbol": "TMUS",
+  "direction": "short",
+  "entry_price": 190.245,
+  "exit_price": 186.79,
+  "stop_price": 191.97,
+  "target_price": 186.79,
+  "size": 30,
+  "entry_time": "2026-04-22T13:40:45.723153+00:00",
+  "exit_time": "2026-04-22T14:41:34.232876+00:00",
+  "hold_duration_minutes": 60.80849538333334,
+  "realized_pnl": 103.65000000000038,
+  "r_multiple": 2.0028985507246517,
+  "exit_reason": "target",
+  "rank_at_entry": 3,
+  "score_at_entry": 20.726655077573238,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

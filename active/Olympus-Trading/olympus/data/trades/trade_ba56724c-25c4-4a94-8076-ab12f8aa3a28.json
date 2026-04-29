@@ -1,0 +1,22 @@
+{
+  "trade_id": "ba56724c-25c4-4a94-8076-ab12f8aa3a28",
+  "position_id": "f618163f-6c41-44bf-810b-aa874f948a06",
+  "symbol": "WELL",
+  "direction": "long",
+  "entry_price": 207.03,
+  "exit_price": 207.075,
+  "stop_price": 206.72,
+  "target_price": 207.65,
+  "size": 27,
+  "entry_time": "2026-04-23T18:27:12.948071+00:00",
+  "exit_time": "2026-04-23T18:47:18.940959+00:00",
+  "hold_duration_minutes": 20.099881466666666,
+  "realized_pnl": 1.2149999999996624,
+  "r_multiple": 0.14516129032253924,
+  "exit_reason": "rotation",
+  "rank_at_entry": 11,
+  "score_at_entry": 80.33608734010895,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

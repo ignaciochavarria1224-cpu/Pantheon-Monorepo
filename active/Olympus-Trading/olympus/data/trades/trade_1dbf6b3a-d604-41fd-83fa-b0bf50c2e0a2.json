@@ -1,0 +1,22 @@
+{
+  "trade_id": "1dbf6b3a-d604-41fd-83fa-b0bf50c2e0a2",
+  "position_id": "9a754a57-09da-4f5a-8a36-3ca632fe7f3a",
+  "symbol": "GS",
+  "direction": "short",
+  "entry_price": 920.395,
+  "exit_price": 916.16,
+  "stop_price": 922.51,
+  "target_price": 916.16,
+  "size": 22,
+  "entry_time": "2026-04-17T13:34:31.454234+00:00",
+  "exit_time": "2026-04-17T13:54:34.041375+00:00",
+  "hold_duration_minutes": 20.043119016666665,
+  "realized_pnl": 93.1700000000003,
+  "r_multiple": 2.0023640661938513,
+  "exit_reason": "target",
+  "rank_at_entry": 8,
+  "score_at_entry": 7.5202894883485,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

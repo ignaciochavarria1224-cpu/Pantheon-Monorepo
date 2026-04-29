@@ -1,0 +1,22 @@
+{
+  "trade_id": "23010cb6-df81-44d4-84c5-a61b70788f61",
+  "position_id": "1e0393a7-d619-478f-9364-674f472c6d3b",
+  "symbol": "NFLX",
+  "direction": "short",
+  "entry_price": 92.15,
+  "exit_price": 92.42,
+  "stop_price": 92.42,
+  "target_price": 91.61,
+  "size": 62,
+  "entry_time": "2026-04-23T17:27:01.827907+00:00",
+  "exit_time": "2026-04-23T18:07:06.932060+00:00",
+  "hold_duration_minutes": 40.08506921666667,
+  "realized_pnl": -16.739999999999753,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 30.20658957542309,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

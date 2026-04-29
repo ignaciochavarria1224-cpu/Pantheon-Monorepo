@@ -1,0 +1,23 @@
+# utils/git_ops.py
+from pathlib import Path
+from datetime import datetime
+
+VAULT_ROOT = Path(__file__).parent.parent
+
+
+def git_commit(cycle: int, framework_count: int) -> bool:
+    try:
+        import git
+        repo = git.Repo(VAULT_ROOT)
+        repo.git.add(A=True)
+        if not repo.is_dirty(index=True, untracked_files=True):
+            print("  [GIT] Nothing to commit.")
+            return True
+        msg = (f"Cycle {cycle}: {datetime.now().strftime('%Y-%m-%d %H:%M')} "
+               f"| frameworks: {framework_count}")
+        repo.index.commit(msg)
+        print(f"  [GIT] Committed: {msg}")
+        return True
+    except Exception as e:
+        print(f"  [GIT] Commit failed: {e}")
+        return False

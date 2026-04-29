@@ -1,0 +1,22 @@
+{
+  "trade_id": "560de2e9-82f7-493e-b9df-1483d7392e5f",
+  "position_id": "4eb356fe-3a68-480f-bd8f-865f8581c2be",
+  "symbol": "LRCX",
+  "direction": "short",
+  "entry_price": 261.7,
+  "exit_price": 261.11,
+  "stop_price": 261.99,
+  "target_price": 261.11,
+  "size": 1,
+  "entry_time": "2026-04-16T17:53:02.404721+00:00",
+  "exit_time": "2026-04-16T18:13:04.867399+00:00",
+  "hold_duration_minutes": 20.041044633333335,
+  "realized_pnl": 0.589999999999975,
+  "r_multiple": 2.03448275862046,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 20.009944467135945,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

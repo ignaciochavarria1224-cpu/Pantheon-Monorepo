@@ -1,0 +1,22 @@
+{
+  "trade_id": "0d71ef85-7aaa-47f8-9a75-926cb8e54501",
+  "position_id": "99cd3ea4-7380-4f2c-8938-db29cfc34e5e",
+  "symbol": "INTU",
+  "direction": "long",
+  "entry_price": 354.11,
+  "exit_price": 358.22,
+  "stop_price": 352.06,
+  "target_price": 358.22,
+  "size": 1,
+  "entry_time": "2026-04-13T13:40:50.112215+00:00",
+  "exit_time": "2026-04-13T14:00:53.242146+00:00",
+  "hold_duration_minutes": 20.052165516666665,
+  "realized_pnl": 4.110000000000014,
+  "r_multiple": 2.0048780487804834,
+  "exit_reason": "target",
+  "rank_at_entry": 9,
+  "score_at_entry": 79.68212242331849,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

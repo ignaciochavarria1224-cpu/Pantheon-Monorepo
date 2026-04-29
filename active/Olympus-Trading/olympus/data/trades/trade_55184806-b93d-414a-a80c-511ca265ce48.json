@@ -1,0 +1,22 @@
+{
+  "trade_id": "55184806-b93d-414a-a80c-511ca265ce48",
+  "position_id": "97f450d0-14bf-494b-8084-5321dad73028",
+  "symbol": "CRWD",
+  "direction": "long",
+  "entry_price": 426.655,
+  "exit_price": 425.6,
+  "stop_price": 425.6,
+  "target_price": 428.76,
+  "size": 43,
+  "entry_time": "2026-04-08T18:01:21.625907+00:00",
+  "exit_time": "2026-04-08T18:21:23.883623+00:00",
+  "hold_duration_minutes": 20.0376286,
+  "realized_pnl": -45.36499999999785,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 100.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

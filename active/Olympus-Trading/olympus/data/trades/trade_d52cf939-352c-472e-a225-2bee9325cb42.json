@@ -1,0 +1,22 @@
+{
+  "trade_id": "d52cf939-352c-472e-a225-2bee9325cb42",
+  "position_id": "7cba9621-31e4-48eb-8cf6-7827d57fb5ee",
+  "symbol": "WFC",
+  "direction": "short",
+  "entry_price": 82.45,
+  "exit_price": 82.24,
+  "stop_price": 83.35,
+  "target_price": 80.66,
+  "size": 1,
+  "entry_time": "2026-04-14T15:22:07.153259+00:00",
+  "exit_time": "2026-04-14T16:42:24.911110+00:00",
+  "hold_duration_minutes": 80.29596418333334,
+  "realized_pnl": 0.21000000000000796,
+  "r_multiple": 0.23333333333334438,
+  "exit_reason": "rotation",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "91a8ef35-f484-4a72-bc42-36113c8db1fe",
+  "position_id": "0f9ff549-4b1e-4c67-895b-ad12cf267997",
+  "symbol": "META",
+  "direction": "short",
+  "entry_price": 673.83,
+  "exit_price": 672.34,
+  "stop_price": 676.26,
+  "target_price": 668.96,
+  "size": 10,
+  "entry_time": "2026-04-20T15:41:29.950473+00:00",
+  "exit_time": "2026-04-20T16:41:50.223166+00:00",
+  "hold_duration_minutes": 60.33787821666667,
+  "realized_pnl": 14.900000000000091,
+  "r_multiple": 0.6131687242798518,
+  "exit_reason": "rotation",
+  "rank_at_entry": 6,
+  "score_at_entry": 19.598352471499034,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

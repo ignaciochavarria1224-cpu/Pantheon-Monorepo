@@ -1,0 +1,22 @@
+{
+  "trade_id": "e4dd0d28-b4a8-43d8-889d-646a68bbf571",
+  "position_id": "4296e520-c8ef-4e6c-a8df-f0b1d96f5cb3",
+  "symbol": "NOC",
+  "direction": "short",
+  "entry_price": 589.57,
+  "exit_price": 588.76,
+  "stop_price": 590.98,
+  "target_price": 586.74,
+  "size": 9,
+  "entry_time": "2026-04-22T17:23:42.467092+00:00",
+  "exit_time": "2026-04-22T18:44:20.167664+00:00",
+  "hold_duration_minutes": 80.62834286666666,
+  "realized_pnl": 7.290000000000532,
+  "r_multiple": 0.5744680851064379,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 21.27166789578661,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

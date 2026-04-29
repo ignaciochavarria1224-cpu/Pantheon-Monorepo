@@ -1,0 +1,22 @@
+{
+  "trade_id": "131e9ab7-997c-4a64-8bb4-2beff08375eb",
+  "position_id": "14552340-c86a-4806-832c-dfaacea4d482",
+  "symbol": "TJX",
+  "direction": "short",
+  "entry_price": 156.94,
+  "exit_price": 157.19,
+  "stop_price": 157.19,
+  "target_price": 156.43,
+  "size": 1,
+  "entry_time": "2026-04-16T17:12:50.951994+00:00",
+  "exit_time": "2026-04-16T17:53:00.376907+00:00",
+  "hold_duration_minutes": 40.15708188333333,
+  "realized_pnl": -0.25,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 5,
+  "score_at_entry": 9.105558410430657,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "ba2e889e-98b2-4750-9c3d-e7e6292a4a17",
+  "position_id": "d0766ac8-faaa-4f17-a88d-2c1494d7eff1",
+  "symbol": "GD",
+  "direction": "short",
+  "entry_price": 333.29,
+  "exit_price": 332.14,
+  "stop_price": 333.86,
+  "target_price": 332.14,
+  "size": 1,
+  "entry_time": "2026-04-16T16:52:40.146110+00:00",
+  "exit_time": "2026-04-16T17:12:49.356329+00:00",
+  "hold_duration_minutes": 20.15350365,
+  "realized_pnl": 1.150000000000034,
+  "r_multiple": 2.017543859649207,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 10.521462928604192,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

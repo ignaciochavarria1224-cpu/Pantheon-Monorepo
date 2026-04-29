@@ -1,0 +1,22 @@
+{
+  "trade_id": "63efd5c2-bd9a-471e-ba51-5058c6c927a2",
+  "position_id": "b8cb076d-273e-4804-ae1b-068a151f5fd7",
+  "symbol": "EIX",
+  "direction": "short",
+  "entry_price": 72.54,
+  "exit_price": 72.18,
+  "stop_price": 72.72,
+  "target_price": 72.18,
+  "size": 1,
+  "entry_time": "2026-04-13T16:41:52.298582+00:00",
+  "exit_time": "2026-04-13T17:42:17.736956+00:00",
+  "hold_duration_minutes": 60.423972899999995,
+  "realized_pnl": 0.35999999999999943,
+  "r_multiple": 2.000000000000079,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 10.613417915917774,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

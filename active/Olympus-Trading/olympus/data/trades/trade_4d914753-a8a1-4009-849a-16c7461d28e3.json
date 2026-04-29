@@ -1,0 +1,22 @@
+{
+  "trade_id": "4d914753-a8a1-4009-849a-16c7461d28e3",
+  "position_id": "d023846a-8789-4125-b6e2-2a0406a53c1d",
+  "symbol": "SNAP",
+  "direction": "long",
+  "entry_price": 5.095,
+  "exit_price": 5.105,
+  "stop_price": 5.07,
+  "target_price": 5.14,
+  "size": 6,
+  "entry_time": "2026-04-13T17:42:19.079258+00:00",
+  "exit_time": "2026-04-13T19:42:56.118931+00:00",
+  "hold_duration_minutes": 120.61732788333333,
+  "realized_pnl": 0.06000000000000405,
+  "r_multiple": 0.40000000000003555,
+  "exit_reason": "rotation",
+  "rank_at_entry": 3,
+  "score_at_entry": 83.70213178418578,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

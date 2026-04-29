@@ -1,0 +1,22 @@
+{
+  "trade_id": "069e379b-ebdc-4f1b-b14b-c57730d931d2",
+  "position_id": "48161dd0-ba72-4eba-bd50-734177b32055",
+  "symbol": "CCI",
+  "direction": "short",
+  "entry_price": 84.61,
+  "exit_price": 84.85,
+  "stop_price": 84.85,
+  "target_price": 84.13,
+  "size": 181,
+  "entry_time": "2026-04-08T13:40:46.630525+00:00",
+  "exit_time": "2026-04-08T14:00:49.295182+00:00",
+  "hold_duration_minutes": 20.04441095,
+  "realized_pnl": -43.439999999999074,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 3,
+  "score_at_entry": 10.836835403128356,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

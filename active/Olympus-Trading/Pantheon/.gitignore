@@ -1,0 +1,60 @@
+# Global secrets and environment
+.env
+*.env
+**/.env
+
+# Python
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+**/__pycache__/
+**/*.py[cod]
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Generated web/build/cache artifacts
+.states/
+.web/
+node_modules/
+**/.states/
+**/.web/
+**/node_modules/
+**/.wwebjs_auth/
+**/.wwebjs_cache/
+
+# Local databases and indexes
+*.db
+*.sqlite
+*.sqlite3
+**/*.db
+
+# Apollo runtime data
+apps/apollo/data/
+apps/apollo/logs/
+apps/apollo/mind_vault/
+
+# Olympus runtime data
+apps/olympus/data/
+apps/olympus/logs/
+apps/olympus/*.pid
+apps/olympus/.pytest_cache/
+
+# Maridian private/local data
+apps/maridian/raw/
+apps/maridian/wiki/
+apps/maridian/Questions/
+apps/maridian/.obsidian/
+apps/maridian/.claude/
+apps/maridian/vault_embeddings.json
+apps/maridian/voice_profile.json
+apps/maridian/vault_state.json
+apps/maridian/staging/
+apps/maridian/*.log
+
+# Misc runtime leftovers
+*.tmp
+

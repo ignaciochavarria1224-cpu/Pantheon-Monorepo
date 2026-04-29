@@ -1,0 +1,22 @@
+{
+  "trade_id": "75b46f6d-ed64-4f6f-a447-6cdce7066103",
+  "position_id": "b81ebfcc-712f-4c07-b2ec-1afe1c4b03ab",
+  "symbol": "SHW",
+  "direction": "long",
+  "entry_price": 348.895,
+  "exit_price": 348.47,
+  "stop_price": 347.07,
+  "target_price": 352.55,
+  "size": 30,
+  "entry_time": "2026-04-17T14:34:50.007110+00:00",
+  "exit_time": "2026-04-17T16:35:16.112383+00:00",
+  "hold_duration_minutes": 120.43508788333334,
+  "realized_pnl": -12.749999999998636,
+  "r_multiple": -0.23287671232874366,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 74.59495976096905,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

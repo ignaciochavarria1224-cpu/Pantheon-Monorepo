@@ -1,0 +1,22 @@
+{
+  "trade_id": "340787de-e34e-41fc-be4c-f1338ebe8520",
+  "position_id": "5836b605-fdb2-4b8a-838d-29e325620f31",
+  "symbol": "AMD",
+  "direction": "short",
+  "entry_price": 255.07,
+  "exit_price": 255.6,
+  "stop_price": 255.6,
+  "target_price": 254.01,
+  "size": 1,
+  "entry_time": "2026-04-15T18:49:36.800681+00:00",
+  "exit_time": "2026-04-15T19:09:41.008415+00:00",
+  "hold_duration_minutes": 20.0701289,
+  "realized_pnl": -0.5300000000000011,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 30.54829390028188,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

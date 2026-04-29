@@ -1,0 +1,22 @@
+{
+  "trade_id": "5c6317c2-6068-4dc1-bb0c-8ec0b7671f71",
+  "position_id": "136c3d71-1515-4114-b556-2b7c4c539a35",
+  "symbol": "PANW",
+  "direction": "long",
+  "entry_price": 170.105,
+  "exit_price": 169.81,
+  "stop_price": 169.81,
+  "target_price": 170.7,
+  "size": 135,
+  "entry_time": "2026-04-20T19:03:14.901097+00:00",
+  "exit_time": "2026-04-20T19:23:28.540221+00:00",
+  "hold_duration_minutes": 20.227318733333334,
+  "realized_pnl": -39.82499999999831,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 7,
+  "score_at_entry": 75.10317353536396,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "15da917f-e1cb-4c31-b8a4-984db5e7b9ce",
+  "position_id": "40567944-74be-4e37-b63d-25869f73ecb8",
+  "symbol": "DVN",
+  "direction": "short",
+  "entry_price": 42.13,
+  "exit_price": 42.55,
+  "stop_price": 42.55,
+  "target_price": 41.29,
+  "size": 255,
+  "entry_time": "2026-04-17T14:34:50.432062+00:00",
+  "exit_time": "2026-04-17T15:34:59.600734+00:00",
+  "hold_duration_minutes": 60.152811199999995,
+  "realized_pnl": -107.09999999999863,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 5,
+  "score_at_entry": 18.75114603271945,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

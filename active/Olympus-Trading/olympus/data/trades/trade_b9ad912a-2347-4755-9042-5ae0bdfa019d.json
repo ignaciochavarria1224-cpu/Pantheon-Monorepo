@@ -1,0 +1,22 @@
+{
+  "trade_id": "b9ad912a-2347-4755-9042-5ae0bdfa019d",
+  "position_id": "b58e207d-821b-4027-abc6-769a7da36b63",
+  "symbol": "LEN",
+  "direction": "short",
+  "entry_price": 89.54,
+  "exit_price": 89.4,
+  "stop_price": 89.61,
+  "target_price": 89.4,
+  "size": 1,
+  "entry_time": "2026-04-14T17:03:02.252285+00:00",
+  "exit_time": "2026-04-14T17:23:08.796323+00:00",
+  "hold_duration_minutes": 20.1090673,
+  "realized_pnl": 0.14000000000000057,
+  "r_multiple": 2.000000000000203,
+  "exit_reason": "target",
+  "rank_at_entry": 4,
+  "score_at_entry": 11.232096119682708,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

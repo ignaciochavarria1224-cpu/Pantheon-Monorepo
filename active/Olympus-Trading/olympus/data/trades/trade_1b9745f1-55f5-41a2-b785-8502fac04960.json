@@ -1,0 +1,22 @@
+{
+  "trade_id": "1b9745f1-55f5-41a2-b785-8502fac04960",
+  "position_id": "84b30047-ec17-40a0-99b1-f97ff75ca0fc",
+  "symbol": "DOW",
+  "direction": "short",
+  "entry_price": 35.265,
+  "exit_price": 35.305,
+  "stop_price": 35.86,
+  "target_price": 34.07,
+  "size": 305,
+  "entry_time": "2026-04-17T14:34:50.092086+00:00",
+  "exit_time": "2026-04-17T16:35:16.374018+00:00",
+  "hold_duration_minutes": 120.4380322,
+  "realized_pnl": -12.19999999999974,
+  "r_multiple": -0.06722689075630121,
+  "exit_reason": "rotation",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

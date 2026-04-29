@@ -1,0 +1,22 @@
+{
+  "trade_id": "bdb81358-f81e-4c48-bdc7-9deb439ea870",
+  "position_id": "2d232c3d-ca37-458c-bc49-a0ac0fb8ebc6",
+  "symbol": "SYK",
+  "direction": "short",
+  "entry_price": 345.6,
+  "exit_price": 343.6,
+  "stop_price": 346.91,
+  "target_price": 342.99,
+  "size": 2,
+  "entry_time": "2026-04-15T14:07:25.580688+00:00",
+  "exit_time": "2026-04-15T14:27:32.017861+00:00",
+  "hold_duration_minutes": 20.10728621666667,
+  "realized_pnl": 4.0,
+  "r_multiple": 1.5267175572519058,
+  "exit_reason": "rotation",
+  "rank_at_entry": 8,
+  "score_at_entry": 9.77912256977723,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "db180ec4-705e-4ad7-b231-bc30b2497518",
+  "position_id": "d2cd5271-d1c9-4676-9917-b0b49e290953",
+  "symbol": "AMAT",
+  "direction": "short",
+  "entry_price": 406.4,
+  "exit_price": 404.94,
+  "stop_price": 407.13,
+  "target_price": 404.94,
+  "size": 14,
+  "entry_time": "2026-04-23T17:06:57.108928+00:00",
+  "exit_time": "2026-04-23T17:26:58.677827+00:00",
+  "hold_duration_minutes": 20.026148316666667,
+  "realized_pnl": 20.439999999999714,
+  "r_multiple": 1.999999999999922,
+  "exit_reason": "target",
+  "rank_at_entry": 5,
+  "score_at_entry": 32.03723330737499,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

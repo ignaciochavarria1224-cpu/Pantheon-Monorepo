@@ -1,0 +1,22 @@
+{
+  "trade_id": "69659f21-0c9f-4a86-bcbd-a5dd6552437c",
+  "position_id": "76e34f55-cd2a-41b1-a237-377878c9d13e",
+  "symbol": "NEM",
+  "direction": "short",
+  "entry_price": 116.62,
+  "exit_price": 116.92,
+  "stop_price": 116.92,
+  "target_price": 116.03,
+  "size": 1,
+  "entry_time": "2026-04-13T16:40:10.660147+00:00",
+  "exit_time": "2026-04-13T17:20:30.061293+00:00",
+  "hold_duration_minutes": 40.32335243333333,
+  "realized_pnl": -0.29999999999999716,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 5,
+  "score_at_entry": 7.279696197575208,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

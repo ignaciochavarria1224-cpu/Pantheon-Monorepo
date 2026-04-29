@@ -1,0 +1,22 @@
+{
+  "trade_id": "a01389a2-22fa-4777-84d6-d7abc3dca974",
+  "position_id": "e9ede761-3dbc-4404-a980-d3d979916ef1",
+  "symbol": "ETN",
+  "direction": "short",
+  "entry_price": 397.69,
+  "exit_price": 396.22,
+  "stop_price": 398.88,
+  "target_price": 395.31,
+  "size": 3,
+  "entry_time": "2026-04-15T13:45:35.371417+00:00",
+  "exit_time": "2026-04-15T14:46:07.174594+00:00",
+  "hold_duration_minutes": 60.53005295,
+  "realized_pnl": 4.409999999999911,
+  "r_multiple": 1.2352941176470364,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 12.976603704485607,
+  "rank_at_exit": 20,
+  "score_at_exit": 15.942153924830137,
+  "status": "closed"
+}

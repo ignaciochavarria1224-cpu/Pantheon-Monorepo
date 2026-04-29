@@ -1,0 +1,22 @@
+{
+  "trade_id": "a2328b07-2f29-46d1-b0f5-297b9b80fa16",
+  "position_id": "5d6d719c-5cf0-4b44-afe3-d131d9af6bb1",
+  "symbol": "XOM",
+  "direction": "short",
+  "entry_price": 142.89,
+  "exit_price": 143.96,
+  "stop_price": 143.96,
+  "target_price": 140.74,
+  "size": 75,
+  "entry_time": "2026-04-17T14:34:50.769944+00:00",
+  "exit_time": "2026-04-17T15:34:59.693582+00:00",
+  "hold_duration_minutes": 60.148727300000004,
+  "realized_pnl": -80.25000000000162,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 26.154150900444396,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "7497953c-df38-44d0-81ab-022775d2ee27",
+  "position_id": "342ce25c-55aa-460e-99f9-732d94bace7e",
+  "symbol": "MU",
+  "direction": "long",
+  "entry_price": 401.51,
+  "exit_price": 407.11,
+  "stop_price": 397.12,
+  "target_price": 410.29,
+  "size": 23,
+  "entry_time": "2026-04-09T14:20:51.424376+00:00",
+  "exit_time": "2026-04-09T16:21:00.684833+00:00",
+  "hold_duration_minutes": 120.15434095,
+  "realized_pnl": 128.80000000000052,
+  "r_multiple": 1.2756264236902142,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 84.9896122344142,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

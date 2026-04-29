@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs wc *)",
+      "Bash(curl -s http://localhost:8001/pantheon/maridian -m 10 -w \"\\\\nHTTP %{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:8001/pantheon/maridian/cycle/status -m 10 -w \"\\\\nHTTP %{http_code}\\\\n\")"
+    ]
+  }
+}

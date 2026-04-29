@@ -1,0 +1,22 @@
+{
+  "trade_id": "09c54fb6-b509-4893-b5e6-dc72fe5c548e",
+  "position_id": "ea4ab2b4-b262-4e9a-a5ee-05f7172f7b97",
+  "symbol": "PG",
+  "direction": "short",
+  "entry_price": 144.09,
+  "exit_price": 143.835,
+  "stop_price": 144.28,
+  "target_price": 143.71,
+  "size": 55,
+  "entry_time": "2026-04-20T18:42:57.288781+00:00",
+  "exit_time": "2026-04-20T19:43:33.443352+00:00",
+  "hold_duration_minutes": 60.60257618333333,
+  "realized_pnl": 14.02499999999975,
+  "r_multiple": 1.342105263157887,
+  "exit_reason": "rotation",
+  "rank_at_entry": 3,
+  "score_at_entry": 12.451426808176072,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

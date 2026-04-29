@@ -1,0 +1,22 @@
+{
+  "trade_id": "71c335d0-9517-46d9-b328-7eeeb56a3c49",
+  "position_id": "edf7c71c-ae3e-409e-b937-6d4274288fa9",
+  "symbol": "ABT",
+  "direction": "short",
+  "entry_price": 97.475,
+  "exit_price": 95.66,
+  "stop_price": 98.38,
+  "target_price": 95.66,
+  "size": 2,
+  "entry_time": "2026-04-16T14:31:03.964998+00:00",
+  "exit_time": "2026-04-16T16:32:13.664905+00:00",
+  "hold_duration_minutes": 121.16166511666667,
+  "realized_pnl": 3.6299999999999955,
+  "r_multiple": 2.005524861878448,
+  "exit_reason": "target",
+  "rank_at_entry": 3,
+  "score_at_entry": 5.56968735751268,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

@@ -1,0 +1,22 @@
+{
+  "trade_id": "e08d2078-4368-47ec-afcd-b94401387896",
+  "position_id": "1a360fb7-5ec6-4ad8-abbe-6bb168ed6e67",
+  "symbol": "AVB",
+  "direction": "long",
+  "entry_price": 175.37,
+  "exit_price": 175.62,
+  "stop_price": 175.25,
+  "target_price": 175.62,
+  "size": 112,
+  "entry_time": "2026-04-20T16:41:57.871574+00:00",
+  "exit_time": "2026-04-20T17:02:21.689307+00:00",
+  "hold_duration_minutes": 20.39696221666667,
+  "realized_pnl": 28.0,
+  "r_multiple": 2.0833333333332544,
+  "exit_reason": "target",
+  "rank_at_entry": 4,
+  "score_at_entry": 85.16166626655782,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

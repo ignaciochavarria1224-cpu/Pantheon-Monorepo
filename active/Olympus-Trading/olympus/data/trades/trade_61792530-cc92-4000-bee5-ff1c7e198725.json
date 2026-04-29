@@ -1,0 +1,22 @@
+{
+  "trade_id": "61792530-cc92-4000-bee5-ff1c7e198725",
+  "position_id": "a87b18f3-0d70-4c64-a740-9338886bcdfe",
+  "symbol": "DHI",
+  "direction": "short",
+  "entry_price": 149.08,
+  "exit_price": 149.59,
+  "stop_price": 149.59,
+  "target_price": 148.05,
+  "size": 86,
+  "entry_time": "2026-04-20T14:01:02.198136+00:00",
+  "exit_time": "2026-04-20T14:21:12.427500+00:00",
+  "hold_duration_minutes": 20.1704894,
+  "realized_pnl": -43.85999999999922,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 8,
+  "score_at_entry": 29.3868016724837,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

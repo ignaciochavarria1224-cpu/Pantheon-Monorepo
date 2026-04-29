@@ -1,0 +1,22 @@
+{
+  "trade_id": "98622c80-4e62-45a2-9c43-f3d68fc88367",
+  "position_id": "91a2dfa7-5a73-48c2-a53d-e86d1f1f75c7",
+  "symbol": "MO",
+  "direction": "short",
+  "entry_price": 65.815,
+  "exit_price": 65.97,
+  "stop_price": 65.97,
+  "target_price": 65.51,
+  "size": 222,
+  "entry_time": "2026-04-08T16:21:09.293180+00:00",
+  "exit_time": "2026-04-08T17:41:18.561535+00:00",
+  "hold_duration_minutes": 80.15447258333333,
+  "realized_pnl": -34.41000000000025,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 1,
+  "score_at_entry": 0.0,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

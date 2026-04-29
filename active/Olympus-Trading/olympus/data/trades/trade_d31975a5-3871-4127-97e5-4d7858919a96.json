@@ -1,0 +1,22 @@
+{
+  "trade_id": "d31975a5-3871-4127-97e5-4d7858919a96",
+  "position_id": "60582dad-0d2c-496d-aa35-cea6e331299b",
+  "symbol": "SBUX",
+  "direction": "long",
+  "entry_price": 98.9,
+  "exit_price": 99.04,
+  "stop_price": 98.33,
+  "target_price": 100.05,
+  "size": 57,
+  "entry_time": "2026-04-22T14:01:09.554671+00:00",
+  "exit_time": "2026-04-22T14:41:42.851733+00:00",
+  "hold_duration_minutes": 40.55495103333333,
+  "realized_pnl": 7.980000000000032,
+  "r_multiple": 0.24561403508771712,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 70.2247142140775,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

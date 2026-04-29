@@ -1,0 +1,22 @@
+{
+  "trade_id": "e608bd08-04f4-41e1-82de-4fe27704ab15",
+  "position_id": "08597a40-05b2-44d6-ab3d-eab19173106f",
+  "symbol": "NSC",
+  "direction": "long",
+  "entry_price": 316.94,
+  "exit_price": 318.24,
+  "stop_price": 316.29,
+  "target_price": 318.24,
+  "size": 32,
+  "entry_time": "2026-04-23T16:26:28.397369+00:00",
+  "exit_time": "2026-04-23T17:06:52.604754+00:00",
+  "hold_duration_minutes": 40.40345641666667,
+  "realized_pnl": 41.600000000000364,
+  "r_multiple": 2.0000000000000875,
+  "exit_reason": "target",
+  "rank_at_entry": 6,
+  "score_at_entry": 63.21186339813188,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

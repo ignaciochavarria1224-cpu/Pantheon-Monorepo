@@ -1,0 +1,22 @@
+{
+  "trade_id": "80f831f0-0d28-408e-ac2f-e1ae856861d0",
+  "position_id": "d3f73a9b-3102-43ae-bf40-970063b060f3",
+  "symbol": "ADI",
+  "direction": "long",
+  "entry_price": 372.105,
+  "exit_price": 371.34,
+  "stop_price": 371.34,
+  "target_price": 373.63,
+  "size": 43,
+  "entry_time": "2026-04-17T16:35:21.655811+00:00",
+  "exit_time": "2026-04-17T17:35:33.725295+00:00",
+  "hold_duration_minutes": 60.20115806666667,
+  "realized_pnl": -32.89500000000186,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 7,
+  "score_at_entry": 86.0741555631758,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

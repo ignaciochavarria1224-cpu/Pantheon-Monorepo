@@ -1,0 +1,22 @@
+{
+  "trade_id": "e9fafc27-130d-430a-bf21-c68d060b1d04",
+  "position_id": "6e5dc0ae-15a0-4898-9cd4-4e3ed3c2cf1a",
+  "symbol": "GIS",
+  "direction": "short",
+  "entry_price": 34.73,
+  "exit_price": 34.3,
+  "stop_price": 34.95,
+  "target_price": 34.3,
+  "size": 6,
+  "entry_time": "2026-04-13T14:20:59.768341+00:00",
+  "exit_time": "2026-04-13T15:21:21.333213+00:00",
+  "hold_duration_minutes": 60.35941453333333,
+  "realized_pnl": 2.5799999999999983,
+  "r_multiple": 1.9545454545454002,
+  "exit_reason": "target",
+  "rank_at_entry": 5,
+  "score_at_entry": 16.929197252049676,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

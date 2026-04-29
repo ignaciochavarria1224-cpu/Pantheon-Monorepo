@@ -1,0 +1,22 @@
+{
+  "trade_id": "c09386d1-5e9e-4de3-8e5f-d21241609b24",
+  "position_id": "3def5de2-c0a7-4482-9d3e-0a6cf0dd136d",
+  "symbol": "PEP",
+  "direction": "short",
+  "entry_price": 153.7,
+  "exit_price": 154.04,
+  "stop_price": 154.12,
+  "target_price": 152.87,
+  "size": 54,
+  "entry_time": "2026-04-22T18:44:24.976421+00:00",
+  "exit_time": "2026-04-22T19:44:43.929672+00:00",
+  "hold_duration_minutes": 60.31588751666666,
+  "realized_pnl": -18.360000000000184,
+  "r_multiple": -0.809523809523787,
+  "exit_reason": "eod_close",
+  "rank_at_entry": 2,
+  "score_at_entry": 1.8645717570424356,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

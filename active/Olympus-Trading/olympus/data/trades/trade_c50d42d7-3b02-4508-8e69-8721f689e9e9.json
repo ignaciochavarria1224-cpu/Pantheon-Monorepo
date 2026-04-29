@@ -1,0 +1,22 @@
+{
+  "trade_id": "c50d42d7-3b02-4508-8e69-8721f689e9e9",
+  "position_id": "20379c94-fe7f-4e64-89ca-eb65406f6e6b",
+  "symbol": "FDX",
+  "direction": "long",
+  "entry_price": 377.625,
+  "exit_price": 378.22,
+  "stop_price": 377.33,
+  "target_price": 378.22,
+  "size": 3,
+  "entry_time": "2026-04-09T19:01:19.073058+00:00",
+  "exit_time": "2026-04-09T19:21:20.910886+00:00",
+  "hold_duration_minutes": 20.030630466666665,
+  "realized_pnl": 1.7850000000000819,
+  "r_multiple": 2.0169491525423564,
+  "exit_reason": "target",
+  "rank_at_entry": 2,
+  "score_at_entry": 78.7567384189747,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

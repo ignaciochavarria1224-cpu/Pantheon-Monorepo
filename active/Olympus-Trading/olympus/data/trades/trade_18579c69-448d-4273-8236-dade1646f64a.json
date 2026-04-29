@@ -1,0 +1,22 @@
+{
+  "trade_id": "18579c69-448d-4273-8236-dade1646f64a",
+  "position_id": "3f195467-7624-45db-a2c0-6780837c6db2",
+  "symbol": "T",
+  "direction": "short",
+  "entry_price": 25.47,
+  "exit_price": 25.62,
+  "stop_price": 25.62,
+  "target_price": 25.16,
+  "size": 223,
+  "entry_time": "2026-04-22T15:42:54.446305+00:00",
+  "exit_time": "2026-04-22T16:43:15.671168+00:00",
+  "hold_duration_minutes": 60.35374771666667,
+  "realized_pnl": -33.45000000000047,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 4,
+  "score_at_entry": 17.13610244226654,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

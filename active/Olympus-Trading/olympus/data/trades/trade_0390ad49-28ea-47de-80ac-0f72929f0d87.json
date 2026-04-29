@@ -1,0 +1,22 @@
+{
+  "trade_id": "0390ad49-28ea-47de-80ac-0f72929f0d87",
+  "position_id": "2040e8f7-bf3c-4a5b-a5e8-bdf5129f0daa",
+  "symbol": "ROST",
+  "direction": "short",
+  "entry_price": 220.94,
+  "exit_price": 221.03,
+  "stop_price": 221.03,
+  "target_price": 220.75,
+  "size": 1,
+  "entry_time": "2026-04-16T16:52:43.782524+00:00",
+  "exit_time": "2026-04-16T17:12:49.395862+00:00",
+  "hold_duration_minutes": 20.093555633333334,
+  "realized_pnl": -0.09000000000000341,
+  "r_multiple": -1.0,
+  "exit_reason": "stop",
+  "rank_at_entry": 9,
+  "score_at_entry": 13.976135489639429,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

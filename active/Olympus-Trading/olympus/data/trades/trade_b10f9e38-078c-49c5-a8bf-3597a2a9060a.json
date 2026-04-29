@@ -1,0 +1,22 @@
+{
+  "trade_id": "b10f9e38-078c-49c5-a8bf-3597a2a9060a",
+  "position_id": "e59ea35d-89ae-41b0-a4e2-cae54bf7aa6a",
+  "symbol": "NTNX",
+  "direction": "long",
+  "entry_price": 37.125,
+  "exit_price": 37.3,
+  "stop_price": 37.04,
+  "target_price": 37.3,
+  "size": 4,
+  "entry_time": "2026-04-13T17:02:01.657223+00:00",
+  "exit_time": "2026-04-13T17:22:15.025515+00:00",
+  "hold_duration_minutes": 20.222804866666667,
+  "realized_pnl": 0.6999999999999886,
+  "r_multiple": 2.0588235294117108,
+  "exit_reason": "target",
+  "rank_at_entry": 2,
+  "score_at_entry": 99.23206301789517,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

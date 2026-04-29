@@ -1,0 +1,22 @@
+{
+  "trade_id": "f614d89c-3db6-451c-93bd-24818c9f009c",
+  "position_id": "8308d97a-1c6d-4049-8e04-bb6bd533417e",
+  "symbol": "CME",
+  "direction": "long",
+  "entry_price": 280.66,
+  "exit_price": 282.67,
+  "stop_price": 279.66,
+  "target_price": 282.67,
+  "size": 20,
+  "entry_time": "2026-04-22T17:43:47.870760+00:00",
+  "exit_time": "2026-04-22T18:44:19.038707+00:00",
+  "hold_duration_minutes": 60.51946578333333,
+  "realized_pnl": 40.19999999999982,
+  "r_multiple": 2.009999999999991,
+  "exit_reason": "target",
+  "rank_at_entry": 7,
+  "score_at_entry": 74.24535440874752,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}

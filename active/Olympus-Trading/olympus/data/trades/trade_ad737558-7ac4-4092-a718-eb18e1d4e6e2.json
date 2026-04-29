@@ -1,0 +1,22 @@
+{
+  "trade_id": "ad737558-7ac4-4092-a718-eb18e1d4e6e2",
+  "position_id": "9a2f94bb-2968-400e-9a21-4dd775505d32",
+  "symbol": "KMB",
+  "direction": "short",
+  "entry_price": 98.3,
+  "exit_price": 98.23,
+  "stop_price": 98.41,
+  "target_price": 98.07,
+  "size": 80,
+  "entry_time": "2026-04-20T18:42:57.866533+00:00",
+  "exit_time": "2026-04-20T19:43:33.539004+00:00",
+  "hold_duration_minutes": 60.594541183333334,
+  "realized_pnl": 5.599999999999454,
+  "r_multiple": 0.6363636363635776,
+  "exit_reason": "rotation",
+  "rank_at_entry": 10,
+  "score_at_entry": 19.09964452180358,
+  "rank_at_exit": null,
+  "score_at_exit": null,
+  "status": "closed"
+}
