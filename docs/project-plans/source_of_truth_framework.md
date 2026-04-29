@@ -97,6 +97,9 @@ A repo that is strategically important but not yet integrated into the active sy
   It is the imported Streamlit BlackBook codebase.
   `active/Pantheon/apps/blackbook` is the Pantheon migration target.
   the previous Reflex version has been archived as a legacy/reference copy.
+- `Maridian`
+  `active/Pantheon/apps/maridian` is the canonical Maridian home and control surface.
+  Obsidian should be treated as a mirrored knowledge surface, not the source of truth.
 - `Olympus`
   treat Olympus as an `integrated external subsystem`.
   Its runtime may remain operationally distinct while Pantheon consumes and displays its state.

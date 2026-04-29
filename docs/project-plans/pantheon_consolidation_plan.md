@@ -35,7 +35,7 @@ These still need explicit cleanup:
 - `archive/BlackBook_Reflex_Legacy_2026-04-29`
   preserves the older Reflex BlackBook as a legacy/reference copy
 - standalone `active/Maridian`
-  still exists alongside Pantheon Maridian and requires an audit
+  may still contain useful migration material, but Pantheon-local Maridian is the intended canonical home
 - `active/Olympus-Trading/Pantheon`
   still exists as a duplicate working tree of Pantheon
 
@@ -78,6 +78,10 @@ Maridian owns:
 - Obsidian-brain creation logic
 
 Maridian should remain a distinct subsystem inside Pantheon, even if Apollo and BlackBook consume its outputs later.
+
+Pantheon should be the place where journals are written and cycles are run.
+
+Obsidian should mirror Maridian outputs, not own the subsystem.
 
 ### Olympus
 
@@ -157,7 +161,7 @@ Until consolidation is complete, these temporary tolerances are acceptable:
 
 - standalone legacy folders may remain
 - Olympus may remain operationally separate while still integrated architecturally
-- Maridian may remain classified as `needs audit`
+- standalone Maridian material may remain temporarily while Pantheon absorbs its useful pieces
 - BlackBook may remain externally canonical while its Pantheon-native migration is still underway
 
 These temporary states are only acceptable if they are:
