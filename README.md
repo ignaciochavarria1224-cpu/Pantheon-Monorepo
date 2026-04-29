@@ -11,6 +11,7 @@ The goal of this repo is simple: keep the current source trees in one place, pre
 
 - `active/` contains the main working copies of the projects you are actively building or referencing.
 - `archive/` contains backup, staging, or transitional folders that were worth preserving but should not be treated as the primary working source.
+- `docs/project-plans/` contains the vision and planning documents for Pantheon, Olympus, and Apollo.
 - `INVENTORY.md` documents where each imported folder came from and calls out known gaps from the consolidation.
 
 ## Active Projects
