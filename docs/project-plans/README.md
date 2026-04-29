@@ -10,6 +10,7 @@ This folder collects the higher-level vision and planning documents that guide t
 - `maridian_build_plan.md` - staged roadmap for making Maridian Pantheon-native, moving journaling out of BlackBook, and feeding Apollo processed personal memory
 - `maridian_storage_paths.md` - locked local path decision for the Maridian app, canonical vault, and direct Obsidian access
 - `maridian_repo_policy.md` - Git/local boundary and planning-first execution policy for Maridian before deeper implementation begins
+- `maridian_privacy_boundary.md` - file-level Git-vs-local policy for the Maridian vault so private memory stays local while system logic stays trackable
 - `source_of_truth_policy.md` - repo-wide founder policy defining local runtime truth versus GitHub coordination/history across the whole monorepo
 - `pantheon_consolidation_plan.md` - architecture-first plan for resolving Pantheon's split roots, subsystem duplication, and the Phase 7/8 consolidation blockers
 - `repo_vision.md` - strategic blueprint for how external repos strengthen the Olympus ecosystem
