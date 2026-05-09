@@ -7,6 +7,8 @@ Idempotent — INSERT OR IGNORE everywhere. Running twice produces no duplicates
 from __future__ import annotations
 
 import json
+import math
+import re
 import traceback
 import uuid
 from dataclasses import dataclass, field
@@ -20,6 +22,206 @@ from core.memory.enrichment import TradeContextEnricher
 
 logger = get_logger(__name__)
 
+_SYMBOL_RE = re.compile(r"^[A-Z][A-Z0-9.-]{0,9}$")
+_INTEGER_RE = re.compile(r"^[+-]?\d+$")
+_ALLOWED_DIRECTIONS = {"long", "short"}
+_ALLOWED_EXIT_REASONS = {"stop", "target", "rotation", "manual", "eod_close"}
+_ALLOWED_STATUSES = {"closed"}
+
+# JSON validation schemas
+TRADE_SCHEMA = {
+    "trade_id": {"type": "string", "required": True},
+    "position_id": {"type": "string", "required": True},
+    "symbol": {"type": "string", "required": True},
+    "direction": {"type": "string", "required": True},
+    "entry_price": {"type": "number", "required": True},
+    "exit_price": {"type": "number", "required": True},
+    "stop_price": {"type": "number", "required": True},
+    "target_price": {"type": "number", "required": True},
+    "size": {"type": "integer", "required": True},
+    "entry_time": {"type": "string", "required": True},
+    "exit_time": {"type": "string", "required": True},
+    "hold_duration_minutes": {"type": "number", "required": True},
+    "realized_pnl": {"type": "number", "required": True},
+    "r_multiple": {"type": "number", "required": True},
+    "exit_reason": {"type": "string", "required": True},
+    "status": {"type": "string", "required": False},
+    "rank_at_entry": {"type": "integer", "required": False},
+    "score_at_entry": {"type": "number", "required": False},
+    "rank_at_exit": {"type": "integer", "required": False},
+    "score_at_exit": {"type": "number", "required": False},
+}
+
+RANKING_SCHEMA = {
+    "cycle_id": {"type": "string", "required": True},
+    "timestamp": {"type": "string", "required": True},
+    "universe_size": {"type": "integer", "required": False},
+    "scored_count": {"type": "integer", "required": False},
+    "error_count": {"type": "integer", "required": False},
+    "duration_seconds": {"type": "number", "required": False},
+    "longs": {"type": "array", "required": False},
+    "shorts": {"type": "array", "required": False},
+}
+
+
+def _reject_json_constant(token: str) -> None:
+    raise ValueError(f"Invalid JSON numeric constant: {token}")
+
+
+def _load_json_object(filepath: Path, data_type: str) -> dict:
+    with open(filepath, "r", encoding="utf-8") as f:
+        data = json.load(f, parse_constant=_reject_json_constant)
+    if not isinstance(data, dict):
+        raise ValueError(f"{data_type} JSON must be an object, got {type(data)}")
+    return data
+
+
+def _file_fingerprint(filepath: Path) -> tuple[int, int]:
+    stat = filepath.stat()
+    return int(stat.st_size), int(stat.st_mtime_ns)
+
+
+def _ensure_finite_number(value, field: str) -> float:
+    if isinstance(value, bool):
+        raise ValueError(f"Field '{field}' must be numeric, got boolean")
+    if isinstance(value, (int, float)):
+        numeric = float(value)
+    elif isinstance(value, str) and value.strip():
+        numeric = float(value)
+    else:
+        raise ValueError(f"Field '{field}' must be numeric, got {value!r}")
+
+    if not math.isfinite(numeric):
+        raise ValueError(f"Field '{field}' must be finite, got {value!r}")
+    return numeric
+
+
+def _ensure_integer(value, field: str) -> int:
+    if isinstance(value, bool):
+        raise ValueError(f"Field '{field}' must be integer, got boolean")
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str) and _INTEGER_RE.fullmatch(value.strip()):
+        return int(value)
+    raise ValueError(f"Field '{field}' must be integer, got {value!r}")
+
+
+def _ensure_string(value, field: str, *, max_length: int = 128) -> str:
+    if not isinstance(value, str):
+        raise ValueError(f"Field '{field}' must be string, got {type(value)}")
+    normalized = value.strip()
+    if not normalized:
+        raise ValueError(f"Field '{field}' must not be empty")
+    if len(normalized) > max_length:
+        raise ValueError(f"Field '{field}' exceeds {max_length} characters")
+    if any(ord(ch) < 32 for ch in normalized):
+        raise ValueError(f"Field '{field}' contains control characters")
+    return normalized
+
+
+def _ensure_uuid(value, field: str) -> str:
+    normalized = _ensure_string(value, field, max_length=64)
+    try:
+        return str(uuid.UUID(normalized))
+    except ValueError as exc:
+        raise ValueError(f"Field '{field}' must be a UUID") from exc
+
+
+def _ensure_symbol(value, field: str = "symbol") -> str:
+    symbol = _ensure_string(value, field, max_length=10).upper()
+    if not _SYMBOL_RE.fullmatch(symbol):
+        raise ValueError(f"Field '{field}' has invalid symbol: {value!r}")
+    return symbol
+
+
+def _parse_utc_iso(ts: str, field: str) -> datetime:
+    try:
+        dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError(f"Field '{field}' must be ISO 8601 timestamp") from exc
+    if dt.tzinfo is None:
+        raise ValueError(f"Field '{field}' must include timezone")
+    return dt.astimezone(timezone.utc)
+
+
+def _validate_json_data(data: dict, schema: dict, data_type: str) -> None:
+    """
+    Validate JSON data against a schema to prevent database corruption.
+    Raises ValueError if validation fails.
+    """
+    if not isinstance(data, dict):
+        raise ValueError(f"{data_type} JSON must be an object, got {type(data)}")
+
+    for field, field_type in schema.items():
+        if field not in data:
+            if field_type.get("required", True):
+                raise ValueError(f"Required field '{field}' missing from {data_type} JSON")
+            continue
+
+        value = data[field]
+        if value is None:
+            if field_type.get("required", True):
+                raise ValueError(f"Required field '{field}' is null in {data_type} JSON")
+            continue
+        expected_type = field_type["type"]
+
+        if expected_type == "string":
+            data[field] = _ensure_string(value, field)
+        elif expected_type == "number":
+            data[field] = _ensure_finite_number(value, field)
+        elif expected_type == "integer":
+            data[field] = _ensure_integer(value, field)
+        elif expected_type == "boolean" and not isinstance(value, bool):
+            raise ValueError(f"Field '{field}' must be boolean, got {type(value)}")
+        elif expected_type == "array" and not isinstance(value, list):
+            raise ValueError(f"Field '{field}' must be array, got {type(value)}")
+
+
+def _validate_trade_data(data: dict) -> None:
+    _validate_json_data(data, TRADE_SCHEMA, "trade")
+    data["trade_id"] = _ensure_uuid(data["trade_id"], "trade_id")
+    data["position_id"] = _ensure_uuid(data["position_id"], "position_id")
+    data["symbol"] = _ensure_symbol(data["symbol"])
+    if data["direction"] not in _ALLOWED_DIRECTIONS:
+        raise ValueError(f"Field 'direction' must be one of {_ALLOWED_DIRECTIONS}")
+    if data["exit_reason"] not in _ALLOWED_EXIT_REASONS:
+        raise ValueError(f"Field 'exit_reason' must be one of {_ALLOWED_EXIT_REASONS}")
+    if data.get("status", "closed") not in _ALLOWED_STATUSES:
+        raise ValueError(f"Field 'status' must be one of {_ALLOWED_STATUSES}")
+    if data["size"] <= 0:
+        raise ValueError("Field 'size' must be positive")
+    if data["hold_duration_minutes"] < 0:
+        raise ValueError("Field 'hold_duration_minutes' must be non-negative")
+    _parse_utc_iso(data["entry_time"], "entry_time")
+    _parse_utc_iso(data["exit_time"], "exit_time")
+
+
+def _validate_ranking_item(item: dict, direction: str) -> None:
+    if not isinstance(item, dict):
+        raise ValueError("Ranking items must be objects")
+    item["symbol"] = _ensure_symbol(item.get("symbol"), "symbol")
+    item["rank"] = _ensure_integer(item.get("rank"), "rank")
+    item["score"] = _ensure_finite_number(item.get("score"), "score")
+    if item["rank"] <= 0:
+        raise ValueError("Ranking field 'rank' must be positive")
+    if "direction" in item and item["direction"] != direction:
+        raise ValueError("Ranking item direction does not match its collection")
+
+
+def _validate_ranking_data(data: dict) -> None:
+    _validate_json_data(data, RANKING_SCHEMA, "ranking")
+    data["cycle_id"] = _ensure_uuid(data["cycle_id"], "cycle_id")
+    _parse_utc_iso(data["timestamp"], "timestamp")
+    for field in ("universe_size", "scored_count", "error_count"):
+        if data.get(field, 0) < 0:
+            raise ValueError(f"Field '{field}' must be non-negative")
+    if data.get("duration_seconds", 0.0) < 0:
+        raise ValueError("Field 'duration_seconds' must be non-negative")
+    for item in data.get("longs", []):
+        _validate_ranking_item(item, "long")
+    for item in data.get("shorts", []):
+        _validate_ranking_item(item, "short")
+
 
 def _ensure_utc_iso(ts: Optional[str]) -> Optional[str]:
     """
@@ -30,12 +232,7 @@ def _ensure_utc_iso(ts: Optional[str]) -> Optional[str]:
     if ts is None:
         return None
     try:
-        dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        else:
-            dt = dt.astimezone(timezone.utc)
-        return dt.isoformat()
+        return _parse_utc_iso(str(ts), "timestamp").isoformat()
     except Exception:
         logger.warning("Could not parse timestamp '%s' — storing as-is", ts)
         return str(ts)
@@ -108,12 +305,17 @@ class Ingestion:
 
             for filepath in trade_files:
                 try:
+                    if self._is_unchanged_ingested_file(result.source_type, filepath):
+                        logger.debug("Skipping unchanged trade file %s", filepath.name)
+                        continue
                     self._ingest_one_trade(filepath, result)
-                except Exception:
+                    self._record_source_file(result.source_type, filepath, "ingested")
+                except Exception as exc:
                     logger.error(
                         "Failed to ingest trade file %s:\n%s",
                         filepath.name, traceback.format_exc(),
                     )
+                    self._record_source_file(result.source_type, filepath, "failed", str(exc))
 
             # Complete the ingestion_runs row
             completed_at = datetime.now(timezone.utc).isoformat()
@@ -174,12 +376,17 @@ class Ingestion:
 
             for filepath in ranking_files:
                 try:
+                    if self._is_unchanged_ingested_file(result.source_type, filepath):
+                        logger.debug("Skipping unchanged ranking file %s", filepath.name)
+                        continue
                     self._ingest_one_ranking(filepath, result)
-                except Exception:
+                    self._record_source_file(result.source_type, filepath, "ingested")
+                except Exception as exc:
                     logger.error(
                         "Failed to ingest ranking file %s:\n%s",
                         filepath.name, traceback.format_exc(),
                     )
+                    self._record_source_file(result.source_type, filepath, "failed", str(exc))
 
             completed_at = datetime.now(timezone.utc).isoformat()
             self._db.execute(
@@ -219,10 +426,68 @@ class Ingestion:
     # Internal helpers
     # ------------------------------------------------------------------
 
+    def _is_unchanged_ingested_file(self, source_type: str, filepath: Path) -> bool:
+        try:
+            file_size, mtime_ns = _file_fingerprint(filepath)
+            row = self._db.query_one(
+                """
+                SELECT file_size, mtime_ns, status
+                FROM ingestion_source_files
+                WHERE source_type = ? AND source_file = ?
+                """,
+                (source_type, filepath.name),
+            )
+            return bool(
+                row
+                and row["status"] == "ingested"
+                and int(row["file_size"]) == file_size
+                and int(row["mtime_ns"]) == mtime_ns
+            )
+        except Exception:
+            return False
+
+    def _record_source_file(
+        self,
+        source_type: str,
+        filepath: Path,
+        status: str,
+        error_text: Optional[str] = None,
+    ) -> None:
+        try:
+            file_size, mtime_ns = _file_fingerprint(filepath)
+            now_utc = datetime.now(timezone.utc).isoformat()
+            self._db.execute(
+                """
+                INSERT INTO ingestion_source_files (
+                    source_type, source_file, file_size, mtime_ns,
+                    status, last_ingested_at, error_text
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(source_type, source_file) DO UPDATE SET
+                    file_size = excluded.file_size,
+                    mtime_ns = excluded.mtime_ns,
+                    status = excluded.status,
+                    last_ingested_at = excluded.last_ingested_at,
+                    error_text = excluded.error_text
+                """,
+                (
+                    source_type,
+                    filepath.name,
+                    file_size,
+                    mtime_ns,
+                    status,
+                    now_utc,
+                    error_text[:2000] if error_text else None,
+                ),
+            )
+        except Exception:
+            logger.warning("Could not record ingestion source file state for %s", filepath.name)
+
     def _ingest_one_trade(self, filepath: Path, result: IngestionResult) -> None:
         """Parse one trade JSON file and insert into trades + trade_features."""
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        data = _load_json_object(filepath, "trade")
+
+        # Validate and normalize JSON before anything reaches SQLite.
+        _validate_trade_data(data)
 
         now_utc = datetime.now(timezone.utc).isoformat()
         entry_time = _ensure_utc_iso(data.get("entry_time"))
@@ -318,8 +583,10 @@ class Ingestion:
 
     def _ingest_one_ranking(self, filepath: Path, result: IngestionResult) -> None:
         """Parse one ranking JSON file and insert into ranking_cycles + cycle_rankings."""
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        data = _load_json_object(filepath, "ranking")
+
+        # Validate and normalize JSON before anything reaches SQLite.
+        _validate_ranking_data(data)
 
         now_utc = datetime.now(timezone.utc).isoformat()
         cycle_ts = _ensure_utc_iso(data.get("timestamp"))
@@ -341,8 +608,8 @@ class Ingestion:
                 int(data.get("scored_count", 0)),
                 int(data.get("error_count", 0)),
                 float(data.get("duration_seconds", 0.0)),
-                json.dumps(longs[:10]),   # store top 10 longs summary
-                json.dumps(shorts[:10]),  # store top 10 shorts summary
+                json.dumps(longs[:10], allow_nan=False),   # store top 10 longs summary
+                json.dumps(shorts[:10], allow_nan=False),  # store top 10 shorts summary
                 now_utc,
             ),
         )

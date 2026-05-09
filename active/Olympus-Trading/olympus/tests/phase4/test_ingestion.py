@@ -148,6 +148,26 @@ def test_ingest_trade_is_idempotent(mem_db, tmp_path, trade_data):
     assert count["n"] == 1
 
 
+def test_ingest_trade_skips_unchanged_source_file(mem_db, tmp_path, trade_data):
+    _write_trade_file(tmp_path, trade_data)
+    ingestion = Ingestion(mem_db, tmp_path, tmp_path)
+
+    first = ingestion.ingest_trades()
+    second = ingestion.ingest_trades()
+
+    assert first.rows_written == 1
+    assert second.rows_written == 0
+    state = mem_db.query_one(
+        """
+        SELECT status
+        FROM ingestion_source_files
+        WHERE source_type = 'trades_json' AND source_file = ?
+        """,
+        (f"trade_{trade_data['trade_id']}.json",),
+    )
+    assert state["status"] == "ingested"
+
+
 def test_ingest_ranking_fields_mapped(mem_db, tmp_path, ranking_data):
     """Ranking cycle fields must be stored correctly."""
     _write_ranking_file(tmp_path, ranking_data)
@@ -222,6 +242,41 @@ def test_malformed_file_skipped_gracefully(mem_db, tmp_path, trade_data):
     assert result.status == "completed"
     # Valid trade was still written
     assert result.rows_written == 1
+
+
+def test_trade_with_injection_like_symbol_is_rejected(mem_db, tmp_path, trade_data):
+    """JSON values are validated before insert, even though SQL is parameterized."""
+    trade_data["symbol"] = "AAPL'); DROP TABLE trades;--"
+    _write_trade_file(tmp_path, trade_data)
+
+    result = Ingestion(mem_db, tmp_path, tmp_path).ingest_trades()
+
+    assert result.status == "completed"
+    assert result.rows_written == 0
+    assert mem_db.query_one("SELECT COUNT(*) AS n FROM trades")["n"] == 0
+
+
+def test_trade_with_non_finite_number_is_rejected(mem_db, tmp_path, trade_data):
+    """NaN/Infinity are not valid JSON payloads for database ingestion."""
+    trade_data["entry_price"] = float("nan")
+    _write_trade_file(tmp_path, trade_data)
+
+    result = Ingestion(mem_db, tmp_path, tmp_path).ingest_trades()
+
+    assert result.status == "completed"
+    assert result.rows_written == 0
+    assert mem_db.query_one("SELECT COUNT(*) AS n FROM trades")["n"] == 0
+
+
+def test_ranking_with_invalid_item_is_rejected(mem_db, tmp_path, ranking_data):
+    ranking_data["longs"][0]["rank"] = True
+    _write_ranking_file(tmp_path, ranking_data)
+
+    result = Ingestion(mem_db, tmp_path, tmp_path).ingest_rankings()
+
+    assert result.status == "completed"
+    assert result.rows_written == 0
+    assert mem_db.query_one("SELECT COUNT(*) AS n FROM ranking_cycles")["n"] == 0
 
 
 def test_empty_directory_produces_zero_rows(mem_db, tmp_path):
