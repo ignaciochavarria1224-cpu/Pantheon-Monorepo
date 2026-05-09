@@ -27,12 +27,14 @@ Never-raise contracts are preserved end-to-end:
 
 from __future__ import annotations
 
+import json
 import os
+import sqlite3
 import sys
 import threading
 import time
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # Bootstrap: ensure the olympus root is on sys.path regardless of CWD
@@ -200,6 +202,171 @@ def _ensure_safe_broker_start(alpaca, settings, log) -> None:
     )
 
 
+def _parse_iso_datetime(value: str) -> datetime:
+    if value.endswith("Z"):
+        value = value.replace("Z", "+00:00")
+    dt = datetime.fromisoformat(value)
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+def _deserialize_bar_features(raw: str) -> Optional["BarFeatures"]:
+    from core.models import BarFeatures
+
+    if not raw:
+        return None
+    try:
+        payload = json.loads(raw)
+        if not isinstance(payload, dict):
+            return None
+        return BarFeatures(
+            symbol=payload.get("symbol", ""),
+            timestamp=_parse_iso_datetime(payload["timestamp"]),
+            close=float(payload.get("close", 0.0)),
+            volume=float(payload.get("volume", 0.0)),
+            roc_5=float(payload.get("roc_5", 0.0)),
+            roc_10=float(payload.get("roc_10", 0.0)),
+            roc_20=float(payload.get("roc_20", 0.0)),
+            acceleration=float(payload.get("acceleration", 0.0)),
+            rvol=float(payload.get("rvol", 0.0)),
+            vwap_deviation=float(payload.get("vwap_deviation", 0.0)),
+            range_position=float(payload.get("range_position", 0.0)),
+            raw_score=float(payload.get("raw_score", 0.0)),
+            normalized_score=float(payload.get("normalized_score", 0.0)),
+        )
+    except Exception:
+        return None
+
+
+def _build_position_from_open_position_row(row: dict) -> "Position":
+    from core.models import Direction, Position, TradeStatus
+
+    entry_time = _parse_iso_datetime(row["entry_time"])
+    return Position(
+        position_id=row["position_id"],
+        symbol=row["symbol"],
+        direction=Direction(row["direction"]),
+        entry_price=float(row["entry_price"]),
+        stop_price=float(row["stop_price"]),
+        target_price=float(row["target_price"]),
+        size=int(row["size"]),
+        entry_time=entry_time,
+        rank_at_entry=0,
+        score_at_entry=0.0,
+        current_price=float(row["entry_price"]),
+        unrealized_pnl=0.0,
+        status=TradeStatus.OPEN,
+        features=_deserialize_bar_features(row.get("features")),
+    )
+
+
+def _seed_open_positions(repo, position_manager, writer, settings, log) -> None:
+    stale_warn = timedelta(hours=int(settings.OPEN_POSITION_STALE_WARN_HOURS))
+    stale_skip = timedelta(days=int(settings.OPEN_POSITION_STALE_SKIP_DAYS))
+    now_utc = datetime.now(timezone.utc)
+
+    try:
+        rows = repo.get_open_positions()
+    except sqlite3.OperationalError as exc:
+        message = (
+            "Startup failed: open_positions table is missing. "
+            "Ensure the database has been migrated to include open_positions."
+        )
+        log.error("%s %s", message, exc)
+        writer.write_event(
+            "local_state_seed_failure",
+            message,
+            metadata={
+                "error": str(exc),
+                "severity": "fatal",
+            },
+        )
+        raise RuntimeError(message) from exc
+    except Exception as exc:
+        message = "Startup failed while reading open_positions."
+        log.error("%s %s", message, exc)
+        writer.write_event(
+            "local_state_seed_failure",
+            message,
+            metadata={
+                "error": str(exc),
+                "severity": "fatal",
+            },
+        )
+        raise
+
+    loaded = 0
+    skipped = 0
+
+    for row in rows:
+        try:
+            position = _build_position_from_open_position_row(row)
+        except Exception as exc:
+            message = (
+                "Failed to reconstruct open position from persistent row: "
+                f"position_id={row.get('position_id')} symbol={row.get('symbol')}"
+            )
+            log.error("%s — %s", message, traceback.format_exc())
+            writer.write_event(
+                "local_state_seed_failure",
+                message,
+                symbol=row.get("symbol"),
+                metadata={
+                    "position_id": row.get("position_id"),
+                    "entry_time": row.get("entry_time"),
+                    "error": str(exc),
+                    "severity": "fatal",
+                },
+            )
+            raise
+
+        age = now_utc - position.entry_time
+        if age < stale_warn:
+            position_manager.add_position(position)
+            loaded += 1
+            continue
+
+        if age < stale_skip:
+            position_manager.add_position(position)
+            loaded += 1
+            writer.write_event(
+                "stale_open_position_loaded",
+                "Loaded stale open position from persistent local state.",
+                symbol=position.symbol,
+                metadata={
+                    "severity": "warning",
+                    "position_id": position.position_id,
+                    "symbol": position.symbol,
+                    "entry_time": row.get("entry_time"),
+                },
+            )
+            continue
+
+        skipped += 1
+        writer.write_event(
+            "stale_open_position_skipped",
+            "Skipped stale open position that was too old to seed into local state.",
+            symbol=position.symbol,
+            metadata={
+                "severity": "warning",
+                "position_id": position.position_id,
+                "symbol": position.symbol,
+                "entry_time": row.get("entry_time"),
+            },
+        )
+
+    writer.write_event(
+        "local_state_seeded",
+        "Local open position state seeded from persistent open_positions.",
+        metadata={
+            "loaded_positions": loaded,
+            "skipped_positions": skipped,
+        },
+    )
+    log.info("Open position seed complete — loaded=%d skipped=%d", loaded, skipped)
+
+
 def main() -> None:
     # ------------------------------------------------------------------
     # Step 0 — Instance guard: refuse to start if already running
@@ -278,7 +445,6 @@ def main() -> None:
     from core.universe import UniverseManager
 
     alpaca = AlpacaClient()
-    _ensure_safe_broker_start(alpaca, settings, log)
     fetcher = DataFetcher()
     cache = DataCache(settings.CACHE_DIR)
     universe = UniverseManager()
@@ -290,7 +456,9 @@ def main() -> None:
 
     execution = ExecutionEngine(alpaca, settings)
     position_manager = PositionManager(execution, settings)
+    _seed_open_positions(repo, position_manager, writer, settings, log)
     broker_reconciler = BrokerReconciler(alpaca, settings)
+    _ensure_safe_broker_start(alpaca, settings, log)
 
     loop = MemoryAwarePaperTradingLoop(
         memory_writer=writer,
