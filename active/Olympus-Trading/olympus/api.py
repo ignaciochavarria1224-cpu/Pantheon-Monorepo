@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 from datetime import datetime
-import os
 from pathlib import Path
 
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
+from config.settings import settings
 from core.memory.database import Database
 from core.memory.repository import Repository
 
@@ -14,8 +14,8 @@ ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / ".env")
 
 app = FastAPI(title="Olympus API", version="1.0.0")
-DB_PATH = Path(os.getenv("DB_PATH", str(ROOT / "data" / "olympus.db")))
-LOG_DIR = Path(os.getenv("LOG_DIR", str(ROOT / "data" / "logs")))
+DB_PATH = Path(settings.DB_PATH)
+LOG_DIR = Path(settings.LOG_DIR)
 _DB = Database(DB_PATH)
 _DB.initialize()
 _REPO = Repository(_DB)
@@ -32,6 +32,7 @@ def _repo() -> Repository:
 @app.get("/health")
 async def health():
     report_path = _report_path()
+    quality = _REPO.get_trade_quality_summary()
     return {
         "connected": DB_PATH.exists() or report_path.exists(),
         "db_exists": DB_PATH.exists(),
@@ -42,6 +43,12 @@ async def health():
         else None,
         "report_exists": report_path.exists(),
         "report_path": str(report_path),
+        "latest_clean_trade_at": quality.get("latest_clean_trade_at"),
+        "broker_mismatch_events": quality.get("broker_mismatch_events", 0),
+        "trade_quality_counts": quality.get("counts", {}),
+        "auto_repair_paper_positions": settings.OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS,
+        "block_entries_on_broker_mismatch": settings.OLYMPUS_BLOCK_ENTRIES_ON_BROKER_MISMATCH,
+        "apex_training_quality_policy": settings.APEX_TRAINING_QUALITY_POLICY,
     }
 
 

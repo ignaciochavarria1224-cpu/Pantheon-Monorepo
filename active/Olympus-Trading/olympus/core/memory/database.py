@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import sqlite3
 import threading
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -23,6 +24,7 @@ _REFRESHABLE_VIEWS = (
     "v_exit_reason_stats",
     "v_rolling_7day",
     "v_feature_buckets",
+    "v_trade_quality_flags",
 )
 
 
@@ -43,7 +45,7 @@ class Database:
     def __init__(self, db_path: Path) -> None:
         self._db_path = db_path
         self._conn: Optional[sqlite3.Connection] = None
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
         logger.debug("Database created (path=%s)", db_path)
 
     # ------------------------------------------------------------------
@@ -102,7 +104,7 @@ class Database:
                     # IF NOT EXISTS guards handle most cases; log unexpected errors
                     logger.warning("Schema statement warning: %s | stmt=%.60s", exc, stmt)
             for view_name in _REFRESHABLE_VIEWS:
-                conn.execute(f"DROP VIEW IF EXISTS {view_name}")
+                self.execute_ddl("DROP VIEW IF EXISTS {identifier}", view_name)
             for stmt in view_statements:
                 try:
                     conn.execute(stmt)
@@ -144,6 +146,17 @@ class Database:
             cur = conn.execute(sql, params)
             conn.commit()
         return cur
+
+    def execute_ddl(self, sql_template: str, identifier: str) -> sqlite3.Cursor:
+        """
+        Execute DDL statements with identifiers safely.
+        Validates that the identifier contains only safe characters.
+        """
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", identifier):
+            raise ValueError(f"Invalid identifier: {identifier}")
+
+        sql = sql_template.format(identifier=identifier)
+        return self.execute(sql)
 
     def executemany(self, sql: str, params_list: list) -> int:
         """
