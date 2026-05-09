@@ -1,0 +1,16 @@
+# Local runtime artifacts
+*.pid
+*.tmp.*
+*.db-shm
+*.db-wal
+*.db.corrupt.bak-shm
+*.db.corrupt.bak-wal
+
+# Olympus repo-local runtime data is non-canonical.
+# The active runtime data lives under C:/Users/ignac/OlympusLocal/data.
+olympus/data/olympus.db
+olympus/data/cache/
+olympus/data/logs/
+olympus/data/*.db-shm
+olympus/data/*.db-wal
+olympus/data/*conflicted copy*.db*

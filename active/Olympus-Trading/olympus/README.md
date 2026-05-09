@@ -61,6 +61,23 @@ This exposes operational state without granting execution controls. It is intend
 
 Olympus uses SQLite plus local artifacts as its execution memory layer.
 
+### Runtime Source Of Truth
+
+The top-level `olympus/` folder is the canonical Olympus code path for now.
+`Pantheon/apps/olympus/` is treated as a stale copy until it is explicitly
+synchronized or removed.
+
+Live runtime data is local-first and should not be inferred from repo-local
+database files. On this machine the active runtime paths are expected to live
+under:
+
+```text
+C:\Users\ignac\OlympusLocal\data
+```
+
+GitHub/repo files organize code and history; local runtime data is the
+operational source of truth.
+
 Primary SQLite tables include:
 
 - `ranking_cycles`
