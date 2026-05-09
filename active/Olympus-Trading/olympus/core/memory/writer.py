@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING, Optional
 
 from core.logger import get_logger
 from core.memory.enrichment import TradeContextEnricher
+from core.memory.repository import Repository
 from core.trading.loop import PaperTradingLoop
 
 if TYPE_CHECKING:
@@ -42,6 +43,7 @@ class MemoryWriter:
         allow_network_fallback: bool = True,
     ) -> None:
         self._db = db
+        self._repository = Repository(db)
         self._enricher = TradeContextEnricher(
             db,
             allow_network_fallback=allow_network_fallback,
@@ -51,6 +53,11 @@ class MemoryWriter:
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
+
+    @property
+    def repository(self) -> Repository:
+        """Public access to the underlying repository."""
+        return self._repository
 
     def write_trade(
         self,
@@ -161,8 +168,8 @@ class MemoryWriter:
                     int(ranked.scored_count),
                     int(ranked.error_count),
                     float(ranked.duration_seconds),
-                    json.dumps(longs[:10]),
-                    json.dumps(shorts[:10]),
+                    json.dumps(longs[:10], allow_nan=False),
+                    json.dumps(shorts[:10], allow_nan=False),
                     now_utc,
                 ),
             )
@@ -234,7 +241,7 @@ class MemoryWriter:
                     event_type,
                     symbol,
                     description,
-                    json.dumps(metadata) if metadata is not None else None,
+                    json.dumps(metadata, allow_nan=False) if metadata is not None else None,
                     now_utc,
                     now_utc,
                 ),
@@ -393,6 +400,73 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
                     "exit_time": record.exit_time.isoformat(),
                 },
             )
+
+    def _run_cycle_inner(self) -> None:
+        """
+        Override to add open position persistence on entry.
+        Calls parent implementation, but hooks into position entries.
+        """
+        # For now, we'll use a simple approach: after the parent cycle runs,
+        # check for any new positions that weren't in the DB before.
+        # This is a temporary implementation until we can hook directly into the entry.
+        
+        # Get open positions before the cycle
+        open_before = {p.position_id for p in self._position_manager.get_open_positions()}
+        
+        # Run the parent cycle (which may add new positions)
+        super()._run_cycle_inner()
+        
+        # Get open positions after the cycle
+        open_after = self._position_manager.get_open_positions()
+        
+        # Insert any new positions
+        for position in open_after:
+            if position.position_id not in open_before:
+                try:
+                    entry_ts = position.entry_time.isoformat()
+                    self._memory_writer.repository.insert_open_position(
+                        position_id=position.position_id,
+                        symbol=position.symbol,
+                        direction=position.direction.value,
+                        size=int(position.size),
+                        entry_time=entry_ts,
+                        entry_price=float(position.entry_price),
+                        # entry_cycle_id is intentionally NULL here. The current
+                        # cycle is not yet persisted to ranking_cycles when this
+                        # override runs (parent writes it after _run_cycle_inner
+                        # returns). Wiring the real cycle_id requires
+                        # restructuring the cycle write order, which is out of
+                        # scope for this fix.
+                        entry_cycle_id=None,
+                        features=(
+                            json.dumps(position.features.to_dict(), allow_nan=False)
+                            if position.features is not None
+                            else None
+                        ),
+                        last_seen_at=entry_ts,
+                        stop_price=float(position.stop_price) if position.stop_price else None,
+                        target_price=float(position.target_price) if position.target_price else None,
+                    )
+                    logger.debug(
+                        "Inserted open position: %s %s %s",
+                        position.position_id[:8], position.direction.value.upper(), position.symbol,
+                    )
+                except Exception as exc:
+                    logger.error(
+                        "Failed to insert open position %s:\n%s",
+                        position.position_id[:8],
+                        traceback.format_exc(),
+                    )
+                    self._memory_writer.write_event(
+                        "open_position_persistence_failed",
+                        f"Failed to persist open position {position.position_id[:8]} for {position.symbol}",
+                        symbol=position.symbol,
+                        metadata={
+                            "position_id": position.position_id,
+                            "exception_type": type(exc).__name__,
+                            "exception_message": str(exc),
+                        },
+                    )
 
     def _run_cycle(self) -> None:
         """Run the full cycle (parent), then persist the ranking cycle to DB."""
