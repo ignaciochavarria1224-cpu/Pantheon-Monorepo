@@ -22,6 +22,7 @@ from core.trading.loop import PaperTradingLoop
 if TYPE_CHECKING:
     from core.memory.database import Database
     from core.models import BarFeatures, RankedUniverse, TradeRecord
+    from core.trading.reconciliation import BrokerReconciler
 
 logger = get_logger(__name__)
 
@@ -366,11 +367,22 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
       we also call writer.write_trade() for every completed trade.
     - _run_cycle() — parent runs the full cycle; we also call writer.write_cycle()
       after each successful cycle so every ranking pass is persisted.
+
+    The optional ``broker_reconciler`` is stored on the instance so external
+    callers (CLI tools, future Phase 7 wiring) can invoke it explicitly.
+    Holding the reconciler here intentionally does not imply in-loop
+    invocation — the trading cycle does not call it.
     """
 
-    def __init__(self, memory_writer: MemoryWriter, **kwargs) -> None:
+    def __init__(
+        self,
+        memory_writer: MemoryWriter,
+        broker_reconciler: Optional["BrokerReconciler"] = None,
+        **kwargs,
+    ) -> None:
         super().__init__(**kwargs)
         self._memory_writer = memory_writer
+        self._broker_reconciler = broker_reconciler
         logger.info("MemoryAwarePaperTradingLoop initialized")
 
     def _register_completed_trade(self, record: "TradeRecord") -> None:
