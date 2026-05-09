@@ -3,6 +3,12 @@ Broker/local position reconciliation for Olympus.
 
 Detection is always read-only. Repair is allowed only for Alpaca paper mode
 when explicitly enabled by settings.
+
+The reconciler is intentionally designed to compare live broker state against
+in-memory local position state supplied by PositionManager. This is the trusted
+source-of-truth chain because run_live seeds PositionManager from persistent
+open_positions at startup and the entry/exit paths keep the in-memory state
+current. The reconciler does not read open_positions directly on each cycle.
 """
 
 from __future__ import annotations

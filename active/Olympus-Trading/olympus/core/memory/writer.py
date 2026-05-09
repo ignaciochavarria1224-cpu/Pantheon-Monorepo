@@ -669,8 +669,10 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
                 )
                 broker_state = diagnostics.get("broker_state") or {}
                 if broker_state.get("mismatch"):
+                    metadata = dict(broker_state)
+                    metadata.setdefault("reason", "unknown")
                     self._memory_writer.write_event(
                         "broker_mismatch",
                         "Local and broker open positions diverged",
-                        metadata=broker_state,
+                        metadata=metadata,
                     )

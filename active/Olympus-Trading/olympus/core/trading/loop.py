@@ -630,22 +630,33 @@ class PaperTradingLoop:
                 }
                 for p in broker_positions
             }
-            local_symbols = sorted(local_positions)
-            broker_symbols = sorted(broker_position_map)
-            shared_symbols = set(local_positions) & set(broker_position_map)
+            local_set = set(local_positions)
+            broker_set = set(broker_position_map)
+            shared_symbols = local_set & broker_set
             quantity_or_side_mismatch = any(
                 local_positions[symbol] != broker_position_map[symbol]
                 for symbol in shared_symbols
             )
+            mismatch = local_set != broker_set or quantity_or_side_mismatch
+            reason = "clean"
+            if mismatch:
+                if local_set != broker_set:
+                    if broker_set - local_set:
+                        reason = "broker_only_position"
+                    elif local_set - broker_set:
+                        reason = "local_only_position"
+                    else:
+                        reason = "symbol_set_mismatch"
+                else:
+                    reason = "quantity_or_side_mismatch"
+
             diagnostics["broker_state"] = {
-                "local_open_symbols": local_symbols,
-                "broker_open_symbols": broker_symbols,
+                "local_open_symbols": sorted(local_set),
+                "broker_open_symbols": sorted(broker_set),
                 "local_open_positions": local_positions,
                 "broker_open_positions": broker_position_map,
-                "mismatch": (
-                    local_symbols != broker_symbols
-                    or quantity_or_side_mismatch
-                ),
+                "mismatch": mismatch,
+                "reason": reason,
             }
         except Exception as exc:
             diagnostics["broker_state"] = {"error": str(exc)}
