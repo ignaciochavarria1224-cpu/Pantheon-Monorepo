@@ -127,6 +127,13 @@ class Settings:
 
     # --- Phase 4: Memory & Storage ---
     DB_PATH: Path                 # Path to olympus.db SQLite database
+    OPEN_POSITION_STALE_WARN_HOURS: int
+    OPEN_POSITION_STALE_SKIP_DAYS: int
+
+    # --- Runtime safety / Apex data policy ---
+    OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS: bool
+    OLYMPUS_BLOCK_ENTRIES_ON_BROKER_MISMATCH: bool
+    APEX_TRAINING_QUALITY_POLICY: str
 
 
 def load_settings() -> Settings:
@@ -203,6 +210,17 @@ def load_settings() -> Settings:
         RANKINGS_DIR=rankings_dir,
         # Phase 4 — Memory & Storage
         DB_PATH=db_path,
+        OPEN_POSITION_STALE_WARN_HOURS=_int_env("OPEN_POSITION_STALE_WARN_HOURS", 24),
+        OPEN_POSITION_STALE_SKIP_DAYS=_int_env("OPEN_POSITION_STALE_SKIP_DAYS", 7),
+        OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS=_bool_env(
+            "OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS", False
+        ),
+        OLYMPUS_BLOCK_ENTRIES_ON_BROKER_MISMATCH=_bool_env(
+            "OLYMPUS_BLOCK_ENTRIES_ON_BROKER_MISMATCH", True
+        ),
+        APEX_TRAINING_QUALITY_POLICY=_str_env(
+            "APEX_TRAINING_QUALITY_POLICY", "clean_only"
+        ),
     )
 
 

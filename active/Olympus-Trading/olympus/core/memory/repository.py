@@ -93,14 +93,128 @@ class Repository:
         )
         return row["n"] if row else 0
 
-    def get_trades_for_apex(self, limit: int = 500) -> list[dict]:
+    def get_trades_for_apex(self, limit: int = 500, quality: str = "clean") -> list[dict]:
         """
         Return the most recent trades joined with feature data.
         Used by Apex to build analysis context.
         """
+        if quality == "all":
+            return self._db.query(
+                "SELECT * FROM v_trades_enriched ORDER BY entry_time DESC LIMIT ?",
+                (int(limit),),
+            )
         return self._db.query(
-            "SELECT * FROM v_trades_enriched ORDER BY entry_time DESC LIMIT ?",
-            (int(limit),),
+            """
+            SELECT e.*, q.quality, q.primary_reason, q.apex_trainable
+            FROM v_trades_enriched e
+            JOIN v_trade_quality_flags q ON q.trade_id = e.trade_id
+            WHERE q.quality = ?
+            ORDER BY e.entry_time DESC
+            LIMIT ?
+            """,
+            (quality, int(limit)),
+        )
+
+    def get_apex_training_trades(self, quality: str = "clean", limit: int = 500) -> list[dict]:
+        """Return trades intended for Apex training; defaults to clean rows only."""
+        return self.get_trades_for_apex(limit=limit, quality=quality)
+
+    def get_trade_quality_summary(self) -> dict:
+        """Return trade counts by Apex quality label."""
+        rows = self._db.query(
+            """
+            SELECT quality, COUNT(*) AS n
+            FROM v_trade_quality_flags
+            GROUP BY quality
+            ORDER BY quality
+            """
+        )
+        summary = {row["quality"]: row["n"] for row in rows}
+        latest_clean = self._db.query_one(
+            """
+            SELECT MAX(t.entry_time) AS latest_clean_trade_at
+            FROM trades t
+            JOIN v_trade_quality_flags q ON q.trade_id = t.trade_id
+            WHERE q.quality = 'clean'
+            """
+        )
+        mismatch_count = self._db.query_one(
+            "SELECT COUNT(*) AS n FROM system_events WHERE event_type = 'broker_mismatch'"
+        )
+        return {
+            "counts": summary,
+            "total": sum(summary.values()),
+            "latest_clean_trade_at": (
+                latest_clean.get("latest_clean_trade_at") if latest_clean else None
+            ),
+            "broker_mismatch_events": mismatch_count["n"] if mismatch_count else 0,
+        }
+
+    # ------------------------------------------------------------------
+    # Open positions queries
+    # ------------------------------------------------------------------
+
+    def insert_open_position(
+        self,
+        position_id: str,
+        symbol: str,
+        direction: str,
+        size: int,
+        entry_time: str,
+        entry_price: float,
+        entry_cycle_id: Optional[str] = None,
+        features: Optional[str] = None,
+        broker_order_id: Optional[str] = None,
+        last_seen_at: Optional[str] = None,
+        stop_price: Optional[float] = None,
+        target_price: Optional[float] = None,
+        source: Optional[str] = None,
+    ) -> None:
+        """Insert a new open position row."""
+        now_utc = datetime.now().isoformat()
+        self._db.execute(
+            """
+            INSERT INTO open_positions (
+                position_id, symbol, direction, size, entry_time, entry_price,
+                entry_cycle_id, features, broker_order_id, last_seen_at,
+                stop_price, target_price, source, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                position_id, symbol, direction, size, entry_time, entry_price,
+                entry_cycle_id, features, broker_order_id, last_seen_at,
+                stop_price, target_price, source, now_utc, now_utc,
+            ),
+        )
+
+    def delete_open_position_by_id(self, position_id: str) -> None:
+        """Delete an open position by its position_id."""
+        self._db.execute(
+            "DELETE FROM open_positions WHERE position_id = ?",
+            (position_id,),
+        )
+
+    def get_open_positions(self) -> list[dict]:
+        """Return all open positions."""
+        return self._db.query("SELECT * FROM open_positions")
+
+    def get_open_position_by_id(self, position_id: str) -> Optional[dict]:
+        """Return a single open position by position_id."""
+        return self._db.query_one(
+            "SELECT * FROM open_positions WHERE position_id = ?",
+            (position_id,),
+        )
+
+    def update_open_position_last_seen(self, position_id: str, timestamp: str) -> None:
+        """Update the last_seen_at and updated_at for an open position."""
+        now_utc = datetime.now().isoformat()
+        self._db.execute(
+            """
+            UPDATE open_positions
+            SET last_seen_at = ?, updated_at = ?
+            WHERE position_id = ?
+            """,
+            (timestamp, now_utc, position_id),
         )
 
     # ------------------------------------------------------------------
