@@ -359,3 +359,15 @@ def test_thread_safety_concurrent_reads_do_not_raise():
         t.join(timeout=5.0)
 
     assert len(errors) == 0, f"Thread safety errors: {errors}"
+
+
+def test_clear_positions_removes_all_open_positions():
+    execution = MagicMock()
+    pm = PositionManager(execution, _make_settings())
+    pm.add_position(_make_position("AAPL", Direction.LONG))
+    pm.add_position(_make_position("MSFT", Direction.SHORT))
+
+    removed = pm.clear_positions()
+
+    assert removed == 2
+    assert pm.get_open_positions() == []

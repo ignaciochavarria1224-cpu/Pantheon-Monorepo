@@ -7,6 +7,7 @@ Live trading is not enabled until Phase 8.
 from __future__ import annotations
 
 import time
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 from alpaca.trading.client import TradingClient
@@ -245,6 +246,190 @@ class AlpacaClient:
                 exc,
             )
             return False
+
+    def get_account_snapshot(self) -> dict[str, Any]:
+        """
+        Read-only extended account snapshot for reconciliation tooling.
+
+        Returns every field on the TradeAccount model that is useful for
+        equity reconciliation. Does not modify any state. Raises on failure
+        (callers should handle and report).
+        """
+        acct = self._client.get_account()
+
+        def _f(v: Any) -> Optional[float]:
+            return float(v) if v is not None else None
+
+        return {
+            "account_number":           str(acct.account_number),
+            "status":                   str(acct.status.value) if acct.status else None,
+            "currency":                 str(acct.currency) if acct.currency else None,
+            "created_at":               acct.created_at,
+            "equity":                   _f(acct.equity),
+            "last_equity":              _f(acct.last_equity),
+            "cash":                     _f(acct.cash),
+            "buying_power":             _f(acct.buying_power),
+            "portfolio_value":          _f(acct.portfolio_value),
+            "long_market_value":        _f(acct.long_market_value),
+            "short_market_value":       _f(acct.short_market_value),
+            "initial_margin":           _f(acct.initial_margin),
+            "maintenance_margin":       _f(acct.maintenance_margin),
+            "accrued_fees":             _f(acct.accrued_fees),
+            "pending_transfer_in":      _f(acct.pending_transfer_in),
+            "pending_transfer_out":     _f(acct.pending_transfer_out),
+            "multiplier":               _f(acct.multiplier),
+            "daytrade_count":           int(acct.daytrade_count) if acct.daytrade_count is not None else None,
+            "pattern_day_trader":       bool(acct.pattern_day_trader) if acct.pattern_day_trader is not None else None,
+            "trading_blocked":          bool(acct.trading_blocked) if acct.trading_blocked is not None else None,
+            "account_blocked":          bool(acct.account_blocked) if acct.account_blocked is not None else None,
+        }
+
+    def get_positions_snapshot(self) -> list[dict[str, Any]]:
+        """
+        Read-only extended positions snapshot for reconciliation tooling.
+
+        Returns the full set of fields needed to reconcile market values and
+        unrealized PnL against equity. Raises on failure.
+        """
+        positions = self._client.get_all_positions()
+        result: list[dict[str, Any]] = []
+        for p in positions:
+            def _f(v: Any) -> Optional[float]:
+                return float(v) if v is not None else None
+            result.append({
+                "symbol":                   str(p.symbol),
+                "qty":                      _f(p.qty),
+                "side":                     str(p.side.value) if p.side else None,
+                "avg_entry_price":          _f(p.avg_entry_price),
+                "current_price":            _f(p.current_price),
+                "market_value":             _f(p.market_value),
+                "cost_basis":               _f(p.cost_basis),
+                "unrealized_pl":            _f(p.unrealized_pl),
+                "unrealized_plpc":          _f(p.unrealized_plpc),
+                "unrealized_intraday_pl":   _f(p.unrealized_intraday_pl),
+                "lastday_price":            _f(p.lastday_price),
+            })
+        return result
+
+    def get_activities(self, after: datetime) -> list[dict[str, Any]]:
+        """
+        Read-only fetch of account activities from Alpaca.
+
+        Wraps the /v2/account/activities endpoint. Returns a list of raw
+        activity dicts as returned by the API (each contains at minimum
+        activity_type, date or transaction_time, net_amount or qty/price).
+        Pages through results until exhausted.
+
+        Args:
+            after: Inclusive lower bound on activity date (UTC). Naive datetimes
+                   are treated as UTC.
+
+        Raises on transport-layer failure.
+        """
+        if after.tzinfo is None:
+            after = after.replace(tzinfo=timezone.utc)
+        # Alpaca expects RFC3339 timestamps for the `after` query param.
+        after_str = after.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+        all_rows: list[dict[str, Any]] = []
+        page_token: Optional[str] = None
+        # Hard upper bound on pages to defend against runaway loops.
+        for _ in range(200):
+            params: dict[str, Any] = {
+                "after": after_str,
+                "direction": "asc",
+                "page_size": 100,
+            }
+            if page_token:
+                params["page_token"] = page_token
+            resp = self._client.get("/account/activities", data=params)
+            if not resp:
+                break
+            if not isinstance(resp, list):
+                # Unexpected shape — return what we have.
+                break
+            all_rows.extend(resp)
+            if len(resp) < 100:
+                break
+            # Use the last row's id as the next page_token.
+            last = resp[-1]
+            new_token = last.get("id") if isinstance(last, dict) else None
+            if not new_token or new_token == page_token:
+                break
+            page_token = new_token
+        return all_rows
+
+    def get_order(self, order_id: str) -> Optional[dict[str, Any]]:
+        """
+        Get details for a specific order by ID.
+        Returns None if order not found or on error.
+        """
+        try:
+            order = self._client.get_order(order_id)
+            return {
+                "order_id": str(order.id),
+                "client_order_id": str(order.client_order_id) if order.client_order_id else None,
+                "symbol": str(order.symbol),
+                "qty": int(float(order.qty)) if order.qty is not None else None,
+                "filled_qty": int(float(order.filled_qty)) if order.filled_qty is not None else None,
+                "side": str(order.side.value) if order.side else None,
+                "type": str(order.type.value) if order.type else None,
+                "status": str(order.status.value) if order.status else None,
+                "filled_avg_price": float(order.filled_avg_price) if order.filled_avg_price is not None else None,
+                "submitted_at": order.submitted_at,
+                "filled_at": order.filled_at,
+                "expired_at": order.expired_at,
+                "canceled_at": order.canceled_at,
+            }
+        except Exception as exc:
+            logger.debug("AlpacaClient.get_order(%s) failed: %s", order_id, exc)
+            return None
+
+    def get_orders(
+        self,
+        symbol: Optional[str] = None,
+        status: Optional[str] = None,
+        after: Optional[datetime] = None,
+        until: Optional[datetime] = None,
+        limit: int = 500,
+    ) -> list[dict[str, Any]]:
+        """
+        Get orders with optional filters.
+        Returns list of order dicts, empty on error.
+        """
+        try:
+            from alpaca.trading.enums import QueryOrderStatus
+            from alpaca.trading.requests import GetOrdersRequest
+
+            params = GetOrdersRequest(
+                status=QueryOrderStatus(status) if status else None,
+                symbols=[symbol.upper()] if symbol else None,
+                after=after,
+                until=until,
+                limit=limit,
+            )
+            orders = self._client.get_orders(filter=params)
+            result = []
+            for order in orders:
+                result.append({
+                    "order_id": str(order.id),
+                    "client_order_id": str(order.client_order_id) if order.client_order_id else None,
+                    "symbol": str(order.symbol),
+                    "qty": int(float(order.qty)) if order.qty is not None else None,
+                    "filled_qty": int(float(order.filled_qty)) if order.filled_qty is not None else None,
+                    "side": str(order.side.value) if order.side else None,
+                    "type": str(order.type.value) if order.type else None,
+                    "status": str(order.status.value) if order.status else None,
+                    "filled_avg_price": float(order.filled_avg_price) if order.filled_avg_price is not None else None,
+                    "submitted_at": order.submitted_at,
+                    "filled_at": order.filled_at,
+                    "expired_at": order.expired_at,
+                    "canceled_at": order.canceled_at,
+                })
+            return result
+        except Exception as exc:
+            logger.error("AlpacaClient.get_orders() failed: %s", exc)
+            return []
 
     def ping(self) -> tuple[bool, float]:
         """

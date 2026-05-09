@@ -67,6 +67,15 @@ class PositionManager:
         if removed:
             logger.debug("Position removed: %s", symbol)
 
+    def clear_positions(self) -> int:
+        """Clear all local open-position state and return how many were removed."""
+        with self._lock:
+            count = len(self._positions)
+            self._positions.clear()
+        if count:
+            logger.warning("Cleared %d local open position(s)", count)
+        return count
+
     def update_prices(self, latest_bars: dict[str, dict]) -> None:
         """
         Update current_price and unrealized_pnl for all open positions.

@@ -150,7 +150,7 @@ def _start_api_server(log) -> None:
     log.info("HTTP API mounted on http://%s:%d", host, port)
 
 
-def _ensure_safe_broker_start(alpaca, log) -> None:
+def _ensure_safe_broker_start(alpaca, settings, log) -> None:
     """
     Refuse to start against an already-active broker account unless an explicit
     override is set. Olympus does not rebuild local position state on startup,
@@ -173,6 +173,19 @@ def _ensure_safe_broker_start(alpaca, log) -> None:
             for order in broker_orders
         )
         log.error("Startup broker open orders detected: %s", order_summary)
+
+    if bool(getattr(settings, "OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS", False)):
+        if not bool(getattr(settings, "ALPACA_PAPER", True)):
+            raise RuntimeError("Broker auto-repair is forbidden unless ALPACA_PAPER=True")
+        log.warning(
+            "OLYMPUS_AUTO_REPAIR_PAPER_POSITIONS=1 — repairing paper broker startup state"
+        )
+        orders_ok = alpaca.cancel_all_orders()
+        positions_ok = alpaca.close_all_positions(cancel_orders=True)
+        if orders_ok and positions_ok:
+            log.warning("Paper broker startup state repair submitted successfully")
+            return
+        raise RuntimeError("Paper broker startup state repair failed; refusing startup")
 
     if _bool_env("ALLOW_EXISTING_BROKER_STATE", default=False):
         log.warning(
@@ -259,12 +272,13 @@ def main() -> None:
     from core.memory.writer import MemoryAwarePaperTradingLoop, MemoryWriter
     from core.ranking.cycle import RankingCycle
     from core.ranking.engine import RankingEngine
+    from core.trading.reconciliation import BrokerReconciler
     from core.trading.execution import ExecutionEngine
     from core.trading.manager import PositionManager
     from core.universe import UniverseManager
 
     alpaca = AlpacaClient()
-    _ensure_safe_broker_start(alpaca, log)
+    _ensure_safe_broker_start(alpaca, settings, log)
     fetcher = DataFetcher()
     cache = DataCache(settings.CACHE_DIR)
     universe = UniverseManager()
@@ -276,9 +290,11 @@ def main() -> None:
 
     execution = ExecutionEngine(alpaca, settings)
     position_manager = PositionManager(execution, settings)
+    broker_reconciler = BrokerReconciler(alpaca, settings)
 
     loop = MemoryAwarePaperTradingLoop(
         memory_writer=writer,
+        broker_reconciler=broker_reconciler,
         ranking_cycle=ranking_cycle,
         position_manager=position_manager,
         execution=execution,
