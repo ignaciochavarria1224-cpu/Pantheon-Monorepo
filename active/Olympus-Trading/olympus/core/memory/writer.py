@@ -138,6 +138,165 @@ class MemoryWriter:
             )
             return False
 
+    def write_trade_and_close_position(
+        self,
+        record: "TradeRecord",
+        features: Optional["BarFeatures"] = None,
+    ) -> bool:
+        """
+        Persist a closed TradeRecord to ``trades`` and remove the
+        matching ``open_positions`` row in a single atomic transaction.
+
+        Behavior:
+          * Both writes commit together or both roll back.
+          * If the open_positions row is missing (e.g., the entry-path
+            override silently failed for that position before this
+            work landed), the trade row is still inserted and an
+            ``orphaned_exit_no_open_row`` system_event is emitted so
+            the gap is visible.
+          * Transaction failures emit ``exit_path_transaction_failed``
+            at error severity. We do not silently retry.
+
+        Returns True if the transaction committed (regardless of
+        orphan state), False if it rolled back.
+
+        Note: directly accesses Database._lock because Database has
+        no public transaction-context helper today. Bundling such a
+        helper into Database is a follow-up refactor.
+        """
+        try:
+            now_utc = datetime.now(timezone.utc).isoformat()
+            entry_ts = (
+                record.entry_time.isoformat()
+                if record.entry_time is not None
+                else now_utc
+            )
+            exit_ts = (
+                record.exit_time.isoformat()
+                if record.exit_time is not None
+                else now_utc
+            )
+            entry_cycle_id = self._enricher.resolve_entry_cycle_id(entry_ts)
+            regime = self._enricher.resolve_regime(entry_cycle_id)
+        except Exception:
+            logger.error(
+                "write_trade_and_close_position: pre-transaction prep FAILED for trade %s:\n%s",
+                getattr(record, "trade_id", "?")[:8],
+                traceback.format_exc(),
+            )
+            return False
+
+        inserted = False
+        delete_rowcount = 0
+
+        try:
+            conn = self._db.connect()
+            with self._db._lock:  # noqa: SLF001 — see method docstring
+                with conn:
+                    cur = conn.execute(
+                        """
+                        INSERT OR IGNORE INTO trades (
+                            trade_id, position_id, symbol, direction,
+                            entry_price, exit_price, stop_price, target_price,
+                            size, entry_time, exit_time, hold_duration_minutes,
+                            realized_pnl, r_multiple, exit_reason, status, regime,
+                            rank_at_entry, score_at_entry, rank_at_exit, score_at_exit,
+                            entry_cycle_id, exit_cycle_id,
+                            ingested_at, source_file
+                        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                        """,
+                        (
+                            record.trade_id,
+                            record.position_id,
+                            record.symbol,
+                            record.direction,
+                            float(record.entry_price),
+                            float(record.exit_price),
+                            float(record.stop_price),
+                            float(record.target_price),
+                            int(record.size),
+                            entry_ts,
+                            exit_ts,
+                            float(record.hold_duration_minutes),
+                            float(record.realized_pnl),
+                            float(record.r_multiple),
+                            record.exit_reason,
+                            record.status,
+                            regime,
+                            record.rank_at_entry,
+                            record.score_at_entry,
+                            record.rank_at_exit,
+                            record.score_at_exit,
+                            entry_cycle_id,
+                            None,
+                            now_utc,
+                            None,
+                        ),
+                    )
+                    inserted = cur.rowcount > 0
+
+                    del_cur = conn.execute(
+                        "DELETE FROM open_positions WHERE position_id = ?",
+                        (record.position_id,),
+                    )
+                    delete_rowcount = del_cur.rowcount
+        except Exception as exc:
+            logger.error(
+                "write_trade_and_close_position: TRANSACTION FAILED for trade %s:\n%s",
+                getattr(record, "trade_id", "?")[:8],
+                traceback.format_exc(),
+            )
+            self.write_event(
+                "exit_path_transaction_failed",
+                f"Exit-path transaction failed for trade {getattr(record, 'trade_id', '?')[:8]}",
+                symbol=getattr(record, "symbol", None),
+                metadata={
+                    "trade_id": getattr(record, "trade_id", None),
+                    "position_id": getattr(record, "position_id", None),
+                    "exception_type": type(exc).__name__,
+                    "exception_message": str(exc),
+                },
+            )
+            return False
+
+        if inserted:
+            try:
+                self._write_trade_features(record, features, entry_ts, now_utc)
+            except Exception:
+                logger.error(
+                    "_write_trade_features FAILED for trade %s (transaction already committed):\n%s",
+                    record.trade_id[:8],
+                    traceback.format_exc(),
+                )
+            logger.debug(
+                "write_trade_and_close_position: inserted %s (%s %s r=%.2f), deleted %d open row(s)",
+                record.trade_id[:8], record.direction.upper(), record.symbol,
+                record.r_multiple, delete_rowcount,
+            )
+        else:
+            logger.debug(
+                "write_trade_and_close_position: duplicate skipped %s, deleted %d open row(s)",
+                record.trade_id[:8], delete_rowcount,
+            )
+
+        if delete_rowcount == 0:
+            logger.warning(
+                "Orphaned exit: no open_positions row for position %s (%s)",
+                record.position_id[:8], record.symbol,
+            )
+            self.write_event(
+                "orphaned_exit_no_open_row",
+                f"Closed trade {record.trade_id[:8]} had no matching open_positions row",
+                symbol=record.symbol,
+                metadata={
+                    "trade_id": record.trade_id,
+                    "position_id": record.position_id,
+                    "exit_time": exit_ts,
+                },
+            )
+
+        return True
+
     def write_cycle(self, ranked: "RankedUniverse") -> bool:
         """
         Write a completed RankedUniverse to ranking_cycles and cycle_rankings.
@@ -386,9 +545,12 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
         logger.info("MemoryAwarePaperTradingLoop initialized")
 
     def _register_completed_trade(self, record: "TradeRecord") -> None:
-        """Add to session list (parent), then persist to DB (ours)."""
+        """Add to session list (parent), then atomically persist the
+        trade row and close the open_positions row (ours)."""
         super()._register_completed_trade(record)
-        self._memory_writer.write_trade(record, features=record.features)
+        self._memory_writer.write_trade_and_close_position(
+            record, features=record.features
+        )
         if record.features is None:
             self._memory_writer.write_event(
                 "data_quality",
