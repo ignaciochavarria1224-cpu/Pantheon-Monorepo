@@ -36,6 +36,7 @@ def test_expected_tables_exist(mem_db):
     names = {r["name"] for r in rows}
     expected = {
         "ingestion_runs",
+        "ingestion_source_files",
         "ranking_cycles",
         "cycle_rankings",
         "trades",
@@ -59,6 +60,7 @@ def test_expected_views_exist(mem_db):
         "v_exit_reason_stats",
         "v_rolling_7day",
         "v_feature_buckets",
+        "v_trade_quality_flags",
     }
     assert expected.issubset(names), f"Missing views: {expected - names}"
 
@@ -81,6 +83,7 @@ def test_expected_indexes_exist(mem_db):
         "idx_system_events_event_time",
         "idx_apex_reports_generated_at",
         "idx_pantheon_conclusions_tier",
+        "idx_ingestion_source_files_status",
     }
     assert expected_prefixes.issubset(names), f"Missing indexes: {expected_prefixes - names}"
 

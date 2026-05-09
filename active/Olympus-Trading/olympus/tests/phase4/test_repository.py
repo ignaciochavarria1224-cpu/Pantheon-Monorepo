@@ -170,8 +170,53 @@ def test_get_symbol_rank_history(repo, mem_db):
 
 def test_get_trades_for_apex_returns_joined_rows(repo, mem_db):
     trade_id = _insert_trade(mem_db, symbol="AAPL")
+    cycle_id = _insert_cycle(mem_db)
+    mem_db.execute(
+        "UPDATE trades SET entry_cycle_id = ? WHERE trade_id = ?",
+        (cycle_id, trade_id),
+    )
     rows = repo.get_trades_for_apex(limit=10)
     assert any(r["trade_id"] == trade_id for r in rows)
+
+
+def test_get_apex_training_trades_excludes_broker_mismatch_window(repo, mem_db):
+    entry = datetime(2026, 5, 7, 18, 0, tzinfo=timezone.utc)
+    exit_ = datetime(2026, 5, 7, 19, 0, tzinfo=timezone.utc)
+    trade_id = _insert_trade(mem_db, entry_time=entry, exit_time=exit_)
+    cycle_id = _insert_cycle(mem_db)
+    mem_db.execute(
+        "UPDATE trades SET entry_cycle_id = ? WHERE trade_id = ?",
+        (cycle_id, trade_id),
+    )
+    mem_db.execute(
+        """
+        INSERT INTO system_events (event_time, event_type, description)
+        VALUES (?, 'broker_mismatch', 'Local and broker open positions diverged')
+        """,
+        ((entry + timedelta(minutes=10)).isoformat(),),
+    )
+
+    rows = repo.get_apex_training_trades(quality="clean", limit=10)
+    all_rows = repo.get_trades_for_apex(quality="all", limit=10)
+    summary = repo.get_trade_quality_summary()
+
+    assert not any(r["trade_id"] == trade_id for r in rows)
+    assert any(r["trade_id"] == trade_id for r in all_rows)
+    assert summary["counts"]["suspect_broker_mismatch"] == 1
+
+
+def test_get_trade_quality_summary_counts_clean_rows(repo, mem_db):
+    trade_id = _insert_trade(mem_db)
+    cycle_id = _insert_cycle(mem_db)
+    mem_db.execute(
+        "UPDATE trades SET entry_cycle_id = ? WHERE trade_id = ?",
+        (cycle_id, trade_id),
+    )
+
+    summary = repo.get_trade_quality_summary()
+
+    assert summary["counts"]["clean"] == 1
+    assert summary["total"] == 1
 
 
 # ---------------------------------------------------------------------------
