@@ -23,6 +23,22 @@ CREATE TABLE IF NOT EXISTS ingestion_runs (
 );
 
 -- ---------------------------------------------------------------------------
+-- ingestion_source_files — per-file ingest fingerprints for fast restarts
+-- ---------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS ingestion_source_files (
+    source_type      TEXT NOT NULL,
+    source_file      TEXT NOT NULL,
+    file_size        INTEGER NOT NULL,
+    mtime_ns         INTEGER NOT NULL,
+    status           TEXT NOT NULL
+                     CHECK (status IN ('ingested', 'failed')),
+    last_ingested_at TEXT NOT NULL,
+    error_text       TEXT,
+    PRIMARY KEY (source_type, source_file)
+);
+
+-- ---------------------------------------------------------------------------
 -- ranking_cycles — one row per completed RankingEngine cycle
 -- ---------------------------------------------------------------------------
 
@@ -98,6 +114,35 @@ CREATE TABLE IF NOT EXISTS trades (
     created_at              TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at              TEXT NOT NULL DEFAULT (datetime('now')),
     UNIQUE (position_id, entry_time)
+);
+
+-- ---------------------------------------------------------------------------
+-- open_positions — live, in-flight position state for restart persistence
+-- ---------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS open_positions (
+    position_id         TEXT PRIMARY KEY,
+    symbol              TEXT NOT NULL,
+    direction           TEXT NOT NULL
+                        CHECK (direction IN ('long', 'short')),
+    size                INTEGER NOT NULL
+                        CHECK (size > 0),
+    entry_time          TEXT NOT NULL,
+    entry_price         REAL NOT NULL
+                        CHECK (entry_price > 0),
+    entry_cycle_id      TEXT
+                        REFERENCES ranking_cycles(cycle_id) ON DELETE SET NULL ON UPDATE CASCADE,
+    features            TEXT,
+    broker_order_id     TEXT,
+    last_seen_at        TEXT,
+    stop_price          REAL
+                        CHECK (stop_price > 0),
+    target_price        REAL
+                        CHECK (target_price > 0),
+    source              TEXT,
+    created_at          TEXT NOT NULL,
+    updated_at          TEXT NOT NULL,
+    UNIQUE (symbol, direction)
 );
 
 -- ---------------------------------------------------------------------------
@@ -221,6 +266,10 @@ CREATE INDEX IF NOT EXISTS idx_pantheon_conclusions_tier
     ON pantheon_conclusions(tier);
 CREATE INDEX IF NOT EXISTS idx_pantheon_conclusions_generated_at
     ON pantheon_conclusions(generated_at);
+CREATE INDEX IF NOT EXISTS idx_ingestion_source_files_status
+    ON ingestion_source_files(source_type, status);
+CREATE INDEX IF NOT EXISTS idx_open_positions_entry_time
+    ON open_positions(entry_time);
 
 -- ---------------------------------------------------------------------------
 -- Views
@@ -321,3 +370,64 @@ FROM trades t
 JOIN trade_features tf ON t.trade_id = tf.trade_id
 WHERE tf.roc_20 IS NOT NULL
 GROUP BY momentum_bucket, t.direction;
+
+CREATE VIEW IF NOT EXISTS v_trade_quality_flags AS
+WITH event_days AS (
+    SELECT DISTINCT DATE(event_time) AS event_day, event_type
+    FROM system_events
+    WHERE event_type IN (
+        'broker_mismatch',
+        'broker_auto_repair',
+        'stale_ranking',
+        'runtime_gap'
+    )
+),
+trade_flags AS (
+    SELECT
+        t.trade_id,
+        CASE
+            WHEN EXISTS (
+                SELECT 1
+                FROM system_events e
+                WHERE e.event_type = 'broker_mismatch'
+                  AND e.event_time BETWEEN t.entry_time AND t.exit_time
+            )
+            OR EXISTS (
+                SELECT 1
+                FROM event_days ed
+                WHERE ed.event_type = 'broker_mismatch'
+                  AND ed.event_day = DATE(t.entry_time)
+            )
+            THEN 'suspect_broker_mismatch'
+            WHEN EXISTS (
+                SELECT 1
+                FROM event_days ed
+                WHERE ed.event_type = 'broker_auto_repair'
+                  AND ed.event_day = DATE(t.entry_time)
+            )
+            THEN 'suspect_repair_day'
+            WHEN EXISTS (
+                SELECT 1
+                FROM event_days ed
+                WHERE ed.event_type = 'runtime_gap'
+                  AND ed.event_day = DATE(t.entry_time)
+            )
+            THEN 'suspect_runtime_gap'
+            WHEN EXISTS (
+                SELECT 1
+                FROM event_days ed
+                WHERE ed.event_type = 'stale_ranking'
+                  AND ed.event_day = DATE(t.entry_time)
+            )
+            OR t.entry_cycle_id IS NULL
+            THEN 'suspect_stale_ranking'
+            ELSE 'clean'
+        END AS quality
+    FROM trades t
+)
+SELECT
+    trade_id,
+    quality,
+    quality AS primary_reason,
+    CASE WHEN quality = 'clean' THEN 1 ELSE 0 END AS apex_trainable
+FROM trade_flags;
