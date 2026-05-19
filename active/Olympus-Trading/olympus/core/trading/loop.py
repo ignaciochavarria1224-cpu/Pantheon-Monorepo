@@ -184,6 +184,32 @@ class PaperTradingLoop:
         }
 
         # ------------------------------------------------------------------
+        # Step 0 — Broker-connectivity precheck (Part A, Change 2)
+        #
+        # Runs once per cycle, before ranking / exits / entries. If the broker
+        # is unreachable or the account is not tradeable, the entire cycle is
+        # skipped: no ranking is consumed, no orders are placed. The run_live
+        # heartbeat is independent of this method, so the system still shows
+        # alive; the next cycle re-checks. Controlled by BROKER_HEALTHCHECK_*
+        # settings.
+        # ------------------------------------------------------------------
+        if getattr(self._settings, "BROKER_HEALTHCHECK_ENABLED", True):
+            health = self._alpaca.healthcheck()
+            if not health.get("healthy", False):
+                logger.warning(
+                    "Broker unreachable — skipping cycle (reason: %s)",
+                    health.get("reason", "unknown"),
+                )
+                self._emit_broker_connectivity_failed({
+                    "timestamp": health.get("checked_at"),
+                    "reason": health.get("reason", "unknown"),
+                    "last_successful_check_time_if_known": health.get(
+                        "last_successful_check"
+                    ),
+                })
+                return
+
+        # ------------------------------------------------------------------
         # Step 1 — Market clock / close-window check
         # ------------------------------------------------------------------
         try:
@@ -716,6 +742,19 @@ class PaperTradingLoop:
         with self._trades_lock:
             self._completed_trades.append(record)
             self._recent_exit_by_symbol[record.symbol] = record.exit_time
+
+    def _emit_broker_connectivity_failed(self, detail: dict) -> None:
+        """
+        Hook (Part A): called when the cycle-start broker-connectivity
+        precheck fails and the cycle is skipped.
+
+        The base loop has no memory writer, so this is a no-op here.
+        MemoryAwarePaperTradingLoop overrides it to persist a
+        'broker_connectivity_failed' system_event — the same base-hook /
+        subclass-override pattern used by _register_completed_trade.
+        """
+        # No-op in the base loop — see docstring.
+        return
 
     def _build_entry_candidates(
         self,

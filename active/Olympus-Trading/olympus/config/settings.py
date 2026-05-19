@@ -48,6 +48,14 @@ def _float_env(key: str, default: float) -> float:
     return float(val)
 
 
+def _float_tuple_env(key: str, default: tuple) -> tuple:
+    """Parse a comma-separated env var into a tuple of floats."""
+    val = os.getenv(key)
+    if val is None:
+        return default
+    return tuple(float(x.strip()) for x in val.split(",") if x.strip())
+
+
 @dataclass(frozen=True)
 class Settings:
     # --- Credentials (from .env) ---
@@ -135,6 +143,12 @@ class Settings:
     OLYMPUS_BLOCK_ENTRIES_ON_BROKER_MISMATCH: bool
     APEX_TRAINING_QUALITY_POLICY: str
 
+    # --- Part A: Fill-confirmation gate & broker-connectivity precheck ---
+    FILL_CONFIRM_TIMEOUT_SECONDS: float    # Per-order poll budget ceiling
+    FILL_CONFIRM_BACKOFF: tuple            # Per-attempt wait schedule (seconds)
+    BROKER_HEALTHCHECK_TIMEOUT_SECONDS: float  # Cycle-start healthcheck timeout
+    BROKER_HEALTHCHECK_ENABLED: bool       # Master switch for the precheck
+
 
 def load_settings() -> Settings:
     """Load and validate all settings. Raises EnvironmentError on missing credentials."""
@@ -221,6 +235,15 @@ def load_settings() -> Settings:
         APEX_TRAINING_QUALITY_POLICY=_str_env(
             "APEX_TRAINING_QUALITY_POLICY", "clean_only"
         ),
+        # Part A — Fill-confirmation gate & broker-connectivity precheck
+        FILL_CONFIRM_TIMEOUT_SECONDS=_float_env("FILL_CONFIRM_TIMEOUT_SECONDS", 10.0),
+        FILL_CONFIRM_BACKOFF=_float_tuple_env(
+            "FILL_CONFIRM_BACKOFF", (0.5, 1.0, 2.0, 4.0, 2.5)
+        ),
+        BROKER_HEALTHCHECK_TIMEOUT_SECONDS=_float_env(
+            "BROKER_HEALTHCHECK_TIMEOUT_SECONDS", 5.0
+        ),
+        BROKER_HEALTHCHECK_ENABLED=_bool_env("BROKER_HEALTHCHECK_ENABLED", True),
     )
 
 
