@@ -14,3 +14,6 @@ olympus/data/logs/
 olympus/data/*.db-shm
 olympus/data/*.db-wal
 olympus/data/*conflicted copy*.db*
+
+# Generated investigation report artifacts — scripts are tracked, output is not.
+olympus/scripts/investigations/output/
