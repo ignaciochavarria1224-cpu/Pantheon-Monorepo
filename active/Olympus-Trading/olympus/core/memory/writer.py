@@ -86,8 +86,9 @@ class MemoryWriter:
                     realized_pnl, r_multiple, exit_reason, status, regime,
                     rank_at_entry, score_at_entry, rank_at_exit, score_at_exit,
                     entry_cycle_id, exit_cycle_id,
-                    ingested_at, source_file
-                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                    ingested_at, source_file,
+                    entry_order_id, exit_order_id
+                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                 """,
                 (
                     record.trade_id,
@@ -115,6 +116,8 @@ class MemoryWriter:
                     None,  # exit_cycle_id — live integration wired in Phase 5+
                     now_utc,
                     None,  # source_file — live writes have no source file
+                    record.entry_order_id,  # Part A: broker order linkage
+                    record.exit_order_id,   # Part A: broker order linkage
                 ),
             )
 
@@ -202,8 +205,9 @@ class MemoryWriter:
                             realized_pnl, r_multiple, exit_reason, status, regime,
                             rank_at_entry, score_at_entry, rank_at_exit, score_at_exit,
                             entry_cycle_id, exit_cycle_id,
-                            ingested_at, source_file
-                        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                            ingested_at, source_file,
+                            entry_order_id, exit_order_id
+                        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                         """,
                         (
                             record.trade_id,
@@ -231,6 +235,8 @@ class MemoryWriter:
                             None,
                             now_utc,
                             None,
+                            record.entry_order_id,  # Part A: broker order linkage
+                            record.exit_order_id,   # Part A: broker order linkage
                         ),
                     )
                     inserted = cur.rowcount > 0
@@ -575,6 +581,26 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
                 },
             )
 
+    def _emit_broker_connectivity_failed(self, detail: dict) -> None:
+        """
+        Persist a 'broker_connectivity_failed' system_event (Part A).
+
+        Overrides the base PaperTradingLoop no-op hook — the base loop has no
+        memory writer, so event persistence belongs here in the memory-aware
+        subclass.
+        """
+        try:
+            self._memory_writer.write_event(
+                "broker_connectivity_failed",
+                "Broker unreachable — cycle skipped",
+                metadata=detail,
+            )
+        except Exception:
+            logger.error(
+                "failed to write broker_connectivity_failed event:\n%s",
+                traceback.format_exc(),
+            )
+
     def _run_cycle_inner(self) -> None:
         """
         Override to add open position persistence on entry.
@@ -605,6 +631,10 @@ class MemoryAwarePaperTradingLoop(PaperTradingLoop):
                         size=int(position.size),
                         entry_time=entry_ts,
                         entry_price=float(position.entry_price),
+                        # Part A: persist the broker entry order ID so the
+                        # entry_order_id survives a runtime restart (it is
+                        # read back by run_live._build_position_from_open_position_row).
+                        broker_order_id=position.entry_order_id,
                         # entry_cycle_id is intentionally NULL here. The current
                         # cycle is not yet persisted to ranking_cycles when this
                         # override runs (parent writes it after _run_cycle_inner

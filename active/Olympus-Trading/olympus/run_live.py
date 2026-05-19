@@ -258,6 +258,11 @@ def _build_position_from_open_position_row(row: dict) -> "Position":
         unrealized_pnl=0.0,
         status=TradeStatus.OPEN,
         features=_deserialize_bar_features(row.get("features")),
+        # Part A: restore the broker entry order ID so a position opened
+        # before a restart and closed after still records entry_order_id.
+        # NULL-safe: pre-Part-A open_positions rows have broker_order_id NULL,
+        # which Position.entry_order_id (Optional[str] = None) accepts.
+        entry_order_id=row.get("broker_order_id"),
     )
 
 
@@ -454,7 +459,9 @@ def main() -> None:
     engine = RankingEngine(settings, fetcher, cache, universe)
     ranking_cycle = RankingCycle(engine, settings)
 
-    execution = ExecutionEngine(alpaca, settings)
+    # Part A: pass the memory writer so unconfirmed orders are persisted as
+    # 'order_unfilled' system_events (the engine logs only if it is absent).
+    execution = ExecutionEngine(alpaca, settings, memory_writer=writer)
     position_manager = PositionManager(execution, settings)
     _seed_open_positions(repo, position_manager, writer, settings, log)
     broker_reconciler = BrokerReconciler(alpaca, settings)
