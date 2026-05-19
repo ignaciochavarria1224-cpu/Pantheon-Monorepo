@@ -6,10 +6,12 @@ Live trading is not enabled until Phase 8.
 
 from __future__ import annotations
 
+import concurrent.futures
 import time
 from datetime import datetime, timezone
 from typing import Any, Optional
 
+from alpaca.common.exceptions import APIError
 from alpaca.trading.client import TradingClient
 from alpaca.trading.enums import OrderSide, QueryOrderStatus, TimeInForce
 from alpaca.trading.requests import GetCalendarRequest, GetOrdersRequest, MarketOrderRequest
@@ -48,6 +50,10 @@ class AlpacaClient:
             secret_key=settings.ALPACA_SECRET_KEY,
             paper=True,
         )
+        # ISO timestamp of the most recent successful healthcheck() — used to
+        # populate broker_connectivity_failed event metadata. None until the
+        # first successful check.
+        self._last_successful_healthcheck: Optional[str] = None
         logger.info("AlpacaClient initialized (paper=True)")
 
     # ------------------------------------------------------------------
@@ -76,6 +82,72 @@ class AlpacaClient:
         except Exception as exc:
             logger.error("AlpacaClient.get_account() failed: %s", exc)
             raise
+
+    def healthcheck(self) -> dict[str, Any]:
+        """
+        Lightweight broker connectivity + account-state probe for the
+        cycle-start precheck (Part A, Change 2).
+
+        Returns a dict:
+          {healthy: bool, reason: str, checked_at: iso,
+           last_successful_check: iso|None}
+
+        The account fetch runs in a worker thread with a hard timeout
+        (BROKER_HEALTHCHECK_TIMEOUT_SECONDS) so a hung broker call cannot
+        stall the trading cycle. This budget is separate from the 10s
+        fill-confirmation poll budget.
+
+        Note: this reads the raw account object rather than the get_account()
+        summary dict, because account_blocked / trading_blocked are not
+        exposed by that dict and are needed to detect a non-tradeable
+        account. A pattern-day-trader freeze surfaces as trading_blocked.
+        """
+        checked_at = datetime.now(timezone.utc).isoformat()
+        timeout = float(getattr(settings, "BROKER_HEALTHCHECK_TIMEOUT_SECONDS", 5.0))
+
+        def _probe() -> dict[str, Any]:
+            acct = self._client.get_account()
+            return {
+                "status": str(acct.status.value) if acct.status else "unknown",
+                "account_blocked": bool(getattr(acct, "account_blocked", False)),
+                "trading_blocked": bool(getattr(acct, "trading_blocked", False)),
+            }
+
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+                info = ex.submit(_probe).result(timeout=timeout)
+        except concurrent.futures.TimeoutError:
+            reason = f"healthcheck timed out after {timeout:.0f}s"
+            logger.warning("healthcheck: %s", reason)
+            return {
+                "healthy": False, "reason": reason, "checked_at": checked_at,
+                "last_successful_check": self._last_successful_healthcheck,
+            }
+        except Exception as exc:
+            reason = f"broker unreachable: {exc}"
+            logger.warning("healthcheck: %s", reason)
+            return {
+                "healthy": False, "reason": reason, "checked_at": checked_at,
+                "last_successful_check": self._last_successful_healthcheck,
+            }
+
+        if info["account_blocked"] or info["trading_blocked"] or info["status"] != "ACTIVE":
+            reason = (
+                f"account not tradeable (status={info['status']}, "
+                f"account_blocked={info['account_blocked']}, "
+                f"trading_blocked={info['trading_blocked']})"
+            )
+            logger.warning("healthcheck: %s", reason)
+            return {
+                "healthy": False, "reason": reason, "checked_at": checked_at,
+                "last_successful_check": self._last_successful_healthcheck,
+            }
+
+        self._last_successful_healthcheck = checked_at
+        return {
+            "healthy": True, "reason": "ok", "checked_at": checked_at,
+            "last_successful_check": checked_at,
+        }
 
     def is_market_open(self) -> bool:
         """Return True if the US equity market is currently open."""
@@ -365,7 +437,7 @@ class AlpacaClient:
         Returns None if order not found or on error.
         """
         try:
-            order = self._client.get_order(order_id)
+            order = self._client.get_order_by_id(order_id)
             return {
                 "order_id": str(order.id),
                 "client_order_id": str(order.client_order_id) if order.client_order_id else None,
@@ -381,8 +453,21 @@ class AlpacaClient:
                 "expired_at": order.expired_at,
                 "canceled_at": order.canceled_at,
             }
+        except APIError as exc:
+            # Alpaca-side rejection or not-found — expected failure mode
+            logger.info(
+                "AlpacaClient.get_order_by_id(%s) not found / API rejection: %s",
+                order_id, exc,
+            )
+            return None
         except Exception as exc:
-            logger.debug("AlpacaClient.get_order(%s) failed: %s", order_id, exc)
+            # Any OTHER exception (AttributeError, network, etc.) is a bug —
+            # surface loudly. Do NOT silently return None.
+            logger.error(
+                "AlpacaClient.get_order_by_id(%s) unexpected failure: %s",
+                order_id, exc,
+                exc_info=True,
+            )
             return None
 
     def get_orders(
