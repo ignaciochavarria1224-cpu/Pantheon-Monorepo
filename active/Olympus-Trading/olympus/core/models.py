@@ -126,6 +126,7 @@ class Position:
     unrealized_pnl: float     # Updated each cycle
     status: TradeStatus       # OPEN while active
     features: Optional["BarFeatures"] = None  # BarFeatures captured at entry time
+    entry_order_id: Optional[str] = None  # Part A: Alpaca order ID of the confirmed entry fill
 
     def risk_per_share(self) -> float:
         if self.direction == Direction.LONG:
@@ -152,6 +153,7 @@ class Position:
             "current_price": self.current_price,
             "unrealized_pnl": self.unrealized_pnl,
             "status": self.status.value,
+            "entry_order_id": self.entry_order_id,
         }
 
 
@@ -178,6 +180,8 @@ class TradeRecord:
     score_at_exit: Optional[float]
     status: str               # "closed"
     features: Optional["BarFeatures"] = None  # Carried from Position for DB write
+    entry_order_id: Optional[str] = None  # Part A: Alpaca order ID of the confirmed entry fill
+    exit_order_id: Optional[str] = None   # Part A: Alpaca order ID of the confirmed exit fill
 
     def to_dict(self) -> dict:
         return {
@@ -201,6 +205,8 @@ class TradeRecord:
             "rank_at_exit": self.rank_at_exit,
             "score_at_exit": self.score_at_exit,
             "status": self.status,
+            "entry_order_id": self.entry_order_id,
+            "exit_order_id": self.exit_order_id,
         }
 
 

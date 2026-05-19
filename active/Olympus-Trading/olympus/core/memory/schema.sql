@@ -113,6 +113,12 @@ CREATE TABLE IF NOT EXISTS trades (
     source_file             TEXT,
     created_at              TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at              TEXT NOT NULL DEFAULT (datetime('now')),
+    -- Part A: broker order IDs for trade-to-fill reconciliation. Both are
+    -- nullable and NULL for every pre-Part-A historical row. New live trades
+    -- populate them from the confirmed Alpaca order. Added to existing
+    -- databases by scripts/migrations/add_order_ids.py
+    entry_order_id          TEXT,
+    exit_order_id           TEXT,
     UNIQUE (position_id, entry_time)
 );
 
