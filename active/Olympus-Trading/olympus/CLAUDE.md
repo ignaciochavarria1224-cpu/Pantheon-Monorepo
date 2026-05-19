@@ -3,6 +3,9 @@
 This file is the authoritative context document for all Claude Code sessions working on Olympus.
 Read this file completely before taking any action in this codebase.
 
+> For current system status, see [olympus_status.md](/docs/project-plans/olympus/olympus_status.md).
+> For historical changelog, see [olympus_changelog.md](/docs/project-plans/olympus/olympus_changelog.md).
+
 ---
 
 ## What Olympus Is
